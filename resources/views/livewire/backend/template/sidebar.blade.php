@@ -4,8 +4,8 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
 
-            <li class="nav-item {{ request()->routeIs('back.index') ? 'active' : '' }}">
-                <a class="nav-link " href="{{ route('back.index') }}" wire:navigate>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('back.index') }}" wire:current='active' wire:navigate>
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -18,7 +18,7 @@
                 </a>
                 <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{ route('bedroom.data') }}" class="{{ request()->routeIs('bedroom.data') ? 'active' : '' }}" wire:navigate>
+                        <a href="{{ route('bedroom.data') }}" wire:current='active' wire:navigate>
                             <i class="bi bi-circle"></i><span>Bedroom</span>
                         </a>
                     </li>
@@ -35,7 +35,7 @@
                 </a>
                 <ul id="fintech" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="{{ route('fintech.data') }}" class="{{ request()->routeIs('fintech.data') ? 'active' : '' }}" wire:navigate>
+                        <a href="{{ route('fintech.data') }}" wire:current='active' wire:navigate>
                             <i class="bi bi-circle"></i><span>Fintech</span>
                         </a>
                     </li>
@@ -44,8 +44,8 @@
 
 
             <li class="nav-heading">User</li>
-            <li class="nav-item {{ request()->routeIs('user.data') ? 'active' : '' }}">
-                <a class="nav-link collapsed" href="{{ route('user.data') }}" wire:navigate>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('user.data') }}" wire:current='active' wire:navigate>
                     <i class="bi bi-person"></i>
                     <span>User</span>
                 </a>

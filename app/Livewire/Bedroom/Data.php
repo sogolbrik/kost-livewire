@@ -12,6 +12,7 @@ class Data extends Component
     #[Title('Bedroom')]
     #[Layout('livewire.backend.template.main')]
 
+    
     public function render()
     {
         return view('livewire.bedroom.data', [

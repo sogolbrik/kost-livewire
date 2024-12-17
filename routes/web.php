@@ -7,12 +7,22 @@ use App\Livewire\Bedroom\Data;
 use App\Livewire\Bedroom\Form;
 use App\Livewire\Fintech\Data as FintechData;
 use App\Livewire\Fintech\Form as FintechForm;
+use App\Livewire\Frontend\Dashboard as FrontendDashboard;
 use App\Livewire\User\Data as UserData;
 use App\Livewire\User\Form as UserForm;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function (){
+    return view('welcome');
+});
+
+Route::get('index', function (){
+    return view('index');
+});
+
 //Dashboard
 Route::get('admin-dashboard', Dashboard::class)->name('back.index');
+Route::get('dashboard', FrontendDashboard::class)->name('front.index');
 //Authentication
 Route::get('login', Login::class)->name('login');
 Route::get('register', Register::class)->name('register');

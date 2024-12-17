@@ -44,7 +44,7 @@
 <body>
 
     <!-- ======= Header ======= -->
-    @livewire('backend.template.header')
+    @livewire('backend.template.navbar')
 
     <!-- ======= Sidebar ======= -->
     @livewire('backend.template.sidebar')

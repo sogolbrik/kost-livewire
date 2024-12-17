@@ -48,7 +48,7 @@
                                                 <i class="bu bi-three-dots-vertical"></i>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><button type="button" class="btn btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#detailBedroom">
+                                                <li><button type="button" class="btn btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#detailBedroom{{ $item->id }}">
                                                         Detail
                                                     </button></li>
                                                 <li><a href="{{ route('bedroom.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
@@ -68,39 +68,35 @@
 
 
     {{-- Modal Detail --}}
-    <div class="modal fade" id="detailBedroom" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Bedroom Detail</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        @foreach ($bedroom as $item)
+    @foreach ($bedroom as $item)
+        <div class="modal fade" id="detailBedroom{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Bedroom Detail</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
                             <div class="col-md-6">
                                 <label class="d-flex justify-content-center">Photo:</label>
                                 <img src="{{ Storage::url($item->photo) }}" alt="{{ $item->name }}" class="img-fluid rounded w-100">
                             </div>
-                        @endforeach
-                        @foreach ($bedroom as $item)
-                            @if (!empty($item->bedroomDetail))
-                                <div class="col-md-6">
-                                    <label class="d-flex justify-content-center">Facility:</label>
-                                    <ul>
-                                        @foreach ($item->bedroomDetail as $detail)
-                                            <li>{{ ucfirst(str_replace('_', ' ', $detail->facility)) }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                        @endforeach
+                            <div class="col-md-6">
+                                <label class="d-flex justify-content-center">Facility:</label>
+                                <ul>
+                                    @foreach ($item->bedroomDetail as $see)
+                                        <li>{{ ucfirst(str_replace('_', ' ', $see->facility)) }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endforeach
 </div>

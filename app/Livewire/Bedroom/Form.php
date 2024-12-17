@@ -28,8 +28,9 @@ class Form extends Component
     public function mount($bedId = NULL)
     {
         if ($bedId) {
-            $this->bedId = $bedId;
-            $bedroom     = Bedroom::with('bedroomDetail')->find($bedId);
+            $this->bedId   = $bedId;
+            $this->bedroom = Bedroom::find($bedId);
+            $bedroom       = Bedroom::with('bedroomDetail')->find($bedId);
             if ($bedroom) {
                 $this->bedId    = $bedroom->id;
                 $this->name     = $bedroom->name;

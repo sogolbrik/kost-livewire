@@ -159,21 +159,23 @@
                             @if (empty(!$bedroom))
                                 <div class="col-md-6">
                                     <div class="form-group mb-2">
-                                        <label class="col-sm-2 col-form-label">Old Photo</label>
+                                        <label class="col-sm-2 col-form-label d-flex">Old Photo</label>
                                         <img src="{{ Storage::url($bedroom->photo) }}" alt="" class="img-fluid rounded w-50">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    @if (is_object($photo))
+                                @if (is_object($photo))
+                                    <div class="col-md-6">
                                         <div class="form-group mb-2">
+                                            <label class="col-sm-2 col-form-label d-flex">Photo</label>
                                             <img src="{{ $photo->temporaryUrl() }}" class="img-fluid rounded w-50">
                                         </div>
-                                    @endif
-                                </div>
+                                    </div>
+                                @endif
                             @else
                                 <div class="col-md-6">
                                     @if (is_object($photo))
                                         <div class="form-group mb-2">
+                                            <label class="col-sm-2 col-form-label d-flex">New Photo</label>
                                             <img src="{{ $photo->temporaryUrl() }}" class="img-fluid rounded w-50">
                                         </div>
                                     @endif
