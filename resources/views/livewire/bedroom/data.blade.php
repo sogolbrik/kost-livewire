@@ -63,18 +63,6 @@
                 </div>
             </div>
 
-            {{-- COmment --}}
-            {{-- <div>
-                <label>Facilities</label><br>
-                @foreach(['wifi' => 'Wi-Fi', 'ac' => 'Air Conditioner', 'parking' => 'Parking', 'swimming_pool' => 'Swimming Pool'] as $key => $label)
-                <label>
-                    <input type="checkbox" wire:model="facilities" value="{{ $key }}"> {{ $label }}
-                </label><br>
-                @endforeach
-                @error('facilities') <span class="text-red-500">{{ $message }}</span> @enderror
-            </div> --}}
-            {{-- COmment --}}
-            
         </div>
     </div>
 
@@ -94,6 +82,18 @@
                                 <label class="d-flex justify-content-center">Photo:</label>
                                 <img src="{{ Storage::url($item->photo) }}" alt="{{ $item->name }}" class="img-fluid rounded w-100">
                             </div>
+                        @endforeach
+                        @foreach ($bedroom as $item)
+                            @if (!empty($item->bedroomDetail))
+                                <div class="col-md-6">
+                                    <label class="d-flex justify-content-center">Facility:</label>
+                                    <ul>
+                                        @foreach ($item->bedroomDetail as $detail)
+                                            <li>{{ ucfirst(str_replace('_', ' ', $detail->facility)) }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>

@@ -11,15 +11,16 @@ class Data extends Component
 {
     #[Title('Bedroom')]
     #[Layout('livewire.backend.template.main')]
-    
+
     public function render()
     {
         return view('livewire.bedroom.data', [
-            'bedroom' => Bedroom::get()
+            'bedroom' => Bedroom::with('bedroomDetail')->get()
         ]);
     }
 
-    public function destroy ($id) {
+    public function destroy($id)
+    {
         $bedroom = Bedroom::find($id);
         Storage::disk('public')->delete($bedroom->photo);
 

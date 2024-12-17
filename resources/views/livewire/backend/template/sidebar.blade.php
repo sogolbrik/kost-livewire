@@ -4,12 +4,12 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
 
-            <li class="nav-item">
+            <li class="nav-item {{ request()->routeIs('back.index') ? 'active' : '' }}">
                 <a class="nav-link " href="{{ route('back.index') }}" wire:navigate>
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
-            </li><!-- End Dashboard Nav -->
+            </li>
 
             <li class="nav-heading">Control</li>
             <li class="nav-item">
@@ -44,12 +44,12 @@
 
 
             <li class="nav-heading">User</li>
-            <li class="nav-item">
-                <a class="nav-link collapsed {{ request()->routeIs('user.data') ? 'active' : '' }}" href="{{ route('user.data') }}" wire:navigate>
+            <li class="nav-item {{ request()->routeIs('user.data') ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="{{ route('user.data') }}" wire:navigate>
                     <i class="bi bi-person"></i>
                     <span>User</span>
                 </a>
-            </li><!-- End Profile Page Nav -->
+            </li>
 
         </ul>
 

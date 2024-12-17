@@ -9,6 +9,6 @@ class BedroomDetail extends Model
     protected $guarded = ['id'];
 
     public function bedroom(){
-        return $this->belongsTo(Bedroom::class);
+        return $this->belongsTo(Bedroom::class, 'bedroom_id');
     }
 }

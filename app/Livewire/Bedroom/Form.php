@@ -35,7 +35,7 @@ class Form extends Component
                 $this->name     = $bedroom->name;
                 $this->price    = $bedroom->price;
                 $this->photo    = $bedroom->photo;
-                $this->facility = $bedroom->bedroomDetail()->facility ?? [];
+                $this->facility = $bedroom->bedroomDetail->pluck('facility')->toArray();
             }
         }
     }
@@ -71,6 +71,9 @@ class Form extends Component
                 [
                     'bedroom_id' => $bedroom->id,
                     'facility'   => $facility,
+                ],
+                [
+                    'facility' => $facility
                 ]
             );
         }

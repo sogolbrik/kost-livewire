@@ -47,31 +47,31 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="bed_pillow" wire:model.live="bed_pillow">
+                                        <input class="form-check-input" type="checkbox" value="bed_pillow" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Bed and Pillow
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="wardrobe" wire:model.live="wardrobe">
+                                        <input class="form-check-input" type="checkbox" value="wardrobe" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Wardrobe
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="desk_chair" wire:model.live="desk_chair">
+                                        <input class="form-check-input" type="checkbox" value="desk_chair" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Desk and Chair
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="bathroom" wire:model.live="bathroom">
+                                        <input class="form-check-input" type="checkbox" value="bathroom" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Private Bathroom
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="mirror" wire:model.live="mirror">
+                                        <input class="form-check-input" type="checkbox" value="mirror" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Mirror
                                         </label>
@@ -79,31 +79,31 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="tv" wire:model.live="tv">
+                                        <input class="form-check-input" type="checkbox" value="tv" wire:model.live="facility">
                                         <label class="form-check-label">
                                             TV (Television)
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="kitchen" wire:model.live="kitchen">
+                                        <input class="form-check-input" type="checkbox" value="kitchen" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Private Kitchen
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="wifi" wire:model.live="wifi">
+                                        <input class="form-check-input" type="checkbox" value="wifi" wire:model.live="facility">
                                         <label class="form-check-label">
                                             WiFi/Internet Access
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="trash_bin" wire:model.live="trash_bin">
+                                        <input class="form-check-input" type="checkbox" value="trash_bin" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Trash Bin
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="electricity" wire:model.live="electricity">
+                                        <input class="form-check-input" type="checkbox" value="electricity" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Electricity
                                         </label>
@@ -111,25 +111,25 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="window_curtains" wire:model.live="window_curtains">
+                                        <input class="form-check-input" type="checkbox" value="window_curtains" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Window and Curtains
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="power_outlets" wire:model.live="power_outlets">
+                                        <input class="form-check-input" type="checkbox" value="power_outlets" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Power Outlets
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="shoe_rack" wire:model.live="shoe_rack">
+                                        <input class="form-check-input" type="checkbox" value="shoe_rack" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Shoe Rack
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="ac" wire:model.live="ac">
+                                        <input class="form-check-input" type="checkbox" value="ac" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Air Conditioner (AC) or Fan
                                         </label>
