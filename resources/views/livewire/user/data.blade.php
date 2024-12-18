@@ -48,6 +48,9 @@
                                                 <i class="bu bi-three-dots-vertical"></i>
                                             </button>
                                             <ul class="dropdown-menu">
+                                                <li><button type="button" class="btn btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#detailUser{{ $item->id }}">
+                                                        Detail
+                                                    </button></li>
                                                 <li><a href="{{ route('user.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
                                                 <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Delete</button></li>
                                             </ul>
@@ -65,4 +68,64 @@
 
         </div>
     </div>
+
+    @foreach ($user as $item)
+        <div class="modal fade" id="detailUser{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">User Detail</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label class="fw-semibold">Name:</label>
+                                <ul>
+                                    <li><p>{{ $item->name }} </p></li>
+                                </ul>
+                                <label class="fw-semibold">Email:</label>
+                                <ul>
+                                    <li><p>{{ $item->email }} </p></li>
+                                </ul>
+                                <label class="fw-semibold">Phone:</label>
+                                <ul>
+                                    <li><p>{{ $item->phone }} </p></li>
+                                </ul>
+                                <label class="fw-semibold">Address:</label>
+                                <ul>
+                                    <li><p>{{ $item->address }} </p></li>
+                                </ul>
+                                <label class="fw-semibold">City:</label>
+                                <ul>
+                                    <li><p>{{ $item->city }} </p></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="fw-semibold">State:</label>
+                                <ul>
+                                    <li><p>{{ $item->state }} </p></li>
+                                </ul>
+                                <label class="fw-semibold">Check in:</label>
+                                <ul>
+                                    <li><p>{{ $item->check_in }} </p></li>
+                                </ul>
+                                <label class="fw-semibold">Status:</label>
+                                <ul>
+                                    <li><p>{{ $item->status }} </p></li>
+                                </ul>
+                                <label class="fw-semibold">Role:</label>
+                                <ul>
+                                    <li><p>{{ $item->role }} </p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
 </div>

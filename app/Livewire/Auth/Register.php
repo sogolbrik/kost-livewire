@@ -37,7 +37,12 @@ class Register extends Component
         User::create($validation);
 
         session()->flash('success-message', 'Account created successfully. Welcome to your dashboard!');
-        $this->redirectIntended('admin-dashboard', navigate: true);
+        if (User::where('role', 'customer')) {
+            $this->redirectIntended('index');
+        }
+        if (User::where('role', 'administrator')) {
+            $this->redirectIntended('admin-dashboard');
+        }
     }
 
     public function render()

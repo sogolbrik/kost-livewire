@@ -3,7 +3,7 @@
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-9 col-xl-9">
-                    <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card text-black" style="border-radius: 25px;"">
                         <div class="card-body p-md-4">
                             <div class="row justify-content-center">
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -50,7 +50,7 @@
 
                                     <p class="text-center h3 fw-semibold mx-1 mx-md-2 mt-1 mb-1 position-absolute" style="top: 0; width: 100%;">Kost-18</p>
 
-                                    <img src="{{ asset('uploads/img/bedroom.jpg') }}" class="img-fluid w-100 mt-4 mb-5" alt="Sample image">
+                                    <img src="{{ asset('uploads/img/bedtrans.png') }}" class="img-fluid w-100 mt-4 mb-5" alt="Sample image">
                                 </div>
 
                             </div>

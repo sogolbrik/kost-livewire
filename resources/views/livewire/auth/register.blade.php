@@ -1,5 +1,5 @@
 <div>
-    <section class="vh-150 mt-3 mb-2" style="background-color: #eee;">
+    <section class="vh-150 mt-3 mb-2" style="background-color: #eee">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-12 col-xl-11">
@@ -70,7 +70,7 @@
 
                                     <p class="text-center h1 fw-semibold mx-1 mx-md-4 mt-4 position-absolute" style="top: 0; width: 100%;">Kost-18</p>
 
-                                    <img src="{{ asset('uploads/img/bedroom.jpg') }}" class="img-fluid w-100 mb-5" alt="Sample image">
+                                    <img src="{{ asset('uploads/img/bedtrans.png') }}" class="img-fluid w-100 mt-4" alt="Sample image">
                                 </div>
 
                             </div>

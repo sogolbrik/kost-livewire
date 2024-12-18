@@ -29,12 +29,20 @@ class Login extends Component
         $this->validateOnly($propertyName);
     }
 
-    public function login(){
+    public function login()
+    {
         $this->validate();
 
         if (Auth::attempt(['name' => $this->name, 'password' => $this->password])) {
             session()->flash('success-message', 'logged in successfully,!');
-            $this->redirectIntended('admin-dashboard', navigate: true);
+
+            $user = Auth::user();
+            if ($user->role == 'customer') {
+                $this->redirectIntended('index');
+            }
+            if ($user->role == 'administrator') {
+                $this->redirectIntended('admin-dashboard');
+            }
         } else {
             session()->flash('error-message', 'Incorrect username or password');
         }
@@ -45,7 +53,7 @@ class Login extends Component
         return view('livewire.auth.login');
     }
 
-/*
+    /*
     Just Delete This If You Pro...
 
     Title / Judul

@@ -41,7 +41,7 @@
     @livewireStyles
 </head>
 
-<body style="background-color: #eee;">
+<body style="background-color: #eee">
 
     {{ $slot }}
 

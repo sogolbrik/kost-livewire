@@ -19,7 +19,7 @@ Route::get('/', function (){
 Route::get('index', function (){
     return view('index');
 });
-
+// #171268
 //Dashboard
 Route::get('admin-dashboard', Dashboard::class)->name('back.index');
 Route::get('dashboard', FrontendDashboard::class)->name('front.index');
