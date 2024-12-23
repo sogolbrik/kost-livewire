@@ -1,12 +1,12 @@
 <?php
 
-namespace [namespace];
+namespace App\Livewire\Frontend\Landing;
 
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
-class [class] extends Component
+class Dashboard extends Component
 {
     // use WithFileUploads;
     #[Title('your_title')]
@@ -32,7 +32,7 @@ class [class] extends Component
 
     public function render()
     {
-        return view('[view]');
+        return view('livewire.frontend.landing.dashboard');
     }
 
 /*
@@ -101,16 +101,6 @@ class [class] extends Component
             return view('livewire.student-data', [
                 'variable' => Model::where('coloumn', 'like', '%'.$this->search.'%')->get()
             ]);
-        }
-
-    Is valid & invalid
-        public function isValid($field)
-        {
-            if ($this->getErrorBag()->has($field)) {
-                return 'is-invalid';
-            }
-
-            return isset($this->$field) ? 'is-valid' : '';
         }
 */
 }

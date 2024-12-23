@@ -3,6 +3,9 @@
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Backend\Dashboard;
+use App\Livewire\Backend\Setting\Admin\Data as AdminData;
+use App\Livewire\Backend\Setting\Admin\Form as AdminForm;
+use App\Livewire\Backend\Setting\Admin\Password;
 use App\Livewire\Bedroom\Data;
 use App\Livewire\Bedroom\Form;
 use App\Livewire\Fintech\Data as FintechData;
@@ -18,7 +21,8 @@ Route::get('/', function (){
 
 Route::get('index', function (){
     return view('index');
-});
+})->name('index');
+
 // #171268
 //Dashboard
 Route::get('admin-dashboard', Dashboard::class)->name('back.index');
@@ -29,6 +33,10 @@ Route::get('register', Register::class)->name('register');
 //User
 Route::get('user', UserData::class)->name('user.data');
 Route::get('user/form/{userId?}', UserForm::class)->name('user.form');
+//Admin
+Route::get('settingAdmin/data', AdminData::class)->name('userAdmin.data');
+Route::get('settingAdmin/form', AdminForm::class)->name('userAdmin.form');
+Route::get('settingAdmin/password/{passwordId?}', Password::class)->name('userAdmin.password');
 //Bedroom
 Route::get('bedroom', Data::class)->name('bedroom.data');
 Route::get('bedroom/form/{bedId?}', Form::class)->name('bedroom.form');

@@ -1,27 +1,38 @@
 <?php
 
-namespace [namespace];
+namespace App\Livewire\Backend\Setting\Admin;
 
+use App\Models\User;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
-class [class] extends Component
+class Form extends Component
 {
     // use WithFileUploads;
-    #[Title('your_title')]
-    #[Layout('template_view')]
+    #[Title('Setting Admin')]
+    #[Layout('livewire.backend.template.main')]
 
     // Property
-
+    public $name ,$phone ,$email, $adminId;
     // Validation
     protected $rules = [
-        'property' => '?',
+        'name'  => 'required',
+        'phone' => 'required',
+        'email' => 'sometimes|email|unique:users,email',
     ];
 
-    public function mount()
+    public function mount($adminId = NULL)
     {
-        // mount some variable
+        if ($adminId) {
+            $user = User::find($adminId);
+            if ($user) {
+                $this->adminId = $user->id;
+                $this->name     = $user->name;
+                $this->phone    = $user->phone;
+                $this->email    = $user->email;
+            }
+        }
     }
 
     // run on .live / .blur
@@ -30,9 +41,24 @@ class [class] extends Component
         $this->validateOnly($propertyName);
     }
 
+    public function store(){
+        $this->validate();
+
+        User::updateorCreate(
+            ['id' => $this->adminId],
+            [
+                'name'  => $this->name,
+                'email' => $this->email,
+                'phone' => $this->phone,
+            ]
+        );
+        session()->flash('success-message', 'Successfully');
+        $this->redirectRoute('userAdmin.data', navigate: true);
+    }
+
     public function render()
     {
-        return view('[view]');
+        return view('livewire.backend.setting.admin.form');
     }
 
 /*
@@ -101,16 +127,6 @@ class [class] extends Component
             return view('livewire.student-data', [
                 'variable' => Model::where('coloumn', 'like', '%'.$this->search.'%')->get()
             ]);
-        }
-
-    Is valid & invalid
-        public function isValid($field)
-        {
-            if ($this->getErrorBag()->has($field)) {
-                return 'is-invalid';
-            }
-
-            return isset($this->$field) ? 'is-valid' : '';
         }
 */
 }

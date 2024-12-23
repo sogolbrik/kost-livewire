@@ -9,8 +9,8 @@
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="{{ asset('front-assets/assets/img/favicon.png') }}" rel="icon">
-    <link href="{{ asset('front-assets/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link href="{{ asset('back-assets/assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('back-assets/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -48,7 +48,9 @@
                     <li><a href="#pricing">Kamar Kos</a></li>
                     <li><a href="#contact">Kontak</a></li>
                     <div class="d-flex mx-5">
-                        <li><a href="{{ route('login') }}" wire:navigate class="btn btn-outline-primary rounded-pill"><div class="me-2 mx-2">Login</div></a></li>
+                        <li><a href="{{ route('login') }}" wire:navigate class="btn btn-outline-primary rounded-pill">
+                                <div class="me-2 mx-2">Login</div>
+                            </a></li>
                     </div>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -73,7 +75,7 @@
                         <h1>Ruang Nyaman, Hidup Tenang bersama <span>Kost18</span></h1>
                         <p>Jangan tunggu lama, kamar terbaikmu siap ditempati. Nyaman, aman, dan asri hanya untuk kamu!</p>
                         <div class="d-flex">
-                            <a href="#about" class="btn-get-started">Get Started</a>
+                            <a href="#about" class="btn-get-started">Mulai dari sini</a>
                         </div>
                     </div>
 
@@ -104,11 +106,12 @@
                 <div class="row align-items-xl-center gy-5">
 
                     <div class="col-xl-5 content">
-                        <h3>About Us</h3>
-                        <h2>Ducimus rerum libero reprehenderit cumque</h2>
-                        <p>Ipsa sint sit. Quis ducimus tempore dolores impedit et dolor cumque alias maxime. Enim reiciendis minus et rerum hic non. Dicta quas cum quia maiores iure. Quidem nulla qui
-                            assumenda incidunt voluptatem tempora deleniti soluta.</p>
-                        <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                        <h3>Tentang Kami</h3>
+                        <h2>lebih dari sekedar kos</h2>
+                        <p>Kami hadir untuk memberikan solusi terbaik bagi Anda yang sedang mencari tempat tinggal nyaman dan terjangkau. Kamar kos yang kami tawarkan dirancang dengan penuh perhatian
+                            untuk memenuhi kebutuhan dan kenyamanan penghuninya. Kami memahami betul pentingnya memiliki ruang yang tidak hanya fungsional, tetapi juga mendukung produktivitas dan
+                            kualitas hidup.</p>
+                        <a href="#" class="read-more"><span>Baca lebih lanjut!</span><i class="bi bi-arrow-right"></i></a>
                     </div>
 
                     <div class="col-xl-7">
@@ -117,32 +120,32 @@
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                                 <div class="icon-box">
                                     <i class="bi bi-buildings"></i>
-                                    <h3>Eius provident</h3>
-                                    <p>Magni repellendus vel ullam hic officia accusantium ipsa dolor omnis dolor voluptatem</p>
+                                    <h3>Cerita Kami</h3>
+                                    <p>Kami hadir untuk memberikan tempat tinggal yang nyaman dan terjangkau, selalu berusaha memberikan yang terbaik.</p>
                                 </div>
                             </div> <!-- End Icon Box -->
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                                 <div class="icon-box">
                                     <i class="bi bi-clipboard-pulse"></i>
-                                    <h3>Rerum aperiam</h3>
-                                    <p>Autem saepe animi et aut aspernatur culpa facere. Rerum saepe rerum voluptates quia</p>
+                                    <h3>Kenyamanan yang Terjamin</h3>
+                                    <p>Kamar kami dirancang untuk kenyamanan maksimal dengan fasilitas lengkap dan suasana tenang.</p>
                                 </div>
                             </div> <!-- End Icon Box -->
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
                                 <div class="icon-box">
                                     <i class="bi bi-command"></i>
-                                    <h3>Veniam omnis</h3>
-                                    <p>Omnis perferendis molestias culpa sed. Recusandae quas possimus. Quod consequatur corrupti</p>
+                                    <h3>Komitmen kami</h3>
+                                    <p>Kami menjaga kualitas dan kebersihan untuk kenyamanan penghuni.</p>
                                 </div>
                             </div> <!-- End Icon Box -->
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                                 <div class="icon-box">
                                     <i class="bi bi-graph-up-arrow"></i>
-                                    <h3>Delares sapiente</h3>
-                                    <p>Sint et dolor voluptas minus possimus nostrum. Reiciendis commodi eligendi omnis quideme lorenda</p>
+                                    <h3>Tim kami</h3>
+                                    <p>Tim kami siap memberikan pelayanan terbaik untuk pengalaman tinggal yang menyenangkan.</p>
                                 </div>
                             </div> <!-- End Icon Box -->
 
@@ -153,103 +156,6 @@
             </div>
 
         </section><!-- /About Section -->
-
-        <!-- Features Section -->
-        <section id="features" class="features section">
-
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-                        <div class="features-item">
-                            <i class="bi bi-eye" style="color: #ffbb2c;"></i>
-                            <h3><a href="" class="stretched-link">Lorem Ipsum</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="features-item">
-                            <i class="bi bi-infinity" style="color: #5578ff;"></i>
-                            <h3><a href="" class="stretched-link">Dolor Sitema</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="features-item">
-                            <i class="bi bi-mortarboard" style="color: #e80368;"></i>
-                            <h3><a href="" class="stretched-link">Sed perspiciatis</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="features-item">
-                            <i class="bi bi-nut" style="color: #e361ff;"></i>
-                            <h3><a href="" class="stretched-link">Magni Dolores</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="500">
-                        <div class="features-item">
-                            <i class="bi bi-shuffle" style="color: #47aeff;"></i>
-                            <h3><a href="" class="stretched-link">Nemo Enim</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="600">
-                        <div class="features-item">
-                            <i class="bi bi-star" style="color: #ffa76e;"></i>
-                            <h3><a href="" class="stretched-link">Eiusmod Tempor</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="700">
-                        <div class="features-item">
-                            <i class="bi bi-x-diamond" style="color: #11dbcf;"></i>
-                            <h3><a href="" class="stretched-link">Midela Teren</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="800">
-                        <div class="features-item">
-                            <i class="bi bi-camera-video" style="color: #4233ff;"></i>
-                            <h3><a href="" class="stretched-link">Pira Neve</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="900">
-                        <div class="features-item">
-                            <i class="bi bi-command" style="color: #b2904f;"></i>
-                            <h3><a href="" class="stretched-link">Dirada Pack</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1000">
-                        <div class="features-item">
-                            <i class="bi bi-dribbble" style="color: #b20969;"></i>
-                            <h3><a href="" class="stretched-link">Moton Ideal</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1100">
-                        <div class="features-item">
-                            <i class="bi bi-activity" style="color: #ff5828;"></i>
-                            <h3><a href="" class="stretched-link">Verdo Park</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                    <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="1200">
-                        <div class="features-item">
-                            <i class="bi bi-brightness-high" style="color: #29cc61;"></i>
-                            <h3><a href="" class="stretched-link">Flavor Nivelanda</a></h3>
-                        </div>
-                    </div><!-- End Feature Item -->
-
-                </div>
-
-            </div>
-
-        </section><!-- /Features Section -->
 
         <!-- Stats Section -->
         <section id="stats" class="stats section light-background">
@@ -262,7 +168,7 @@
                         <i class="bi bi-emoji-smile"></i>
                         <div class="stats-item">
                             <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Happy Clients</p>
+                            <p>Total Pelanggan</p>
                         </div>
                     </div><!-- End Stats Item -->
 
@@ -270,23 +176,23 @@
                         <i class="bi bi-journal-richtext"></i>
                         <div class="stats-item">
                             <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Projects</p>
+                            <p>Total Kamar</p>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
                         <i class="bi bi-headset"></i>
                         <div class="stats-item">
-                            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Hours Of Support</p>
+                            <span data-purecounter-start="" data-purecounter-end="95" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Respon Layanan</p>
                         </div>
                     </div><!-- End Stats Item -->
 
                     <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
                         <i class="bi bi-people"></i>
                         <div class="stats-item">
-                            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-                            <p>Hard Workers</p>
+                            <span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter"></span>
+                            <p>Pengunjung Website</p>
                         </div>
                     </div><!-- End Stats Item -->
 
@@ -321,39 +227,6 @@
                             <li><i class="bi bi-check"></i><span> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
                             <li><i class="bi bi-check"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
                             <li><i class="bi bi-check"></i> <span>Ullam est qui quos consequatur eos accusamus.</span></li>
-                        </ul>
-                    </div>
-                </div><!-- Features Item -->
-
-                <div class="row gy-4 align-items-center features-item">
-                    <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                        <img src="{{ asset('front-assets/assets/img/details-2.png') }}" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
-                        <h3>Corporis temporibus maiores provident</h3>
-                        <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
-                        </p>
-                        <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum
-                        </p>
-                    </div>
-                </div><!-- Features Item -->
-
-                <div class="row gy-4 align-items-center features-item">
-                    <div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
-                        <img src="{{ asset('front-assets/assets/img/details-3.png') }}" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-md-7" data-aos="fade-up">
-                        <h3>Sunt consequatur ad ut est nulla consectetur reiciendis animi voluptas</h3>
-                        <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
-                        <ul>
-                            <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                            <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                            <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
                         </ul>
                     </div>
                 </div><!-- Features Item -->
@@ -586,13 +459,13 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Team</h2>
-                <div><span>Check Our</span> <span class="description-title">Team</span></div>
+                <h2>Tim</h2>
+                <div><span>Tim</span> <span class="description-title">Kami</span></div>
             </div><!-- End Section Title -->
 
             <div class="container">
 
-                <div class="row gy-5">
+                <div class="row gy-5 justify-content-around">
 
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="member">
@@ -600,22 +473,6 @@
                             <div class="member-info">
                                 <h4>Walter White</h4>
                                 <span>Chief Executive Officer</span>
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End Team Member -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="member">
-                            <div class="pic"><img src="{{ asset('front-assets/assets/img/team/team-2.jpg') }}" class="img-fluid" alt=""></div>
-                            <div class="member-info">
-                                <h4>Sarah Jhonson</h4>
-                                <span>Product Manager</span>
                                 <div class="social">
                                     <a href=""><i class="bi bi-twitter-x"></i></a>
                                     <a href=""><i class="bi bi-facebook"></i></a>
