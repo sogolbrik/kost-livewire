@@ -3,36 +3,36 @@
 namespace App\Livewire\Backend\Setting\Admin;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-// use Livewire\WithFileUploads;
+use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
 class Form extends Component
 {
-    // use WithFileUploads;
-    #[Title('Setting Admin')]
-    #[Layout('livewire.backend.template.main')]
+    use WithFileUploads;
 
     // Property
-    public $name ,$phone ,$email, $adminId;
+    public $name, $phone, $email, $user, $photo;
     // Validation
-    protected $rules = [
-        'name'  => 'required',
-        'phone' => 'required',
-        'email' => 'sometimes|email|unique:users,email',
-    ];
-
-    public function mount($adminId = NULL)
+    public function rules()
     {
-        if ($adminId) {
-            $user = User::find($adminId);
-            if ($user) {
-                $this->adminId = $user->id;
-                $this->name     = $user->name;
-                $this->phone    = $user->phone;
-                $this->email    = $user->email;
-            }
-        }
+        return [
+            'name'  => 'required',
+            'phone' => 'required|numeric',
+            'email' => 'required|email|unique:users,email,' . $this->user->id,
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1024',
+        ];
+    }
+
+    public function mount()
+    {
+        $this->user  = User::find(Auth::user()->id);
+        $this->name  = $this->user->name;
+        $this->phone = $this->user->phone;
+        $this->email = $this->user->email;
+        $this->photo = $this->user->photo;
     }
 
     // run on .live / .blur
@@ -41,19 +41,32 @@ class Form extends Component
         $this->validateOnly($propertyName);
     }
 
-    public function store(){
-        $this->validate();
+    public function update()
+    {
+        $data = $this->validate();
 
-        User::updateorCreate(
-            ['id' => $this->adminId],
-            [
-                'name'  => $this->name,
-                'email' => $this->email,
-                'phone' => $this->phone,
-            ]
-        );
+        if ($this->photo) {
+            $photoUser = $this->photo->getClientOriginalName();
+            $photoPath = $this->photo->storePubliclyAs('profile', $photoUser, 'public');
+            if ($this->user->photo) {
+                Storage::disk('public')->delete($this->user->photo);
+            }
+            $data['photo'] = $photoPath;
+        }
+
+        $this->user->update($data);
+
         session()->flash('success-message', 'Successfully');
         $this->redirectRoute('userAdmin.data', navigate: true);
+    }
+
+    public function deletePhoto()
+    {
+        if ($this->user->photo) {
+            Storage::disk('public')->delete($this->user->photo);
+            $this->user->update(['photo' => null]);
+        }
+        $this->photo = null;
     }
 
     public function render()
@@ -61,7 +74,7 @@ class Form extends Component
         return view('livewire.backend.setting.admin.form');
     }
 
-/*
+    /*
     Just Delete This If You Pro...
 
     Title / Judul

@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Backend\Setting\Admin;
 
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
@@ -9,19 +11,16 @@ use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 class Data extends Component
 {
     // use WithFileUploads;
-    #[Title('Admin Data')]
+    #[Title('Admin Profile')]
     #[Layout('livewire.backend.template.main')]
 
     // Property
-
-    // Validation
-    protected $rules = [
-        'property' => '?',
-    ];
+    public $photo, $adminId;
 
     public function mount()
     {
-        // mount some variable
+        $this->adminId = User::find(Auth::user()->id);
+        $this->photo   = $this->adminId->photo;
     }
 
     // run on .live / .blur

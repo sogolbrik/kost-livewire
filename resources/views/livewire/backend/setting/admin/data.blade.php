@@ -17,11 +17,11 @@
                 <div class="card">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-                        {{-- @if (!empty(auth()->user()->profile))
-                                <img src="{{ asset('uploads/profile/' . auth()->user()->profile) }}" alt="Profile" class="rounded-circle">
-                            @else
-                            @endif --}}
-                        <img src="{{ asset('back-assets/assets/img/usernew.png') }}" alt="profile" class="rounded-circle">
+                        @if (!empty($photo))
+                            <img src="{{ Storage::url($photo) }}" class="img-fluid rounded-circle">
+                        @else
+                            <img src="{{ asset('back-assets/assets/img/usernew.png') }}" alt="profile" class="img-fluid rounded-circle">
+                        @endif
 
                         <h2>{{ auth()->user()->name }}</h2>
                         <h3>{{ auth()->user()->role }}</h3>
@@ -81,9 +81,13 @@
 
                             </div>
 
-                            @livewire('backend.setting.admin.form')
+                            <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                                @livewire('backend.setting.admin.form')
+                            </div>
 
-                            @livewire('backend.setting.admin.password')
+                            <div class="tab-pane fade pt-3" id="profile-change-password">
+                                @livewire('backend.setting.admin.password')
+                            </div>
 
                         </div><!-- End Bordered Tabs -->
 

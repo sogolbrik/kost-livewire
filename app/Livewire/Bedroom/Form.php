@@ -53,6 +53,8 @@ class Form extends Component
         if ($this->photo) {
             $photoBed = $this->photo->getClientOriginalName();
             $photoPath = $this->photo->storePubliclyAs('bedroom', $photoBed, 'public');
+
+            dd($photoPath);
         } else {
             $photoPath = $this->photo;
         }
