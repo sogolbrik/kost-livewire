@@ -24,6 +24,7 @@
                                 <th>
                                     <b>N</b>ame
                                 </th>
+                                <th>Type</th>
                                 <th>Price</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -34,7 +35,8 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ number_format($item->price, 0, ',', '.') }}</td>
+                                    <td>{{ $item->type }}</td>
+                                    <td><em>Rp {{ number_format($item->price, 0, ',', '.') }}</em></td>
                                     <td>
                                         @if ($item->status == 'available')
                                             <span class="badge rounded-pill bg-primary">{{ $item->status }}</span>

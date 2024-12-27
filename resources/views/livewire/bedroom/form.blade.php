@@ -43,6 +43,21 @@
                         </div>
 
                         <div class="form-group mb-3">
+                            <label for="inputType" class="col-sm-2 col-form-label">Type</label>
+                            <div class="col-sm-10">
+                                <select class="form-select @error('type') is-invalid @enderror" wire:model.live="type" wire:change="updateFacilities">
+                                    <option selected disabled value="">Select Type</option>
+                                    <option value="Standard Room">Standard Room</option>
+                                    <option value="Deluxe Room">Deluxe Room</option>
+                                    <option value="Suite Room">Suite Room</option>
+                                </select>
+                            </div>
+                            @error('type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-3">
                             <label for="inputCheckbox" class="col-sm-2 col-form-label">Facility</label>
                             <div class="row">
                                 <div class="col-md-4">
@@ -131,7 +146,13 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="ac" wire:model.live="facility">
                                         <label class="form-check-label">
-                                            Air Conditioner (AC) or Fan
+                                            Air Conditioner (AC)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="fan" wire:model.live="facility">
+                                        <label class="form-check-label">
+                                            Fan
                                         </label>
                                     </div>
                                 </div>

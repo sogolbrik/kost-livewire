@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
+use Livewire\Features\SupportNavigate\SupportNavigate;
+use Livewire\Wireable;
 
 class Login extends Component
 {

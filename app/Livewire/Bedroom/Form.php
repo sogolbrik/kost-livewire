@@ -15,13 +15,14 @@ class Form extends Component
     #[Layout('livewire.backend.template.main')]
 
     // Property
-    public $name, $price, $photo, $bedId, $bedroom, $facility = [];
+    public $name, $price, $photo, $type = "", $bedId, $bedroom, $facility = [];
 
     // Validation
     protected $rules = [
         'name'     => 'required',
         'price'    => 'required|numeric',
         'photo'    => 'required|image|mimes:jpeg,png,jpg,webp|max:1024',
+        'type'     => 'required',
         'facility' => 'required|array',
     ];
 
@@ -36,14 +37,29 @@ class Form extends Component
                 $this->name     = $bedroom->name;
                 $this->price    = $bedroom->price;
                 $this->photo    = $bedroom->photo;
+                $this->type     = $bedroom->type;
                 $this->facility = $bedroom->bedroomDetail->pluck('facility')->toArray();
             }
         }
     }
+
     // run on .live / .blur
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
+    }
+
+    public function updateFacilities()
+    {
+        $this->facility = [];
+
+        if ($this->type == 'Standard Room') {
+            $this->facility = ['bed_pillow', 'wardrobe', 'desk_chair', 'bathroom', 'mirror', 'trash_bin', 'electricity', 'power_outlets', 'window_curtains', 'fan'];
+        } elseif ($this->type == 'Deluxe Room') {
+            $this->facility = ['bed_pillow', 'wardrobe', 'desk_chair', 'bathroom', 'mirror', 'tv', 'wifi', 'trash_bin', 'electricity', 'window_curtains', 'power_outlets', 'shoe_rack', 'ac'];
+        } elseif ($this->type == 'Suite Room') {
+            $this->facility = ['bed_pillow', 'wardrobe', 'desk_chair', 'bathroom', 'mirror', 'tv', 'kitchen', 'wifi', 'trash_bin', 'electricity', 'window_curtains', 'power_outlets', 'shoe_rack', 'ac'];
+        }
     }
 
     public function save()
@@ -53,8 +69,6 @@ class Form extends Component
         if ($this->photo) {
             $photoBed = $this->photo->getClientOriginalName();
             $photoPath = $this->photo->storePubliclyAs('bedroom', $photoBed, 'public');
-
-            dd($photoPath);
         } else {
             $photoPath = $this->photo;
         }
@@ -64,10 +78,12 @@ class Form extends Component
             [
                 'name'  => $this->name,
                 'price' => $this->price,
+                'type'  => $this->type,
                 'photo' => $photoPath,
             ]
         );
 
+        BedroomDetail::where('bedroom_id', $bedroom->id)->delete();
 
         foreach ($this->facility as $facility) {
             BedroomDetail::updateOrCreate(
