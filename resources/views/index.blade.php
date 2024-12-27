@@ -46,6 +46,7 @@
                     <li><a href="#about">Tentang Kami</a></li>
                     <li><a href="#gallery">Galeri</a></li>
                     <li><a href="#pricing">Kamar Kos</a></li>
+                    <li><a href="#faq">FAQs</a></li>
                     <li><a href="#contact">Kontak</a></li>
                     <div class="d-flex mx-5">
                         <li><a href="{{ route('login') }}" wire:navigate class="btn btn-outline-primary rounded-pill">
@@ -284,8 +285,8 @@
 
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
-                            <a href="{{ asset('front-assets/') }}assets/img/gallery/gallery-3.jpg" class="glightbox" data-gallery="images-gallery">
-                                <img src="{{ asset('front-assets/') }}assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+                            <a href="{{ asset('front-assets/assets/img/gallery/gallery-3.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                                <img src="{{ asset('front-assets/assets/img/gallery/gallery-3.jpg') }}" alt="" class="img-fluid">
                             </a>
                         </div>
                     </div><!-- End Gallery Item -->
@@ -510,29 +511,24 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Pricing</h2>
-                <div><span>Check Our</span> <span class="description-title">Pricing</span></div>
+                <h2>Harga</h2>
+                <div><span>Cek Harga Kamar</span> <span class="description-title">Kos</span></div>
             </div><!-- End Section Title -->
 
             <div class="container">
-
                 <div class="row gy-4">
-
                     <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-item">
-                            <h3>Free Plan</h3>
-                            <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                            <h4><sup>$</sup>0<span> / month</span></h4>
-                            <a href="#" class="cta-btn">Start a free trial</a>
-                            <p class="text-center small">No credit card required</p>
+                            <h3>Standard Room</h3>
+                            <p class="description">Kamar standar dengan fasilitas dasar yang nyaman dan terjangkau.</p>
+                            <h4><sup>Rp</sup>750.000<span> / bulan</span></h4>
+                            <a href="#" class="cta-btn">Pesan Sekarang</a>
                             <ul>
-                                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                                <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-                                <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                                <li class="na"><i class="bi bi-x"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                                <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
+                                <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
+                                <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
+                                <li><i class="bi bi-check"></i> <span>Kamar mandi dalam</span></li>
+                                <li class="na"><i class="bi bi-x"></i> <span>AC</span></li>
+                                <li class="na"><i class="bi bi-x"></i> <span>Wi-Fi</span></li>
                             </ul>
                         </div>
                     </div><!-- End Pricing Item -->
@@ -540,43 +536,38 @@
                     <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
                         <div class="pricing-item featured">
                             <p class="popular">Popular</p>
-                            <h3>Business Plan</h3>
-                            <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                            <h4><sup>$</sup>29<span> / month</span></h4>
-                            <a href="#" class="cta-btn">Start a free trial</a>
-                            <p class="text-center small">No credit card required</p>
+                            <h3>Deluxe Room</h3>
+                            <p class="description">Kamar deluxe dengan fasilitas lengkap untuk kenyamanan maksimal.</p>
+                            <h4><sup>Rp</sup>1.500.000<span> / bulan</span></h4>
+                            <a href="#" class="cta-btn">Pesan Sekarang</a>
                             <ul>
-                                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                                <li><i class="bi bi-check"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                                <li class="na"><i class="bi bi-x"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
+                                <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
+                                <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
+                                <li><i class="bi bi-check"></i> <span>Kamar mandi dalam</span></li>
+                                <li><i class="bi bi-check"></i> <span>AC</span></li>
+                                <li><i class="bi bi-check"></i> <span>Wi-Fi</span></li>
                             </ul>
                         </div>
                     </div><!-- End Pricing Item -->
 
                     <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
                         <div class="pricing-item">
-                            <h3>Developer Plan</h3>
-                            <p class="description">Ullam mollitia quasi nobis soluta in voluptatum et sint palora dex strater</p>
-                            <h4><sup>$</sup>49<span> / month</span></h4>
-                            <a href="#" class="cta-btn">Start a free trial</a>
-                            <p class="text-center small">No credit card required</p>
+                            <h3>Suite Room</h3>
+                            <p class="description">Kamar suite dengan fasilitas premium untuk pengalaman tinggal yang mewah.</p>
+                            <h4><sup>Rp</sup>2.200.000<span> / bulan</span></h4>
+                            <a href="#" class="cta-btn">Pesan Sekarang</a>
                             <ul>
-                                <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-                                <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-                                <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-                                <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-                                <li><i class="bi bi-check"></i> <span>Voluptate id voluptas qui sed aperiam rerum</span></li>
-                                <li><i class="bi bi-check"></i> <span>Iure nihil dolores recusandae odit voluptatibus</span></li>
+                                <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
+                                <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
+                                <li><i class="bi bi-check"></i> <span>Kamar mandi dalam</span></li>
+                                <li><i class="bi bi-check"></i> <span>AC</span></li>
+                                <li><i class="bi bi-check"></i> <span>Wi-Fi</span></li>
+                                <li><i class="bi bi-check"></i> <span>TV</span></li>
                             </ul>
                         </div>
                     </div><!-- End Pricing Item -->
-
                 </div>
+            </div>
 
             </div>
 
@@ -592,9 +583,9 @@
                     <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
 
                         <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-                            <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
+                            <h3><span>Pertanyaan yang Sering </span><strong>Diajukan</strong></h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                                Temukan jawaban atas pertanyaan seputar pencarian dan pemesanan kos. Hubungi kami jika membutuhkan bantuan lebih lanjut!
                             </p>
                         </div>
 
@@ -602,30 +593,27 @@
 
                             <div class="faq-item faq-active">
                                 <i class="faq-icon bi bi-question-circle"></i>
-                                <h3>Non consectetur a erat nam at lectus urna duis?</h3>
+                                <h3>Bagaimana cara memesan kamar kos?</h3>
                                 <div class="faq-content">
-                                    <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor
-                                        rhoncus dolor purus non.</p>
+                                    <p>Anda bisa klik di navbar kamar kos, lalu pilih kamar yang anda sukai, lalu anda bisa memesannya langsung dari situ.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
                                 <i class="faq-icon bi bi-question-circle"></i>
-                                <h3>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
+                                <h3>Apakah bisa melihat fasilitas yang ada?</h3>
                                 <div class="faq-content">
-                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque
-                                        eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                    <p>Ya, anda bisa melihat fasilitas kamar yang didapatkan di detail kamar nya</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
                                 <i class="faq-icon bi bi-question-circle"></i>
-                                <h3>Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                                <h3>Apakah pembayarannya aman?</h3>
                                 <div class="faq-content">
-                                    <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl
-                                        suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                                    <p>Tentu saja, disini bisa di cek langsung oleh sang pemilik, tanpa adanya perantara, jika anda ragu, anda bisa melihat testimoni yang telah tersedia</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
@@ -648,8 +636,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Contact</h2>
-                <div><span>Check Our</span> <span class="description-title">Contact</span></div>
+                <h2>Kontak</h2>
+                <div><span>Kontak</span> <span class="description-title">Kami</span></div>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade" data-aos-delay="100">
@@ -660,24 +648,24 @@
                         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                             <i class="bi bi-geo-alt flex-shrink-0"></i>
                             <div>
-                                <h3>Address</h3>
-                                <p>A108 Adam Street, New York, NY 535022</p>
+                                <h3>Alamat</h3>
+                                <p>Mojokerto, East Java, Indonesia</p>
                             </div>
                         </div><!-- End Info Item -->
 
                         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                             <i class="bi bi-telephone flex-shrink-0"></i>
                             <div>
-                                <h3>Call Us</h3>
-                                <p>+1 5589 55488 55</p>
+                                <h3>Hubungi Kami</h3>
+                                <p>+62 857 0422 9619</p>
                             </div>
                         </div><!-- End Info Item -->
 
                         <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                             <i class="bi bi-envelope flex-shrink-0"></i>
                             <div>
-                                <h3>Email Us</h3>
-                                <p>info@example.com</p>
+                                <h3>Email</h3>
+                                <p>gilangsampurno125@gmail.com</p>
                             </div>
                         </div><!-- End Info Item -->
 
@@ -688,19 +676,19 @@
                             <div class="row gy-4">
 
                                 <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                                    <input type="text" name="name" class="form-control" placeholder="Nama Anda" required="">
                                 </div>
 
                                 <div class="col-md-6 ">
-                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                                    <input type="email" class="form-control" name="email" placeholder="Email Anda" required="">
                                 </div>
 
                                 <div class="col-md-12">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                                    <input type="text" class="form-control" name="subject" placeholder="Subjek" required="">
                                 </div>
 
                                 <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Pesan" required=""></textarea>
                                 </div>
 
                                 <div class="col-md-12 text-center">
@@ -729,47 +717,47 @@
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
                     <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">Bootslander</span>
+                        <span class="sitename">KostDelapanBelas</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>A108 Adam Street</p>
-                        <p>New York, NY 535022</p>
-                        <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                        <p><strong>Email:</strong> <span>info@example.com</span></p>
+                        <p>Watu Umpak</p>
+                        <p>Mojokerto, East Java</p>
+                        <p class="mt-3"><strong>Phone:</strong> <span>+62 857 0422 9619</span></p>
+                        <p><strong>Email:</strong> <span>gilangsampurno@gmail.com</span></p>
                     </div>
                     <div class="social-links d-flex mt-4">
-                        <a href=""><i class="bi bi-twitter-x"></i></a>
-                        <a href=""><i class="bi bi-facebook"></i></a>
-                        <a href=""><i class="bi bi-instagram"></i></a>
-                        <a href=""><i class="bi bi-linkedin"></i></a>
+                        <a href="" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                        <a href="https://www.facebook.com/gudall.gudall.39" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://instagram.com/glngbrik" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/gilang-sampurno-085285343/" target="_blank"><i class="bi bi-linkedin"></i></a>
                     </div>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Useful Links</h4>
+                    <h4>Link Terkait</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Galeri</a></li>
+                        <li><a href="#">Kamar Kos </a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Kontak</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Our Services</h4>
+                    <h4>Layanan Kami</h4>
                     <ul>
                         <li><a href="#">Web Design</a></li>
                         <li><a href="#">Web Development</a></li>
                         <li><a href="#">Product Management</a></li>
                         <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-4 col-md-12 footer-newsletter">
-                    <h4>Our Newsletter</h4>
-                    <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+                    <h4>Buletin Kami</h4>
+                    <p>Berlangganan buletin kami dan dapatkan berita terbaru tentang produk dan layanan kami!</p>
                     <form action="forms/newsletter.php" method="post" class="php-email-form">
                         <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
                         <div class="loading">Loading</div>
@@ -782,13 +770,9 @@
         </div>
 
         <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">Bootslander</strong> <span>All Rights Reserved</span></p>
+            <p>© <span>Developed by</span> <strong class="px-1 sitename">Sogol</strong> <span>RoomStay Solutions</span></p>
             <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Designed by <a href="https://github.com/sogolbrik" target="_blank">Sogol</a>
             </div>
         </div>
 

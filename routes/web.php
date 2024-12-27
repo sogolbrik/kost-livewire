@@ -8,25 +8,29 @@ use App\Livewire\Bedroom\Data;
 use App\Livewire\Bedroom\Form;
 use App\Livewire\Fintech\Data as FintechData;
 use App\Livewire\Fintech\Form as FintechForm;
-use App\Livewire\Frontend\Dashboard as FrontendDashboard;
 use App\Livewire\User\Data as UserData;
 use App\Livewire\User\Form as UserForm;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdministratorMiddleware;
+use App\Livewire\Booking;
+use App\Livewire\Frontend\Booking as FrontendBooking;
+use App\Livewire\Frontend\Landing\Dashboard as LandingDashboard;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('index', function () {
     return view('index');
 })->name('index');
 
-//Dashbard
-Route::get('dashboard', FrontendDashboard::class)->name('front.index');
 //Authentication
 Route::get('login', Login::class)->name('login');
 Route::get('register', Register::class)->name('register');
+//Dashbard
+Route::get('/', LandingDashboard::class)->name('front.index');
+//Booking Bedroom
+Route::get('booking', FrontendBooking::class)->name('booking');
 
 Route::middleware([AdministratorMiddleware::class])->group(function () {
     //Dashboard

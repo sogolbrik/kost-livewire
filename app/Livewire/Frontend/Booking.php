@@ -2,15 +2,16 @@
 
 namespace App\Livewire\Frontend;
 
+use App\Models\Bedroom;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
-class Dashboard extends Component
+class Booking extends Component
 {
     // use WithFileUploads;
-    #[Title('your_title')]
-    #[Layout('template_view')]
+    #[Title('Pesan Kamar')]
+    #[Layout('livewire.frontend.template.main-booking')]
 
     // Property
 
@@ -32,7 +33,9 @@ class Dashboard extends Component
 
     public function render()
     {
-        return view('livewire.frontend.dashboard');
+        return view('livewire.frontend.booking', [
+            'bedroom' => Bedroom::get()
+        ]);
     }
 
 /*
@@ -101,6 +104,16 @@ class Dashboard extends Component
             return view('livewire.student-data', [
                 'variable' => Model::where('coloumn', 'like', '%'.$this->search.'%')->get()
             ]);
+        }
+
+    Is valid & invalid
+        public function isValid($field)
+        {
+            if ($this->getErrorBag()->has($field)) {
+                return 'is-invalid';
+            }
+
+            return isset($this->$field) ? 'is-valid' : '';
         }
 */
 }

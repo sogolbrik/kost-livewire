@@ -22,11 +22,9 @@ class AdministratorMiddleware
             } else {
                 // Jika user bukan admin
                 session()->put('url.intended', url()->current());
-                $message = [
-                    'success-message' => 'error',
-                    'message'         => 'Anda tidak memiliki akses ke halaman ini!'
-                ];
-                return redirect()->back()->with($message);
+                
+                session()->flash('error-message', 'Anda tidak memiliki akses ke halaman ini!');
+                return redirect()->back();
             }
         }
         return redirect()->back();

@@ -42,15 +42,9 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="#hero" class="active">Beranda</a></li>
-                    <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#gallery">Galeri</a></li>
-                    <li><a href="{{ route('booking') }}">Booking Kos</a></li>
-                    <li><a href="#faq">FAQs</a></li>
-                    <li><a href="#contact">Kontak</a></li>
-                    <div class="d-flex mx-5">
-                        <li><a href="{{ route('login') }}" wire:navigate class="btn btn-outline-primary rounded-pill">
-                                <div class="me-2 mx-2">Login</div>
+                    <div class="d-flex mx-2">
+                        <li><a wire:navigate href="{{ route('front.index') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
+                                <div class="me-2 mx-2"><i class="bi bi-arrow-left-short"> Kembali</i></div>
                             </a></li>
                     </div>
                 </ul>
