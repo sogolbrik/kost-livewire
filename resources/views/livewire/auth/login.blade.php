@@ -3,7 +3,7 @@
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-9 col-xl-9">
-                    <div class="card text-black" style="border-radius: 25px;"">
+                    <div class="card text-black" style="border-radius: 25px;">
                         <div class="card-body p-md-4">
                             <div class="row justify-content-center">
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -14,22 +14,16 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 mb-4 fa-fw"></i>
                                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                                <input name="name" type="text" id="form3Example3c" value="{{ old('name') }}" class="form-control" wire:model='name'/>
+                                                <input name="name" type="text" id="form3Example3c" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" wire:model='name' />
                                                 <label class="form-label" for="form3Example3c">Username</label>
-                                                @error('name')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
                                             </div>
                                         </div>
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 mb-4 fa-fw"></i>
                                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
-                                                <input name="password" type="password" id="form3Example4c" class="form-control" wire:model='password'/>
+                                                <input name="password" type="password" id="form3Example4c" class="form-control @error('password') is-invalid @enderror" wire:model='password' />
                                                 <label class="form-label" for="form3Example4c">Password</label>
-                                                @error('password')
-                                                    <small class="text-danger">{{ $message }}</small>
-                                                @enderror
                                             </div>
                                         </div>
 

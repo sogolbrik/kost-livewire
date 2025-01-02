@@ -34,7 +34,7 @@ class Booking extends Component
     public function render()
     {
         return view('livewire.frontend.booking', [
-            'bedroom' => Bedroom::get()
+            'bedroom' => Bedroom::with('bedroomDetail')->get()
         ]);
     }
 

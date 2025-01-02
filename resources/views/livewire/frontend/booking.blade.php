@@ -49,57 +49,28 @@
 
         <div class="container">
             <div class="row gy-4">
-                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="pricing-item">
-                        <h3>Standard Room</h3>
-                        <p class="description">Kamar standar dengan fasilitas dasar yang nyaman dan terjangkau.</p>
-                        <h4><sup>Rp</sup>750.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Pesan Sekarang</a>
-                        <ul>
-                            <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
-                            <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
-                            <li><i class="bi bi-check"></i> <span>Kamar mandi dalam</span></li>
-                            <li class="na"><i class="bi bi-x"></i> <span>AC</span></li>
-                            <li class="na"><i class="bi bi-x"></i> <span>Wi-Fi</span></li>
-                        </ul>
+                @forelse ($bedroom as $seeBed)
+                    <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="pricing-item">
+                            <div class="gallery-item mb-2">
+                                <a href="{{ Storage::url($seeBed->photo) }}" class="glightbox" data-gallery="images-gallery">
+                                    <img src="{{ Storage::url($seeBed->photo) }}" alt="{{ $seeBed->name }}" class="img-fluid rounded">
+                                </a>
+                            </div>
+                            <h3>{{ $seeBed->type }}</h3>
+                            <p class="description">{{ $seeBed->description }}</p>
+                            <h4><sup>Rp</sup>{{ number_format($seeBed->price, 0, ',', '.') }}<br><span> / bulan</span></h4>
+                            <a href="{{ route('booking.detail', $seeBed->id) }}" wire:navigate class="cta-btn">Detail Kamar</a>
+                        </div>
+                    </div><!-- End Pricing Item -->
+                @empty
+                    <div class="d-flex justify-content-center">
+                        <h2 class="fw-semibold">Belum ada kamar.</h2>
                     </div>
-                </div><!-- End Pricing Item -->
-
-                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="pricing-item featured">
-                        <p class="popular">Popular</p>
-                        <h3>Deluxe Room</h3>
-                        <p class="description">Kamar deluxe dengan fasilitas lengkap untuk kenyamanan maksimal.</p>
-                        <h4><sup>Rp</sup>1.500.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Pesan Sekarang</a>
-                        <ul>
-                            <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
-                            <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
-                            <li><i class="bi bi-check"></i> <span>Kamar mandi dalam</span></li>
-                            <li><i class="bi bi-check"></i> <span>AC</span></li>
-                            <li><i class="bi bi-check"></i> <span>Wi-Fi</span></li>
-                        </ul>
-                    </div>
-                </div><!-- End Pricing Item -->
-
-                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="pricing-item">
-                        <h3>Suite Room</h3>
-                        <p class="description">Kamar suite dengan fasilitas premium untuk pengalaman tinggal yang mewah.</p>
-                        <h4><sup>Rp</sup>2.200.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Pesan Sekarang</a>
-                        <ul>
-                            <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
-                            <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
-                            <li><i class="bi bi-check"></i> <span>Kamar mandi dalam</span></li>
-                            <li><i class="bi bi-check"></i> <span>AC</span></li>
-                            <li><i class="bi bi-check"></i> <span>Wi-Fi</span></li>
-                            <li><i class="bi bi-check"></i> <span>TV</span></li>
-                        </ul>
-                    </div>
-                </div><!-- End Pricing Item -->
+                @endforelse
             </div>
-            
+
+            {{-- Backup --}}
             {{-- <div class="row gy-4">
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="pricing-item">
@@ -117,39 +88,6 @@
                     </div>
                 </div><!-- End Pricing Item -->
 
-                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="pricing-item featured">
-                        <p class="popular">Popular</p>
-                        <h3>Deluxe Room</h3>
-                        <p class="description">Kamar deluxe dengan fasilitas lengkap untuk kenyamanan maksimal.</p>
-                        <h4><sup>Rp</sup>1.500.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Pesan Sekarang</a>
-                        <ul>
-                            <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
-                            <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
-                            <li><i class="bi bi-check"></i> <span>Kamar mandi dalam</span></li>
-                            <li><i class="bi bi-check"></i> <span>AC</span></li>
-                            <li><i class="bi bi-check"></i> <span>Wi-Fi</span></li>
-                        </ul>
-                    </div>
-                </div><!-- End Pricing Item -->
-
-                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="pricing-item">
-                        <h3>Suite Room</h3>
-                        <p class="description">Kamar suite dengan fasilitas premium untuk pengalaman tinggal yang mewah.</p>
-                        <h4><sup>Rp</sup>2.200.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Pesan Sekarang</a>
-                        <ul>
-                            <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
-                            <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
-                            <li><i class="bi bi-check"></i> <span>Kamar mandi dalam</span></li>
-                            <li><i class="bi bi-check"></i> <span>AC</span></li>
-                            <li><i class="bi bi-check"></i> <span>Wi-Fi</span></li>
-                            <li><i class="bi bi-check"></i> <span>TV</span></li>
-                        </ul>
-                    </div>
-                </div><!-- End Pricing Item -->
             </div> --}}
         </div>
     </section><!-- /Pricing Section -->

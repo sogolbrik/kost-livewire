@@ -8,7 +8,7 @@
             <a class="btn" href="{{ route('front.index') }}">Back to home</a>
             <img src="{{ asset('back-assets/assets/img/not-found.svg') }}" class="img-fluid py-5" alt="Page Not Found">
             <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Developed by <a href="https://github.com/sogolbrik" target="_blank">Sogol</a>
             </div>
         </section>
 

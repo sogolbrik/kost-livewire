@@ -92,6 +92,10 @@
                                     @endforeach
                                 </ul>
                             </div>
+                            <div class="col-md-6">
+                                <label class="d-flex justify-content-center">Description:</label>
+                                <em>{{ $item->description }}</em>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">

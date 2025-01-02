@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
-use Livewire\Features\SupportNavigate\SupportNavigate;
-use Livewire\Wireable;
 
 class Login extends Component
 {
@@ -21,8 +19,8 @@ class Login extends Component
 
     // Validation
     protected $rules = [
-        'name'    => 'required',
-        'password' => 'required',
+        'name'     => 'required|string',
+        'password' => 'required|min:4',
     ];
 
     // run on .live / .blur
@@ -36,13 +34,12 @@ class Login extends Component
         $this->validate();
 
         if (Auth::attempt(['name' => $this->name, 'password' => $this->password])) {
-            session()->flash('success-message', 'logged in successfully,!');
+            session()->flash('success-message', 'logged in successfully!');
 
             $user = Auth::user();
             if ($user->role == 'customer') {
                 $this->redirectIntended('index');
-            }
-            if ($user->role == 'administrator') {
+            } elseif ($user->role == 'administrator') {
                 $this->redirectIntended('admin-dashboard');
             }
         } else {

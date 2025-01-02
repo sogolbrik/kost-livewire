@@ -12,8 +12,10 @@ use App\Livewire\User\Data as UserData;
 use App\Livewire\User\Form as UserForm;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AdministratorMiddleware;
+use App\Livewire\Auth\Login2;
 use App\Livewire\Booking;
 use App\Livewire\Frontend\Booking as FrontendBooking;
+use App\Livewire\Frontend\BookingDetail;
 use App\Livewire\Frontend\Landing\Dashboard as LandingDashboard;
 
 // Route::get('/', function () {
@@ -31,6 +33,7 @@ Route::get('register', Register::class)->name('register');
 Route::get('/', LandingDashboard::class)->name('front.index');
 //Booking Bedroom
 Route::get('booking', FrontendBooking::class)->name('booking');
+Route::get('booking/detail/{id}', BookingDetail::class)->name('booking.detail');
 
 Route::middleware([AdministratorMiddleware::class])->group(function () {
     //Dashboard

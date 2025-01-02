@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 30);
             $table->string('price', 12);
             $table->string('type', 30);
+            $table->text('description');
             $table->string('photo');
             $table->enum('status', ['available', 'occupied'])->default('available');
             $table->timestamps();

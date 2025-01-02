@@ -1,26 +1,40 @@
 <?php
 
-namespace App\Livewire\Auth;
+namespace App\Livewire\Frontend;
 
-use Illuminate\Support\Facades\Auth;
+use App\Models\Bedroom;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
-class Logout extends Component
+class BookingDetail extends Component
 {
-    public function logout(){
-        Auth::logout();
-        session()->invalidate();
-        session()->regenerateToken();
+    // use WithFileUploads;
+    #[Title('Detail Kamar')]
+    #[Layout('livewire.frontend.template.main-booking')]
 
-        session()->flash('success-message', 'Successfully logged out.');
-        $this->redirectRoute('login', navigate:true);
+    // Property
+    public $id;
+
+    // Validation
+    protected $rules = [
+        'property' => '?',
+    ];
+
+    public function mount($id)
+    {
+        $this->id = Bedroom::find($id);
+    }
+
+    // run on .live / .blur
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
     }
 
     public function render()
     {
-        return view('livewire.auth.logout');
+        return view('livewire.frontend.booking-detail');
     }
 
 /*
@@ -76,5 +90,29 @@ class Logout extends Component
         public string $search; 
 
         => penambahan except agar saat tidak ada yang di serch url tetap bersih
+    
+    Search Table
+        public $search;
+
+        public function updatingSearch(){
+            $this->resetPage();
+        }
+
+        public function render()
+        {
+            return view('livewire.student-data', [
+                'variable' => Model::where('coloumn', 'like', '%'.$this->search.'%')->get()
+            ]);
+        }
+
+    Is valid & invalid
+        public function isValid($field)
+        {
+            if ($this->getErrorBag()->has($field)) {
+                return 'is-invalid';
+            }
+
+            return isset($this->$field) ? 'is-valid' : '';
+        }
 */
 }
