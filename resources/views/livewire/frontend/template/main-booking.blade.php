@@ -43,9 +43,15 @@
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <div class="d-flex mx-2">
-                        <li><a wire:navigate href="{{ route('front.index') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
-                                <div class="me-2 mx-2"><i class="bi bi-arrow-left-short"> Kembali</i></div>
-                            </a></li>
+                        @if (request()->routeIs('booking.detail'))
+                            <li><a wire:navigate href="{{ route('booking') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
+                                    <div class="me-2 mx-2"><i class="bi bi-arrow-left-short"> Kembali</i></div>
+                                </a></li>
+                        @else
+                            <li><a wire:navigate href="{{ route('front.index') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
+                                    <div class="me-2 mx-2"><i class="bi bi-arrow-left-short"> Kembali</i></div>
+                                </a></li>
+                        @endif
                     </div>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -76,6 +82,65 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('front-assets/assets/js/main.js') }}"></script>
+
+    {{-- Sweetalert --}}
+    <script src="{{ asset('back-assets/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
+
+    {{-- Success --}}
+    @if (session('success-message'))
+        <script>
+            Swal.fire({
+                position: "top",
+                title: "{{ session('success-message') }}",
+                icon: "success",
+                showConfirmButton: false,
+                toast: true,
+                timer: 2500,
+            });
+        </script>
+    @endif
+
+    {{-- Error --}}
+    @if (session('error-message'))
+        <script>
+            Swal.fire({
+                position: "top",
+                title: "{{ session('error-message') }}",
+                icon: "error",
+                showConfirmButton: false,
+                toast: true,
+                timer: 2500,
+            });
+        </script>
+    @endif
+
+    {{-- Info --}}
+    @if (session('info-message'))
+        <script>
+            Swal.fire({
+                position: "top",
+                title: "{{ session('info-message') }}",
+                icon: "info",
+                showConfirmButton: false,
+                toast: true,
+                timer: 2500,
+            });
+        </script>
+    @endif
+
+    {{-- Error --}}
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                position: "top",
+                title: "An error occurred, please try again!",
+                icon: "error",
+                toast: true,
+                showConfirmButton: false,
+                timer: 2500,
+            });
+        </script>
+    @endif
 
     @livewireScripts
 

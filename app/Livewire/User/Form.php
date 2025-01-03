@@ -60,6 +60,15 @@ class Form extends Component
         $this->redirectRoute('user.data', navigate: true);
     }
 
+    public function isValid($field)
+    {
+        if ($this->getErrorBag()->has($field)) {
+            return 'is-invalid';
+        }
+
+        return isset($this->$field) ? 'is-valid' : '';
+    }
+
     public function render()
     {
         return view('livewire.user.form');

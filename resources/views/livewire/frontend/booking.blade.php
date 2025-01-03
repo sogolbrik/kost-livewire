@@ -49,18 +49,18 @@
 
         <div class="container">
             <div class="row gy-4">
-                @forelse ($bedroom as $seeBed)
+                @forelse ($bedroom as $see)
                     <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-item">
                             <div class="gallery-item mb-2">
-                                <a href="{{ Storage::url($seeBed->photo) }}" class="glightbox" data-gallery="images-gallery">
-                                    <img src="{{ Storage::url($seeBed->photo) }}" alt="{{ $seeBed->name }}" class="img-fluid rounded">
+                                <a href="{{ Storage::url($see->photo) }}" class="glightbox" data-gallery="images-gallery">
+                                    <img src="{{ Storage::url($see->photo) }}" alt="{{ $see->name }}" class="img-fluid rounded">
                                 </a>
                             </div>
-                            <h3>{{ $seeBed->type }}</h3>
-                            <p class="description">{{ $seeBed->description }}</p>
-                            <h4><sup>Rp</sup>{{ number_format($seeBed->price, 0, ',', '.') }}<br><span> / bulan</span></h4>
-                            <a href="{{ route('booking.detail', $seeBed->id) }}" wire:navigate class="cta-btn">Detail Kamar</a>
+                            <h3>{{ $see->type }}</h3>
+                            <p class="description">{{ $see->description }}</p>
+                            <h4><sup>Rp</sup>{{ number_format($see->price, 0, ',', '.') }}<br><span> / bulan</span></h4>
+                            <a href="{{ route('booking.detail', $see->id) }}" wire:navigate class="cta-btn">Detail Kamar</a>
                         </div>
                     </div><!-- End Pricing Item -->
                 @empty

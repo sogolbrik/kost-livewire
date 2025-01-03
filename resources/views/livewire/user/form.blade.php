@@ -24,7 +24,7 @@
                         <div class="form-group mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.live="name">
+                                <input type="text" class="form-control {{ $this->isValid('name') }}" wire:model.live="name">
                             </div>
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
@@ -34,7 +34,7 @@
                         <div class="form-group mb-3">
                             <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
                             <div class="col-sm-10">
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" wire:model.live="email">
+                                <input type="email" class="form-control {{ $this->isValid('email') }}" wire:model.live="email">
                             </div>
                             @error('email')
                                 <span class="text-danger">{{ $message }}</span>
@@ -44,7 +44,7 @@
                         <div class="form-group mb-3">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" wire:model.live="password">
+                                <input type="password" class="form-control {{ $this->isValid('password') }}" wire:model.live="password">
                             </div>
                             @error('password')
                                 <span class="text-danger">{{ $message }}</span>

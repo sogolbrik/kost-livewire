@@ -14,16 +14,16 @@ class BookingDetail extends Component
     #[Layout('livewire.frontend.template.main-booking')]
 
     // Property
-    public $id;
+    public $bedId;
 
     // Validation
     protected $rules = [
         'property' => '?',
     ];
 
-    public function mount($id)
+    public function mount($bedId)
     {
-        $this->id = Bedroom::find($id);
+        $this->bedId = Bedroom::find($bedId);
     }
 
     // run on .live / .blur

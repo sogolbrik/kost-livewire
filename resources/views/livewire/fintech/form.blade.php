@@ -24,7 +24,7 @@
                         <div class="form-group mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.live="name">
+                                <input type="text" class="form-control {{ $this->isValid('name') }}" wire:model.live="name">
                             </div>
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
@@ -34,7 +34,7 @@
                         <div class="form-group mb-3">
                             <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
                             <div class="col-sm-10">
-                                <textarea name="description" class="form-control @error('ddescription') is-invalid @enderror" rows="4" wire:model.live="description"></textarea>
+                                <textarea name="description" class="form-control {{ $this->isValid('description') }}" rows="4" wire:model.live="description"></textarea>
                             </div>
                             @error('description')
                                 <span class="text-danger">{{ $message }}</span>
@@ -44,10 +44,10 @@
                         <div class="form-group mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Photo</label>
                             <div class="col-sm-10">
-                                <input class="form-control @error('photo') is-invalid @enderror" type="file" id="formFile" wire:model.live="photo">
+                                <input class="form-control {{ $this->isValid('photo') }}" type="file" id="formFile" wire:model.live="photo">
                             </div>
                             <div wire:loading wire:target="photo" class="mt-1">
-                                <p class="badge bg-primary rounded-pill">Uploading...</p>
+                                <p class="badge bg-secondary rounded-pill">Uploading...</p>
                             </div>
                             <div>
                                 @error('photo')

@@ -25,7 +25,7 @@
                         <div class="form-group mb-3">
                             <label for="inputText" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.live="name">
+                                <input type="text" class="form-control {{ $this->isValid('name') }}" wire:model.live="name">
                             </div>
                             @error('name')
                                 <span class="text-danger">{{ $message }}</span>
@@ -35,33 +35,33 @@
                         <div class="form-group mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Price</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control @error('price') is-invalid @enderror" wire:model.live="price">
+                                <input type="number" class="form-control {{ $this->isValid('price') }}" wire:model.live="price">
                             </div>
                             @error('price')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+
                         <div class="form-group mb-3">
                             <label for="inputType" class="col-sm-2 col-form-label">Type</label>
                             <div class="col-sm-10">
-                                <select class="form-select @error('type') is-invalid @enderror" wire:model.live="type" wire:change="updateFacilities"> {{-- Mengganti/mengisi checkbox sesuai type --}}
+                                <select class="form-select @error('type') border-danger @enderror" wire:model.live="type" wire:change="updateFacilities"> {{-- Mengganti/mengisi checkbox sesuai type --}}
                                     <option selected disabled value="">Select Type</option>
-                                    <option value="Standard Room">Standard Room</option>
-                                    <option value="Deluxe Room">Deluxe Room</option>
-                                    <option value="Suite Room">Suite Room</option>
+                                    <option value="Kamar Standar">Standard</option>
+                                    <option value="Kamar Mewah">Luxury</option>
+                                    <option value="Kamar Istimewa">Special</option>
                                 </select>
                             </div>
                             @error('type')
-                            <span class="text-danger">{{ $message }}</span>
+                                <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        
+
                         <div class="form-group mb-3">
                             <label for="inputDescription" class="col-form-label">Description</label>
-                            <small class="text-danger mx-3">*does not have to be filled</small>
+                            <small class="text-secondary mx-3">*does not have to be filled</small>
                             <div class="col-sm-10">
-                                <textarea class="form-control @error('description') is-invalid @enderror" rows="3" wire:model.live="description"></textarea>
+                                <textarea class="form-control {{ $this->isValid('description') }}" rows="3" wire:model.live="description"></textarea>
                             </div>
                             @error('description')
                                 <span class="text-danger">{{ $message }}</span>
@@ -176,7 +176,7 @@
                         <div class="form-group mb-3">
                             <label for="inputNumber" class="col-sm-2 col-form-label">Photo</label>
                             <div class="col-sm-10">
-                                <input class="form-control @error('photo') is-invalid @enderror" type="file" id="formFile" wire:model.live="photo">
+                                <input class="form-control {{ $this->isValid('photo') }}" type="file" id="formFile" wire:model.live="photo">
                             </div>
                             <div wire:loading wire:target="photo" class="mt-1">
                                 <p class="badge bg-secondary rounded-pill">Uploading...</p>

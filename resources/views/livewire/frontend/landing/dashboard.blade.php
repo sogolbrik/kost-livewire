@@ -459,7 +459,7 @@
                         <h3>Standard Room</h3>
                         <p class="description">Kamar standar dengan fasilitas dasar yang nyaman dan terjangkau.</p>
                         <h4><sup>Rp</sup>750.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Pesan Sekarang</a>
+                        <a href="#" class="cta-btn">Cek Detail</a>
                         <ul>
                             <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
                             <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
@@ -476,7 +476,7 @@
                         <h3>Deluxe Room</h3>
                         <p class="description">Kamar deluxe dengan fasilitas lengkap untuk kenyamanan maksimal.</p>
                         <h4><sup>Rp</sup>1.500.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Pesan Sekarang</a>
+                        <a href="#" class="cta-btn">Cek Detail</a>
                         <ul>
                             <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
                             <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
@@ -492,7 +492,7 @@
                         <h3>Suite Room</h3>
                         <p class="description">Kamar suite dengan fasilitas premium untuk pengalaman tinggal yang mewah.</p>
                         <h4><sup>Rp</sup>2.200.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Pesan Sekarang</a>
+                        <a href="#" class="cta-btn">Cek Detail</a>
                         <ul>
                             <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
                             <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
@@ -648,7 +648,7 @@
         <div class="container footer-top">
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center">
+                    <a href="#hero" class="logo d-flex align-items-center">
                         <span class="sitename">KostDelapanBelas</span>
                     </a>
                     <div class="footer-contact pt-3">
@@ -658,7 +658,7 @@
                         <p><strong>Email:</strong> <span>gilangsampurno@gmail.com</span></p>
                     </div>
                     <div class="social-links d-flex mt-4">
-                        <a href="" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                        <a href="https://wa.me/+6285704229619" target="_blank"><i class="bi bi-whatsapp"></i></a>
                         <a href="https://www.facebook.com/gudall.gudall.39" target="_blank"><i class="bi bi-facebook"></i></a>
                         <a href="https://instagram.com/glngbrik" target="_blank"><i class="bi bi-instagram"></i></a>
                         <a href="https://www.linkedin.com/in/gilang-sampurno-085285343/" target="_blank"><i class="bi bi-linkedin"></i></a>

@@ -82,7 +82,6 @@
     <script src="{{ asset('back-assets/assets/js/main.js') }}"></script>
     {{-- Sweetalert --}}
     <script src="{{ asset('back-assets/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
-    {{-- Sweetalert --}}
 
     {{-- Success --}}
     @if (session('success-message'))

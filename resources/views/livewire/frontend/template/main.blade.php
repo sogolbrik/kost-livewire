@@ -83,7 +83,66 @@
     <!-- Main JS File -->
     <script src="{{ asset('front-assets/assets/js/main.js') }}"></script>
 
+    {{-- Sweetalert --}}
+    <script src="{{ asset('back-assets/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
+
+    {{-- Success --}}
+    @if (session('success-message'))
+        <script>
+            Swal.fire({
+                position: "top",
+                title: "{{ session('success-message') }}",
+                icon: "success",
+                showConfirmButton: false,
+                toast: true,
+                timer: 2500,
+            });
+        </script>
+    @endif
+
+    {{-- Error --}}
+    @if (session('error-message'))
+        <script>
+            Swal.fire({
+                position: "top",
+                title: "{{ session('error-message') }}",
+                icon: "error",
+                showConfirmButton: false,
+                toast: true,
+                timer: 2500,
+            });
+        </script>
+    @endif
+
+    {{-- Info --}}
+    @if (session('info-message'))
+        <script>
+            Swal.fire({
+                position: "top",
+                title: "{{ session('info-message') }}",
+                icon: "info",
+                showConfirmButton: false,
+                toast: true,
+                timer: 2500,
+            });
+        </script>
+    @endif
+
+    {{-- Error --}}
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                position: "top",
+                title: "An error occurred, please try again!",
+                icon: "error",
+                toast: true,
+                showConfirmButton: false,
+                timer: 2500,
+            });
+        </script>
+    @endif
     @livewireScripts
+    
 
 </body>
 

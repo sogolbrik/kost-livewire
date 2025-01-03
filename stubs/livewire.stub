@@ -112,5 +112,12 @@ class [class] extends Component
 
             return isset($this->$field) ? 'is-valid' : '';
         }
+    custom message validation
+    protected $messages = [
+        'name'        => 'nama harus diisi',
+        'price'       => 'harga harus diisi',
+        'photo'       => 'gambar waib diisi',
+        'type'        => 'tipe harus diisi',
+    ];
 */
 }

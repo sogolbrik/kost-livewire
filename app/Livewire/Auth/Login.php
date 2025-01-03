@@ -38,7 +38,7 @@ class Login extends Component
 
             $user = Auth::user();
             if ($user->role == 'customer') {
-                $this->redirectIntended('index');
+                $this->redirectIntended('/');
             } elseif ($user->role == 'administrator') {
                 $this->redirectIntended('admin-dashboard');
             }

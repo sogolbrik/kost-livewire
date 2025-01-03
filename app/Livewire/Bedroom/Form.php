@@ -22,9 +22,9 @@ class Form extends Component
     protected $rules = [
         'name'        => 'required',
         'price'       => 'required|numeric',
-        'photo'       => 'required|image|mimes: jpeg,png,jpg,webp|max: 1024',
+        'photo'       => 'required|image|mimes:jpeg,png,jpg,webp|max:1024',
         'type'        => 'required',
-        'description' => '',
+        'description' => 'sometimes',
         'facility'    => 'required|array',
     ];
 
@@ -57,13 +57,15 @@ class Form extends Component
     {
         $this->facility = [];
 
-        if ($this->type == 'Standard Room') {
+        if ($this->type == 'Kamar Standar') {
             $this->facility = ['bed_pillow', 'wardrobe', 'desk_chair', 'bathroom', 'mirror', 'trash_bin', 'electricity', 'power_outlets', 'window_curtains', 'fan'];
-        } elseif ($this->type == 'Deluxe Room') {
+        } elseif ($this->type == 'Kamar Mewah') {
             $this->facility = ['bed_pillow', 'wardrobe', 'desk_chair', 'bathroom', 'mirror', 'tv', 'wifi', 'trash_bin', 'electricity', 'window_curtains', 'power_outlets', 'shoe_rack', 'ac'];
-        } elseif ($this->type == 'Suite Room') {
+        } elseif ($this->type == 'Kamar Istimewa') {
             $this->facility = ['bed_pillow', 'wardrobe', 'desk_chair', 'bathroom', 'mirror', 'tv', 'kitchen', 'wifi', 'trash_bin', 'electricity', 'window_curtains', 'power_outlets', 'shoe_rack', 'ac'];
         }
+
+        $this->resetErrorBag('facility');
     }
 
     public function save()
@@ -78,12 +80,12 @@ class Form extends Component
         }
 
         //Jika type yang dipilih maka mempunyai description default
-        if ($this->type == 'Standard Room') {
-            $this->description = $this->description ?: 'Kamar standar dengan fasilitas dasar yang nyaman dan terjangkau.';
-        } elseif ($this->type == 'Deluxe Room') {
-            $this->description = $this->description ?: 'Kamar deluxe dengan fasilitas lengkap untuk kenyamanan maksimal.';
-        } elseif ($this->type == 'Suite Room') {
-            $this->description = $this->description ?: 'Kamar suite dengan fasilitas premium untuk pengalaman tinggal yang mewah.';
+        if ($this->type == 'Kamar Standar') {
+            $this->description = $this->description ?: 'Kamar Standar dengan fasilitas dasar yang nyaman dan terjangkau.';
+        } elseif ($this->type == 'Kamar Mewah') {
+            $this->description = $this->description ?: 'Kamar Mewah dengan fasilitas lengkap untuk kenyamanan maksimal.';
+        } elseif ($this->type == 'Kamar Istimewa') {
+            $this->description = $this->description ?: 'Kamar Istimewa dengan fasilitas premium untuk pengalaman tinggal yang mewah.';
         }
 
         $bedroom = Bedroom::updateOrCreate(
@@ -114,6 +116,15 @@ class Form extends Component
 
         session()->flash('success-message', 'Successfully');
         $this->redirectRoute('bedroom.data', navigate: true);
+    }
+
+    public function isValid($field)
+    {
+        if ($this->getErrorBag()->has($field)) {
+            return 'border-danger';
+        }
+
+        return isset($this->$field) ? 'border-success' : '';
     }
 
     public function render()
