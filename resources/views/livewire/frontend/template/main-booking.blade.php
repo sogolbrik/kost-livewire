@@ -33,7 +33,7 @@
 
 <body class="index-page">
 
-    <header id="header" class="header d-flex align-items-center fixed-top">
+    <header class="header d-flex align-items-center fixed-top" style="background-color: #10048Dff">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
             <a href="{{ route('front.index') }}" wire:navigate class="logo d-flex align-items-center">
@@ -82,6 +82,7 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('front-assets/assets/js/main.js') }}"></script>
+    <script src="{{ asset('front-assets/assets/js/jquery.js') }}"></script>
 
     {{-- Sweetalert --}}
     <script src="{{ asset('back-assets/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Frontend\Template;
 
+use App\Models\Bedroom;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
@@ -21,7 +22,7 @@ class MainBooking extends Component
 
     public function mount()
     {
-        // mount some variable
+        //
     }
 
     // run on .live / .blur
