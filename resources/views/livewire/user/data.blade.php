@@ -17,52 +17,54 @@
                 <div class="card-body">
                     <h5 class="card-title">User Data</h5>
                     <a href="{{ route('user.form') }}" class="btn btn-primary btn-sm" wire:navigate>New</a>
-                    <table class="table">
-                        <div class="col-md-4 mt-2">
-                            <div class="input-group mb-2">
-                                <input wire:model.live="search" type="search" class="form-control" placeholder="Search user by name...">
-                                <span class="input-group-text">
-                                    <i class="fa fa-search"></i>
-                                </span>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <div class="col-md-4 mt-2">
+                                <div class="input-group mb-2">
+                                    <input wire:model.live="search" type="search" class="form-control" placeholder="Search user by name...">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-search"></i>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>
-                                    <b>N</b>ame
-                                </th>
-                                <th>Email</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse ($user as $item)
+                            <thead>
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="bu bi-three-dots-vertical"></i>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><button type="button" class="btn btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#detailUser{{ $item->id }}">
-                                                        Detail
-                                                    </button></li>
-                                                <li><a href="{{ route('user.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
-                                                <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Delete</button></li>
-                                            </ul>
-                                        </div>
-                                    </td>
+                                    <th>#</th>
+                                    <th>
+                                        <b>N</b>ame
+                                    </th>
+                                    <th>Email</th>
+                                    <th>Action</th>
                                 </tr>
-                            @empty
-                                <pre class="fs-3 text-center">no does match.</pre>
-                            @endforelse
-                        </tbody>
-                    </table>
-                    {{ $user->links() }}
+                            </thead>
+                            <tbody>
+                                @forelse ($user as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="bu bi-three-dots-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><button type="button" class="btn btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#detailUser{{ $item->id }}">
+                                                            Detail
+                                                        </button></li>
+                                                    <li><a href="{{ route('user.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
+                                                    <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Delete</button></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <pre class="fs-3 text-center">no does match.</pre>
+                                @endforelse
+                            </tbody>
+                        </table>
+                        {{ $user->links() }}
+                    </div>
                 </div>
             </div>
 
@@ -79,7 +81,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <label class="fw-semibold">Name:</label>
                                 <ul>
                                     <li><p>{{ $item->name }} </p></li>
@@ -101,7 +103,7 @@
                                     <li><p>{{ $item->city }} </p></li>
                                 </ul>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <label class="fw-semibold">State:</label>
                                 <ul>
                                     <li><p>{{ $item->state }} </p></li>
@@ -118,6 +120,13 @@
                                 <ul>
                                     <li><p>{{ $item->role }} </p></li>
                                 </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="fw-semibold">KTP:</label>
+                                <img src="{{ Storage::url($item->ktp) }}" alt="{{ $item->name }}" class="img-fluid rounded">
                             </div>
                         </div>
                     </div>

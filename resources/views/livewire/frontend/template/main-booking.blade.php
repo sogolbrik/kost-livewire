@@ -25,9 +25,12 @@
     <link href="{{ asset('front-assets/assets/vendor/aos/aos.css') }}" rel="stylesheet">
     <link href="{{ asset('front-assets/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ asset('front-assets/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('back-assets/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
 
     <!-- Main CSS File -->
     <link href="{{ asset('front-assets/assets/css/main.css') }}" rel="stylesheet">
+    <!-- DatePicker -->
+    <link href="{{ asset('front-assets/assets/js/date-range/dist/daterangepicker.min.css') }}" rel="stylesheet">
     @livewireStyles
 </head>
 
@@ -42,6 +45,9 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
+                    <li><a wire:navigate href="{{ route('transaction.detail') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
+                            <div class="me-2 mx-2"> pesanan</div>
+                        </a></li>
                     <div class="d-flex mx-2">
                         @if (request()->routeIs('booking.detail'))
                             <li><a wire:navigate href="{{ route('booking') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
@@ -83,9 +89,15 @@
     <!-- Main JS File -->
     <script src="{{ asset('front-assets/assets/js/main.js') }}"></script>
     <script src="{{ asset('front-assets/assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('front-assets/assets/js/moment.js') }}"></script>
+
+    <!-- DatePicker -->
+    <script src="{{ asset('front-assets/assets/js/date-range/dist/jquery.daterangepicker.min.js') }}"></script>
 
     {{-- Sweetalert --}}
     <script src="{{ asset('back-assets/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
+
+    @stack('script')
 
     {{-- Success --}}
     @if (session('success-message'))

@@ -13,140 +13,134 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="row">
-    
+
                     <!-- Sales Card -->
                     <div class="col-xxl-4 col-md-6">
                         <div class="card info-card sales-card">
-    
+
                             <div class="card-body">
                                 <h5 class="card-title">Sales <span>| This Month</span></h5>
-    
+
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-cart"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>{{ $bedroom_total ?? 98 }}</h6>
-                                        <span class="text-success small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-    
+                                        <h6>{{ $sale ?? 0 }}</h6>
                                     </div>
                                 </div>
                             </div>
-    
+
                         </div>
                     </div><!-- End Sales Card -->
-    
+
                     <!-- Revenue Card -->
                     <div class="col-xxl-4 col-md-6">
                         <div class="card info-card revenue-card">
-    
+
                             <div class="card-body">
                                 <h5 class="card-title">Revenue <span>| This Month</span></h5>
-    
+
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-currency-dollar"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>Rp{{ number_format($bedroom_count ?? 10, 0, ',', '.') }}</h6>
-                                        <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
-    
+                                        <h6>Rp{{ number_format($revenue, 0, ',', '.') }}</h6>
                                     </div>
                                 </div>
                             </div>
-    
+
                         </div>
                     </div><!-- End Revenue Card -->
-    
+
                     <!-- Customers Card -->
                     <div class="col-xxl-4 col-md-6">
-    
+
                         <div class="card info-card customers-card">
-    
+
                             <div class="card-body">
                                 <h5 class="card-title">Customers <span>| This Month</span></h5>
-    
+
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="bi bi-people"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>{{ $customer_total ?? 100 }}</h6>
-                                        <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                                        <h6>{{ $customer ?? 100 }}</h6>
                                     </div>
                                 </div>
-    
+
                             </div>
                         </div>
                     </div><!-- End Customers Card -->
-    
+
                     <!-- Bedroom Availabel Card -->
                     <div class="col-xxl-4 col-md-6">
-    
+
                         <div class="card info-card sales-card">
-    
+
                             <div class="card-body">
                                 <h5 class="card-title">Bedroom Available</h5>
-    
+
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                                         <i class="ri-hotel-bed-line"></i>
                                     </div>
                                     <div class="ps-3">
-                                        <h6>{{ $bedroom_available ?? 10 }}</h6>
-                                        <span class="text-success small pt-1 fw-bold">20%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
+                                        <h6>{{ $available ?? 10 }}</h6>
                                     </div>
                                 </div>
-    
+
                             </div>
                         </div>
                     </div><!-- End Bedroom Available Card -->
-    
+
                     <!-- Recent Sales -->
                     <div class="col-12">
                         <div class="card recent-sales overflow-auto">
-    
+
                             <div class="card-body">
                                 <h5 class="card-title">Recent Sales <span>| This Month</span></h5>
-    
+
                                 <table class="table table-borderless datatable">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Customer</th>
                                             <th scope="col">Bedroom</th>
-                                            <th scope="col">Price</th>
+                                            <th scope="col">Period</th>
                                             <th scope="col">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($tes as $see)
+                                        @foreach ($transaction as $item)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $see->name }}</td>
-                                                <td>{{ $see->type }}</td>
-                                                <td>{{ $see->price }}</td>
-                                                @if ($see->status == 'available')
-                                                    <td class="badge bg-warning mt-2 text-light">Pending</td>
-                                                @endif
-                                                @if ($see->status == 'occupied')
-                                                    <td class="badge bg-success mx-3 mt-2 text-light">Paid</td>
-                                                @endif
-                                                {{-- @if ($see->status == 'rejected')
-                                                    <td class="badge bg-danger mt-2 text-light">Rejected</td>
-                                                @endif --}}
+                                                <td>{{ $item->user->name }}</td>
+                                                <td>{{ $item->bedroom->name }}</td>
+                                                <td>{{ date('F Y', strtotime($item->billing_period)) }}</td>
+                                                <td>
+                                                    @if ($item->status == 'pending')
+                                                        <span class="badge bg-warning mt-2 text-light shadow-sm">{{ $item->status }}</span>
+                                                    @elseif ($item->status == 'paid')
+                                                        <span class="badge bg-success mt-2 text-light shadow-sm">{{ $item->status }}</span>
+                                                    @elseif ($item->status == 'declined')
+                                                        <span class="badge bg-danger mt-2 text-light shadow-sm">{{ $item->status }}</span>
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-    
+
                             </div>
-    
+
                         </div>
                     </div><!-- End Recent Sales -->
-    
+
                     {{-- Chart --}}
-                    <div class="container mt-5">
+                    {{-- <div class="container mt-5">
                         <h2 class="fs-2">Revenue and Total Customers per Bedroom</h2>
                         <div>
                             <label for="month">Choose Month:</label>
@@ -217,8 +211,8 @@
                         }
     
                         document.addEventListener('DOMContentLoaded', loadChartData);
-                    </script>
-    
+                    </script> --}}
+
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@
                                             <i class="fas fa-user fa-lg me-3 mb-4 fa-fw"></i>
                                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                 <input name="name" type="text" value="{{ old('name') }}" id="form3Example1c" class="form-control @error('name') is-invalid @enderror" wire:model="name" />
-                                                <label class="form-label" for="form3Example1c">Your Name</label>
+                                                <label class="form-label" for="form3Example1c">Username</label>
                                                 @error('name')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
@@ -26,7 +26,7 @@
                                             <i class="fas fa-envelope fa-lg me-3 mb-4 fa-fw"></i>
                                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                 <input name="email" type="email" value="{{ old('email') }}" id="form3Example3c" class="form-control @error('email') is-invalid @enderror" wire:model="email" />
-                                                <label class="form-label" for="form3Example3c">Your Email</label>
+                                                <label class="form-label" for="form3Example3c">Email</label>
                                                 @error('email')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
@@ -48,14 +48,14 @@
                                             <i class="fas fa-key fa-lg me-3 mb-4 fa-fw"></i>
                                             <div data-mdb-input-init class="form-outline flex-fill mb-0">
                                                 <input name="password_confirmation" type="password" id="form3Example4cd" class="form-control @error('password_confirmation') is-invalid @enderror" wire:model="password_confirmation" />
-                                                <label class="form-label" for="form3Example4cd">Repeat your
-                                                    password</label>
+                                                <label class="form-label" for="form3Example4cd">Ulang
+                                                    Password</label>
                                             </div>
                                         </div>
 
                                         <div class="form-check d-flex justify-content-center mb-4">
                                             <label class="form-check-label">
-                                                already have an account? <a href="{{ route('login') }}" wire:navigate>Sign in</a>
+                                                sudah mempunyai akun? <a href="{{ route('login') }}" wire:navigate>Sign in</a>
                                             </label>
                                         </div>
 

@@ -1,26 +1,58 @@
 <?php
 
-namespace App\Livewire\Frontend\Template;
+namespace App\Livewire\Transaction;
 
-use App\Models\Bedroom;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
-// use Livewire\WithFileUploads;
+use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
-class MainBooking extends Component
+class Form extends Component
 {
-    // use WithFileUploads;
-    #[Title('your_title')]
-    #[Layout('template_view')]
+    use WithFileUploads;
+    #[Title('Pembayaran')]
+    #[Layout('livewire.frontend.template.main-booking')]
 
     // Property
-    public $transaction;
+    public $user_id, $bedroom_id, $payment_date, $transaction, $metode = '', $payment_proof;
+
+    // Validation
+    protected $rules = [
+        'payment_proof' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'metode'        => 'required',
+    ];
 
     public function mount()
     {
-        // $this->transaction = Transaction::where('user_id', Auth::id())->latest()->first();
+        $this->transaction = Session::get('transaction');
+    }
+
+    public function store()
+    {
+        $data = $this->validate();
+
+        $fileName = rand(100,999).date("ymdHis").".".$this->payment_proof->getClientOriginalExtension();
+        $data["payment_proof"] = $this->payment_proof->storePubliclyAs('payment', $fileName, 'public');
+
+        Transaction::create([
+            'user_id'        => Auth::id(),
+            'bedroom_id'     => $this->transaction['bedroom_id'],
+            'payment_date'   => date('Y-m-d'),
+            'billing_period' => date('Y-m'),
+            'payment_proof'  => $data["payment_proof"],
+            'metode'         => $this->metode,
+            'entering_room'  => $this->transaction['entering_room'],
+            'duration'       => $this->transaction['duration'],
+            'price'          => $this->transaction['price'],
+        ]);
+
+        // Hapus session
+        Session::forget('transaction');
+
+        session()->flash('success-message', 'Pembayaran berhasil, silahkan tunggu konfirmasi dari admin');
+        $this->redirectRoute('front.index', navigate: true);
     }
 
     // run on .live / .blur
@@ -31,10 +63,10 @@ class MainBooking extends Component
 
     public function render()
     {
-        return view('livewire.frontend.template.main-booking');
+        return view('livewire.transaction.form');
     }
 
-/*
+    /*
     Just Delete This If You Pro...
 
     Title / Judul
@@ -111,5 +143,12 @@ class MainBooking extends Component
 
             return isset($this->$field) ? 'is-valid' : '';
         }
+    custom message validation
+    protected $messages = [
+        'name'        => 'nama harus diisi',
+        'price'       => 'harga harus diisi',
+        'photo'       => 'gambar waib diisi',
+        'type'        => 'tipe harus diisi',
+    ];
 */
 }

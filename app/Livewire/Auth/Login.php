@@ -34,16 +34,23 @@ class Login extends Component
         $this->validate();
 
         if (Auth::attempt(['name' => $this->name, 'password' => $this->password])) {
-            session()->flash('success-message', 'logged in successfully!');
 
             $user = Auth::user();
             if ($user->role == 'customer') {
-                $this->redirectIntended('/');
+                if (User::where('bedroom_id', NULL)) {
+                    //redirect ke halaman kamar customer
+                    session()->flash('success-message', 'Berhasil login, silahkan pilih kamar');
+                    $this->redirectIntended('/');
+                } else {
+                    $this->redirectIntended('/');
+                    session()->flash('success-message', 'Berhasil Login!');
+                }
             } elseif ($user->role == 'administrator') {
+                session()->flash('success-message', 'Berhasil Login!');
                 $this->redirectIntended('admin-dashboard');
             }
         } else {
-            session()->flash('error-message', 'Incorrect username or password');
+            session()->flash('error-message', 'Nama pengguna atau kata sandi salah');
         }
     }
 

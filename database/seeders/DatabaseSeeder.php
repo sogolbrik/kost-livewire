@@ -31,10 +31,11 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 0; $i < 3; $i++) {
             Bedroom::create([
-                'photo'    => fake()->imageUrl(),
+                'photo'       => fake()->imageUrl(),
                 'name'        => fake()->word(1),
                 'price'       => fake()->randomNumber(6, true),
                 'type'        => "Standard Room",
+                'width'       => "3 x 2.5 meter",
                 'description' => "Kamar standar dengan fasilitas dasar yang nyaman dan terjangkau.",
             ]);
         }

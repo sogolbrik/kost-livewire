@@ -1,26 +1,46 @@
 <?php
 
-namespace App\Livewire\Frontend\Template;
+namespace App\Livewire\Auth;
 
-use App\Models\Bedroom;
-use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-// use Livewire\WithFileUploads;
+use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
-class MainBooking extends Component
+class Biodata extends Component
 {
-    // use WithFileUploads;
-    #[Title('your_title')]
-    #[Layout('template_view')]
+    use WithFileUploads;
+    #[Title('Biodata')]
+    #[Layout('livewire.backend.template.auth')]
 
     // Property
-    public $transaction;
+    public $userid, $phone, $address, $city, $state, $ktp;
+    // Validation
+    protected $rules = [
+        'phone'   => 'required',
+        'address' => 'required',
+        'city'    => 'required',
+        'state'   => 'required',
+        'ktp'     => 'required|image|mimes:jpeg,png,jpg,webp|max:1024',
+    ];
 
     public function mount()
     {
-        // $this->transaction = Transaction::where('user_id', Auth::id())->latest()->first();
+        $this->userid = Auth::id();
+    }
+
+    public function store()
+    {
+        $data = $this->validate();
+
+        $fileName = "ktp-".rand(10,999).$this->ktp->getClientOriginalExtension();
+        $data["ktp"] = $this->ktp->storePubliclyAs('ktp', $fileName, 'public');
+
+        User::find($this->userid)->update($data);
+
+        session()->flash('success-message', 'Data diri berhasil diupdate');
+        $this->redirectIntended('/');
     }
 
     // run on .live / .blur
@@ -31,10 +51,10 @@ class MainBooking extends Component
 
     public function render()
     {
-        return view('livewire.frontend.template.main-booking');
+        return view('livewire.auth.biodata');
     }
 
-/*
+    /*
     Just Delete This If You Pro...
 
     Title / Judul
@@ -111,5 +131,12 @@ class MainBooking extends Component
 
             return isset($this->$field) ? 'is-valid' : '';
         }
+    custom message validation
+    protected $messages = [
+        'name'        => 'nama harus diisi',
+        'price'       => 'harga harus diisi',
+        'photo'       => 'gambar waib diisi',
+        'type'        => 'tipe harus diisi',
+    ];
 */
 }

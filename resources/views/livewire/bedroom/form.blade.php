@@ -64,6 +64,17 @@
                                 <textarea class="form-control {{ $this->isValid('description') }}" rows="3" wire:model.live="description"></textarea>
                             </div>
                             @error('description')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="inputWidth" class="col-form-label">Width</label>
+                            <small class="text-secondary mx-3">*default 3 x 2.5 m</small>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control {{ $this->isValid('width') }}" wire:model.live="width">
+                            </div>
+                            @error('width')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -73,31 +84,31 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="bed_pillow" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Kasur & Bantal" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Bed and Pillow
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="wardrobe" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Lemari" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Wardrobe
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="desk_chair" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Meja dan Kursi" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Desk and Chair
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="bathroom" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="K. Mandi Dalam" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Private Bathroom
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="mirror" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Kaca" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Mirror
                                         </label>
@@ -105,31 +116,31 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="tv" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="TV" wire:model.live="facility">
                                         <label class="form-check-label">
                                             TV (Television)
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="kitchen" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Dapur Pribadi" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Private Kitchen
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="wifi" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="WI-FI" wire:model.live="facility">
                                         <label class="form-check-label">
                                             WiFi/Internet Access
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="trash_bin" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Tempat Sampah" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Trash Bin
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="electricity" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Listrik" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Electricity
                                         </label>
@@ -137,31 +148,31 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="window_curtains" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Jendela dan Tirai" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Window and Curtains
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="power_outlets" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Stopkontak" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Power Outlets
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="shoe_rack" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Rak Sepatu" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Shoe Rack
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="ac" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="AC" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Air Conditioner (AC)
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="fan" wire:model.live="facility">
+                                        <input class="form-check-input" type="checkbox" value="Kipas Angin" wire:model.live="facility">
                                         <label class="form-check-label">
                                             Fan
                                         </label>
@@ -174,7 +185,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="inputNumber" class="col-sm-2 col-form-label">Photo</label>
+                            <label for="inputWidth" class="col-sm-2 col-form-label">Photo</label>
                             <div class="col-sm-10">
                                 <input class="form-control {{ $this->isValid('photo') }}" type="file" id="formFile" wire:model.live="photo">
                             </div>

@@ -16,7 +16,7 @@ class Form extends Component
 
 
     // Property
-    public $name, $price, $photo, $type = "", $description, $bedId, $bedroom, $facility = [];
+    public $name, $price, $photo, $type = "", $description, $bedId, $bedroom, $facility = [], $width;
 
     // Validation
     protected $rules = [
@@ -24,6 +24,7 @@ class Form extends Component
         'price'       => 'required|numeric',
         'photo'       => 'required|image|mimes:jpeg,png,jpg,webp|max:1024',
         'type'        => 'required',
+        'width'       => 'sometimes',
         'description' => 'sometimes',
         'facility'    => 'required|array',
     ];
@@ -40,6 +41,7 @@ class Form extends Component
                 $this->price       = $bedroom->price;
                 $this->photo       = $bedroom->photo;
                 $this->type        = $bedroom->type;
+                $this->width       = $bedroom->width;
                 $this->description = $bedroom->description;
                 $this->facility    = $bedroom->bedroomDetail->pluck('facility')->toArray();
             }
@@ -58,11 +60,11 @@ class Form extends Component
         $this->facility = [];
 
         if ($this->type == 'Kamar Standar') {
-            $this->facility = ['bed_pillow', 'wardrobe', 'desk_chair', 'bathroom', 'mirror', 'trash_bin', 'electricity', 'power_outlets', 'window_curtains', 'fan'];
+            $this->facility = ['Kasur & Bantal', 'Lemari', 'Meja dan Kursi', 'K. Mandi Dalam', 'Kaca', 'Tempat Sampah', 'Listrik', 'Stopkontak', 'Jendela dan Tirai', 'Kipas Angin'];
         } elseif ($this->type == 'Kamar Mewah') {
-            $this->facility = ['bed_pillow', 'wardrobe', 'desk_chair', 'bathroom', 'mirror', 'tv', 'wifi', 'trash_bin', 'electricity', 'window_curtains', 'power_outlets', 'shoe_rack', 'ac'];
+            $this->facility = ['Kasur & Bantal', 'Lemari', 'Meja dan Kursi', 'K. Mandi Dalam', 'Kaca', 'TV', 'WI-FI', 'Tempat Sampah', 'Listrik', 'Jendela dan Tirai', 'Stopkontak', 'Rak Sepatu', 'AC'];
         } elseif ($this->type == 'Kamar Istimewa') {
-            $this->facility = ['bed_pillow', 'wardrobe', 'desk_chair', 'bathroom', 'mirror', 'tv', 'kitchen', 'wifi', 'trash_bin', 'electricity', 'window_curtains', 'power_outlets', 'shoe_rack', 'ac'];
+            $this->facility = ['Kasur & Bantal', 'Lemari', 'Meja dan Kursi', 'K. Mandi Dalam', 'Kaca', 'TV', 'Dapur Pribadi', 'WI-FI', 'Tempat Sampah', 'Listrik', 'Jendela dan Tirai', 'Stopkontak', 'Rak Sepatu', 'AC'];
         }
 
         $this->resetErrorBag('facility');
@@ -88,12 +90,17 @@ class Form extends Component
             $this->description = $this->description ?: 'Kamar Istimewa dengan fasilitas premium untuk pengalaman tinggal yang mewah.';
         }
 
+        if (empty($this->width)) {
+            $this->width = '3 x 2.5 meter';
+        }
+
         $bedroom = Bedroom::updateOrCreate(
             ['id' => $this->bedId],
             [
                 'name'        => $this->name,
                 'price'       => $this->price,
                 'type'        => $this->type,
+                'width'       => $this->width,
                 'description' => $this->description,
                 'photo'       => $photoPath,
             ]

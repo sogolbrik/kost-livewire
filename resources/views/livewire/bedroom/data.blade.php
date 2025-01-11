@@ -17,51 +17,53 @@
                 <div class="card-body">
                     <h5 class="card-title">Bedroom Data</h5>
                     <a href="{{ route('bedroom.form') }}" class="btn btn-primary btn-sm" wire:navigate>New</a>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>
-                                    <b>N</b>ame
-                                </th>
-                                <th>Type</th>
-                                <th>Price</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($bedroom as $item)
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->type }}</td>
-                                    <td><em>Rp {{ number_format($item->price, 0, ',', '.') }}</em></td>
-                                    <td>
-                                        @if ($item->status == 'available')
-                                            <span class="badge rounded-pill bg-primary">{{ $item->status }}</span>
-                                        @else
-                                            <span class="badge rounded-pill bg-secondary">{{ $item->status }}</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="bu bi-three-dots-vertical"></i>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li><button type="button" class="btn btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#detailBedroom{{ $item->id }}">
-                                                        Detail
-                                                    </button></li>
-                                                <li><a href="{{ route('bedroom.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
-                                                <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Delete</button></li>
-                                            </ul>
-                                        </div>
-                                    </td>
+                                    <th>#</th>
+                                    <th>
+                                        <b>N</b>ame
+                                    </th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @foreach ($bedroom as $item)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->type }}</td>
+                                        <td><em>Rp {{ number_format($item->price, 0, ',', '.') }}</em></td>
+                                        <td>
+                                            @if ($item->status == 'available')
+                                                <span class="badge rounded-pill bg-primary">{{ $item->status }}</span>
+                                            @else
+                                                <span class="badge rounded-pill bg-secondary">{{ $item->status }}</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="bu bi-three-dots-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><button type="button" class="btn btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#detailBedroom{{ $item->id }}">
+                                                            Detail
+                                                        </button></li>
+                                                    <li><a href="{{ route('bedroom.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
+                                                    <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Delete</button></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -92,9 +94,15 @@
                                     @endforeach
                                 </ul>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <label class="d-flex justify-content-center">Description:</label>
                                 <em>{{ $item->description }}</em>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="d-flex justify-content-center">Width:</label>
+                                <em>{{ $item->width }}</em>
                             </div>
                         </div>
                     </div>

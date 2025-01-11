@@ -18,6 +18,14 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $guarded = ['id'];
+
+    public function bedroom(){
+        return $this->hasMany(Bedroom::class);
+    }
+
+    public function transaction(){
+        return $this->hasMany(Transaction::class);
+    }
     // protected $fillable = [
     //     'name',
     //     'email',

@@ -1,26 +1,48 @@
 <?php
 
-namespace App\Livewire\Frontend\Template;
+namespace App\Livewire\Transaction;
 
-use App\Models\Bedroom;
 use App\Models\Transaction;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
-class MainBooking extends Component
+class Data extends Component
 {
     // use WithFileUploads;
-    #[Title('your_title')]
-    #[Layout('template_view')]
+    #[Title('Transaction')]
+    #[Layout('livewire.backend.template.main')]
 
     // Property
-    public $transaction;
+    public $transaction, $user_id, $bedroom_id, $payment_date, $billing_period, $payment_proof, $metode, $entering_room, $duration, $status_payment, $status;
 
     public function mount()
     {
-        // $this->transaction = Transaction::where('user_id', Auth::id())->latest()->first();
+        $this->transaction = Transaction::with('user', 'bedroom')->latest()->get();
+    }
+
+    public function changeStatus($status, $id)
+    {
+        $transaction = Transaction::find($id);
+
+        $bedroom = $transaction->bedroom;
+        $user    = $transaction->user;
+
+        $transaction->status = $status;
+        $transaction->save();
+        
+        if ($status == 'paid') {
+            $bedroom->status = 'occupied';
+            $bedroom->save();
+
+            $user->bedroom_id = $transaction->bedroom_id;
+            $user->check_in   = $transaction->entering_room;
+            $user->status     = 'active';
+            $user->save();
+        };
+
+        // Emit event untuk menutup modal
+        $this->dispatch('closeModal');
     }
 
     // run on .live / .blur
@@ -31,10 +53,10 @@ class MainBooking extends Component
 
     public function render()
     {
-        return view('livewire.frontend.template.main-booking');
+        return view('livewire.transaction.data');
     }
 
-/*
+    /*
     Just Delete This If You Pro...
 
     Title / Judul
@@ -111,5 +133,12 @@ class MainBooking extends Component
 
             return isset($this->$field) ? 'is-valid' : '';
         }
+    custom message validation
+    protected $messages = [
+        'name'        => 'nama harus diisi',
+        'price'       => 'harga harus diisi',
+        'photo'       => 'gambar waib diisi',
+        'type'        => 'tipe harus diisi',
+    ];
 */
 }

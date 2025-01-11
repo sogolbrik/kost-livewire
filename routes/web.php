@@ -12,9 +12,13 @@ use App\Livewire\Fintech\Form as FintechForm;
 use App\Livewire\User\Data as UserData;
 use App\Livewire\User\Form as UserForm;
 use App\Http\Middleware\AdministratorMiddleware;
+use App\Livewire\Auth\Biodata;
 use App\Livewire\Frontend\Booking;
 use App\Livewire\Frontend\BookingDetail;
 use App\Livewire\Frontend\Landing\Dashboard as LandingDashboard;
+use App\Livewire\Frontend\TransactionDetail;
+use App\Livewire\Transaction\Data;
+use App\Livewire\Transaction\Form;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -27,11 +31,15 @@ Route::get('index', function () {
 //Authentication
 Route::get('login', Login::class)->name('login');
 Route::get('register', Register::class)->name('register');
+Route::get('biodata', Biodata::class)->name('biodata');
 //Dashbard
 Route::get('/', LandingDashboard::class)->name('front.index');
 //Booking Bedroom
 Route::get('booking', Booking::class)->name('booking');
 Route::get('booking/detail/{bedId}', BookingDetail::class)->name('booking.detail');
+//Transaction
+Route::get('payment', Form::class)->name('transaction.form');
+Route::get('transaction/detail', TransactionDetail::class)->name('transaction.detail');
 
 Route::middleware([AdministratorMiddleware::class])->group(function () {
     //Dashboard
@@ -47,4 +55,6 @@ Route::middleware([AdministratorMiddleware::class])->group(function () {
     //Fintech / Rekening
     Route::get('fintech', FintechData::class)->name('fintech.data');
     Route::get('fintech/form/{fintechId?}', FintechForm::class)->name('fintech.form');
+    //Transaction
+    Route::get('transaction', Data::class)->name('transaction.data');
 });

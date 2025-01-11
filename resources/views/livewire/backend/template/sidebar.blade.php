@@ -23,7 +23,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('transaction.data') }}" wire:current="active" wire:navigate>
                             <i class="bi bi-circle"></i><span>Transaction</span>
                         </a>
                     </li>

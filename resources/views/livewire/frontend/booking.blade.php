@@ -1,7 +1,7 @@
 <div>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+    {{-- <section id="hero" class="hero section dark-background">
         <img src="{{ asset('front-assets/assets/img/hero-bg-2.jpg') }}" alt="" class="hero-bg">
 
         <div class="container">
@@ -36,10 +36,10 @@
             </g>
         </svg>
 
-    </section><!-- /Hero Section -->
+    </section><!-- /Hero Section --> --}}
 
     <!-- Pricing Section -->
-    <section id="pricing" class="pricing section mt-4">
+    <section id="pricing" class="pricing section mt-5 light-background">
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
@@ -50,7 +50,7 @@
         <div class="container">
             <div class="row gy-4">
                 @forelse ($bedroom as $see)
-                    <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="col-lg-4 shadow-sm" data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-item">
                             <div class="gallery-item mb-2">
                                 <a href="{{ Storage::url($see->photo) }}" class="glightbox" data-gallery="images-gallery">
@@ -60,7 +60,13 @@
                             <h3>{{ $see->type }}</h3>
                             <p class="description">{{ $see->description }}</p>
                             <h4><sup>Rp</sup>{{ number_format($see->price, 0, ',', '.') }}<br><span> / bulan</span></h4>
-                            <a href="{{ route('booking.detail', $see->id) }}" wire:navigate class="cta-btn">Detail Kamar</a>
+                            @if ($see->status == 'available')
+                                <a href="{{ route('booking.detail', $see->id) }}" wire:navigate class="cta-btn">Detail Kamar</a>
+                            @else
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-danger mt-4" disabled>Tidak Tersedia</button>
+                                </div>
+                            @endif
                         </div>
                     </div><!-- End Pricing Item -->
                 @empty

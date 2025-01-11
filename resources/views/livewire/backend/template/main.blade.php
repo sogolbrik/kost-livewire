@@ -80,6 +80,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Template Main JS File -->
     <script src="{{ asset('back-assets/assets/js/main.js') }}"></script>
+    <script src="{{ asset('front-assets/assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('front-assets/assets/js/moment.js') }}"></script>
     {{-- Sweetalert --}}
     <script src="{{ asset('back-assets/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
 

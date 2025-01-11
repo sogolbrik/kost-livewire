@@ -23,9 +23,10 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->date('check_in')->nullable();
-            $table->string('status')->nullable();
+            $table->enum('status', ['active', 'inactive'])->nullable();
             $table->enum('role', ['administrator', 'customer'])->default('customer');
             $table->string('photo')->nullable();
+            $table->string('ktp')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

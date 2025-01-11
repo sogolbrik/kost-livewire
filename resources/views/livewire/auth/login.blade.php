@@ -29,7 +29,7 @@
 
                                         <div class="form-check d-flex justify-content-center mb-4">
                                             <label class="form-check-label">
-                                                Don't have an account? <a href="{{ route('register') }}" wire:navigate>Sign up</a>
+                                                belum mempunyai akun? <a href="{{ route('register') }}" wire:navigate class="mx-5">Sign up</a>
                                             </label>
                                         </div>
 

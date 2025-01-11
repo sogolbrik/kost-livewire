@@ -3,6 +3,7 @@
 namespace App\Livewire\Auth;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
@@ -29,20 +30,21 @@ class Register extends Component
         $this->validateOnly($propertyName);
     }
 
-    public function register(){
+    public function register()
+    {
         $validation = $this->validate();
 
         $validation['password'] = password_hash($validation['password'], PASSWORD_BCRYPT);
 
         User::create($validation);
 
-        session()->flash('success-message', 'Account created successfully. Welcome to your dashboard!');
-        if (User::where('role', 'customer')) {
+        session()->flash('success-message', 'Akun berhasil dibuat. silakan isi data pribadi Anda!');
+
+        if (Auth::attempt(['name' => $this->name, 'password' => $this->password])) {
             $this->redirectIntended('/');
         }
-        if (User::where('role', 'administrator')) {
-            $this->redirectIntended('admin-dashboard');
-        }
+
+        $this->redirectIntended('biodata');
     }
 
     public function render()
@@ -50,7 +52,7 @@ class Register extends Component
         return view('livewire.auth.register');
     }
 
-/*
+    /*
     Just Delete This If You Pro...
 
     Title / Judul
