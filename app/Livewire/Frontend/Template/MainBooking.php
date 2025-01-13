@@ -20,7 +20,7 @@ class MainBooking extends Component
 
     public function mount()
     {
-        // $this->transaction = Transaction::where('user_id', Auth::id())->latest()->first();
+        $this->transaction = Transaction::where('user_id', Auth::id())->get();
     }
 
     // run on .live / .blur
@@ -31,7 +31,9 @@ class MainBooking extends Component
 
     public function render()
     {
-        return view('livewire.frontend.template.main-booking');
+        return view('livewire.frontend.template.main-booking', [
+            'transaction' => $this->transaction
+        ]);
     }
 
 /*

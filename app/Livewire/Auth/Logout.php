@@ -14,8 +14,8 @@ class Logout extends Component
         session()->invalidate();
         session()->regenerateToken();
 
-        session()->flash('success-message', 'Successfully logged out.');
-        $this->redirectRoute('/', navigate:true);
+        session()->flash('success-message', 'Anda berhasil logout.');
+        $this->redirectRoute('front.index');
     }
 
     public function render()

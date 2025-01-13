@@ -37,16 +37,16 @@ class Login extends Component
 
             $user = Auth::user();
             if ($user->role == 'customer') {
-                if (User::where('bedroom_id', NULL)) {
-                    //redirect ke halaman kamar customer
+                if ($user->bedroom_id == NULL) {
                     session()->flash('success-message', 'Berhasil login, silahkan pilih kamar');
                     $this->redirectIntended('/');
                 } else {
-                    $this->redirectIntended('/');
+                    //redirect ke halaman kamar customer
+                    $this->redirectIntended('kamar-ku');
                     session()->flash('success-message', 'Berhasil Login!');
                 }
             } elseif ($user->role == 'administrator') {
-                session()->flash('success-message', 'Berhasil Login!');
+                session()->flash('success-message', 'Logged in successfully!');
                 $this->redirectIntended('admin-dashboard');
             }
         } else {

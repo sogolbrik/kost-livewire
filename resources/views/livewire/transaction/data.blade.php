@@ -28,6 +28,7 @@
                                     <th>Duration</th>
                                     <th>Status</th>
                                     <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,27 +53,24 @@
                                                 Detail
                                             </button>
                                         </td>
+                                        <td>
+                                            @if ($item->status == 'pending')
+                                                <div class="d-flex">
+                                                    <form wire:submit.prevent="changeStatus('paid', {{ $item->id }})" class="me-2">
+                                                        <button class="status-btn btn btn-sm btn-success">Approve</button>
+                                                    </form>
+                                                    <form wire:submit.prevent="changeStatus('declined', {{ $item->id }})">
+                                                        <button class="status-btn btn btn-sm btn-danger">Reject</button>
+                                                    </form>
+                                                </div>
+                                            @endif
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
 
-                    @script
-                        <script>
-                            document.addEventListener('livewire:load', function() {
-                                Livewire.on('closeModal', function() {
-                                    // Tutup modal yang aktif
-                                    $('.modal.show').each(function() {
-                                        $(this).modal('hide'); // Menutup modal
-                                    });
-
-                                    // Hapus overlay hitam
-                                    $('.modal-backdrop').remove();
-                                });
-                            });
-                        </script>
-                    @endscript
                 </div>
             </div>
 
@@ -112,21 +110,6 @@
                                 <em>{{ $item->metode }}</em>
                             </div>
                         </div>
-                        @if ($item->status == 'pending')
-                            <div class="row">
-                                <label class="fw-semibold">Select:</label>
-                                <div class="col-md-6 d-flex">
-                                    <form wire:submit.prevent="changeStatus('paid', {{ $item->id }})" class="me-2">
-                                        {{-- <input type="hidden" value="paid"> --}}
-                                        <button class="btn btn-sm btn-success">Paid</button>
-                                    </form>
-                                    <form wire:submit.prevent="changeStatus('declined', {{ $item->id }})">
-                                        {{-- <input type="hidden" value="declined"> --}}
-                                        <button class="btn btn-sm btn-danger">Reject</button>
-                                    </form>
-                                </div>
-                            </div>
-                        @endif
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
@@ -135,4 +118,7 @@
             </div>
         </div>
     @endforeach
+
+
+
 </div>

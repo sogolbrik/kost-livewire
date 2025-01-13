@@ -40,9 +40,6 @@ class Data extends Component
             $user->status     = 'active';
             $user->save();
         };
-
-        // Emit event untuk menutup modal
-        $this->dispatch('closeModal');
     }
 
     // run on .live / .blur

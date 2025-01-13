@@ -2,6 +2,8 @@
 
 namespace App\Livewire\Frontend\Landing;
 
+use App\Models\Bedroom;
+use App\Models\User;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
@@ -13,6 +15,7 @@ class Dashboard extends Component
     #[Layout('livewire.frontend.template.main')]
 
     // Property
+    public $customer, $bedroom;
 
     // Validation
     protected $rules = [
@@ -21,7 +24,8 @@ class Dashboard extends Component
 
     public function mount()
     {
-        // mount some variable
+        $this->customer = User::where('role', 'customer')->whereNotNull('bedroom_id')->count();
+        $this->bedroom  = Bedroom::count();
     }
 
     // run on .live / .blur

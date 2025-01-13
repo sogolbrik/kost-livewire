@@ -49,7 +49,7 @@
                     <p>Kami hadir untuk memberikan solusi terbaik bagi Anda yang sedang mencari tempat tinggal nyaman dan terjangkau. Kamar kos yang kami tawarkan dirancang dengan penuh perhatian
                         untuk memenuhi kebutuhan dan kenyamanan penghuninya. Kami memahami betul pentingnya memiliki ruang yang tidak hanya fungsional, tetapi juga mendukung produktivitas dan
                         kualitas hidup.</p>
-                    <a href="#" class="read-more"><span>Baca lebih lanjut!</span><i class="bi bi-arrow-right"></i></a>
+                    {{-- <a href="#" class="read-more"><span>Baca lebih lanjut!</span><i class="bi bi-arrow-right"></i></a> --}}
                 </div>
 
                 <div class="col-xl-7">
@@ -105,7 +105,7 @@
                 <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
                     <i class="bi bi-emoji-smile"></i>
                     <div class="stats-item">
-                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $customer }}" data-purecounter-duration="1" class="purecounter"></span>
                         <p>Total Pelanggan</p>
                     </div>
                 </div><!-- End Stats Item -->
@@ -113,7 +113,7 @@
                 <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
                     <i class="bi bi-journal-richtext"></i>
                     <div class="stats-item">
-                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $bedroom }}" data-purecounter-duration="1" class="purecounter"></span>
                         <p>Total Kamar</p>
                     </div>
                 </div><!-- End Stats Item -->
@@ -121,7 +121,7 @@
                 <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
                     <i class="bi bi-headset"></i>
                     <div class="stats-item">
-                        <span data-purecounter-start="" data-purecounter-end="95" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="1" class="purecounter"></span>
                         <p>Respon Layanan</p>
                     </div>
                 </div><!-- End Stats Item -->
@@ -129,7 +129,7 @@
                 <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
                     <i class="bi bi-people"></i>
                     <div class="stats-item">
-                        <span data-purecounter-start="0" data-purecounter-end="1000" data-purecounter-duration="1" class="purecounter"></span>
+                        <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
                         <p>Pengunjung Website</p>
                     </div>
                 </div><!-- End Stats Item -->
@@ -145,8 +145,8 @@
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Details</h2>
-            <div><span>Check Our</span> <span class="description-title">Details</span></div>
+            <h2>Layanan Kos</h2>
+            <div><span class="description-title">Layanan Kos</span></div>
         </div><!-- End Section Title -->
 
         <div class="container">
@@ -156,15 +156,14 @@
                     <img src="{{ asset('front-assets/assets/img/details-1.png') }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+                    <h3>Kenyamanan dan Keamanan Terjamin</h3>
                     <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                        Kami menyediakan layanan kos dengan kenyamanan dan keamanan yang terjamin untuk Anda.
                     </p>
                     <ul>
-                        <li><i class="bi bi-check"></i><span> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                        <li><i class="bi bi-check"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                        <li><i class="bi bi-check"></i> <span>Ullam est qui quos consequatur eos accusamus.</span></li>
+                        <li><i class="bi bi-check"></i><span> Kamar bersih dan rapi setiap hari.</span></li>
+                        <li><i class="bi bi-check"></i> <span>Keamanan 24 jam dengan sistem CCTV.</span></li>
+                        <li><i class="bi bi-check"></i> <span>Fasilitas lengkap untuk kebutuhan sehari-hari.</span></li>
                     </ul>
                 </div>
             </div><!-- Features Item -->
@@ -174,15 +173,12 @@
                     <img src="{{ asset('front-assets/assets/img/details-4.png') }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
-                    <h3>Quas et necessitatibus eaque impedit ipsum animi consequatur incidunt in</h3>
+                    <h3>Layanan Tambahan</h3>
                     <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                        Kami juga menyediakan berbagai layanan tambahan untuk kenyamanan Anda.
                     </p>
                     <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
+                        Layanan laundry, Wi-Fi gratis, dan ruang santai bersama adalah beberapa fasilitas tambahan yang kami sediakan untuk penghuni kos.
                     </p>
                 </div>
             </div><!-- Features Item -->
@@ -303,14 +299,12 @@
                         <div class="testimonial-item">
                             <img src="{{ asset('front-assets/assets/img/testimonials/testimonials-1.jpg') }}" class="testimonial-img" alt="">
                             <h3>Saul Goodman</h3>
-                            <h4>Ceo &amp; Founder</h4>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen
-                                    aliquam, risus at semper.</span>
+                                <span>Kos ini sangat nyaman dan aman. Fasilitasnya lengkap dan pelayanannya sangat memuaskan. Saya sangat merekomendasikan tempat ini.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -320,14 +314,12 @@
                         <div class="testimonial-item">
                             <img src="{{ asset('front-assets/assets/img/testimonials/testimonials-2.jpg') }}" class="testimonial-img" alt="">
                             <h3>Sara Wilsson</h3>
-                            <h4>Designer</h4>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat
-                                    irure amet legam anim culpa.</span>
+                                <span>Tempat kos ini sangat bersih dan rapi. Saya merasa sangat nyaman tinggal di sini. Pemiliknya juga sangat ramah dan membantu.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -337,14 +329,12 @@
                         <div class="testimonial-item">
                             <img src="{{ asset('front-assets/assets/img/testimonials/testimonials-3.jpg') }}" class="testimonial-img" alt="">
                             <h3>Jena Karlis</h3>
-                            <h4>Store Owner</h4>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis
-                                    sint minim.</span>
+                                <span>Saya sangat puas dengan fasilitas yang disediakan di kos ini. Kamar yang nyaman dan suasana yang tenang membuat saya betah tinggal di sini.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -354,14 +344,12 @@
                         <div class="testimonial-item">
                             <img src="{{ asset('front-assets/assets/img/testimonials/testimonials-4.jpg') }}" class="testimonial-img" alt="">
                             <h3>Matt Brandon</h3>
-                            <h4>Freelancer</h4>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore
-                                    quem dolore labore illum veniam.</span>
+                                <span>Kos ini sangat cocok untuk para pekerja freelance seperti saya. Fasilitas Wi-Fi yang cepat dan suasana yang tenang sangat mendukung produktivitas saya.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -371,14 +359,12 @@
                         <div class="testimonial-item">
                             <img src="{{ asset('front-assets/assets/img/testimonials/testimonials-5.jpg') }}" class="testimonial-img" alt="">
                             <h3>John Larson</h3>
-                            <h4>Entrepreneur</h4>
                             <div class="stars">
                                 <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam
-                                    esse veniam culpa fore nisi cillum quid.</span>
+                                <span>Saya sangat merekomendasikan kos ini untuk para entrepreneur. Fasilitas yang lengkap dan pelayanan yang baik membuat saya sangat puas.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -456,10 +442,10 @@
             <div class="row gy-4">
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
                     <div class="pricing-item">
-                        <h3>Standard Room</h3>
+                        <h3>Kamar Standar</h3>
                         <p class="description">Kamar standar dengan fasilitas dasar yang nyaman dan terjangkau.</p>
-                        <h4><sup>Rp</sup>750.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Cek Detail</a>
+                        <h4><sup>Rp</sup>850.000<span> / bulan</span></h4>
+                        <a href="{{ route('booking') }}" wire:navigate class="cta-btn">Cek Detail</a>
                         <ul>
                             <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
                             <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
@@ -473,10 +459,10 @@
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="200">
                     <div class="pricing-item featured">
                         <p class="popular">Popular</p>
-                        <h3>Deluxe Room</h3>
-                        <p class="description">Kamar deluxe dengan fasilitas lengkap untuk kenyamanan maksimal.</p>
+                        <h3>Kamar Mewah</h3>
+                        <p class="description">Kamar Mewah dengan fasilitas lengkap untuk kenyamanan maksimal.</p>
                         <h4><sup>Rp</sup>1.500.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Cek Detail</a>
+                        <a href="{{ route('booking') }}" wire:navigate class="cta-btn">Cek Detail</a>
                         <ul>
                             <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
                             <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
@@ -489,10 +475,10 @@
 
                 <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="300">
                     <div class="pricing-item">
-                        <h3>Suite Room</h3>
-                        <p class="description">Kamar suite dengan fasilitas premium untuk pengalaman tinggal yang mewah.</p>
-                        <h4><sup>Rp</sup>2.200.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Cek Detail</a>
+                        <h3>kamar Istimewa</h3>
+                        <p class="description">Kamar Istimewa dengan fasilitas premium untuk pengalaman tinggal yang mewah.</p>
+                        <h4><sup>Rp</sup>1.999.000<span> / bulan</span></h4>
+                        <a href="{{ route('booking') }}" wire:navigate class="cta-btn">Cek Detail</a>
                         <ul>
                             <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
                             <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
@@ -506,7 +492,7 @@
             </div>
         </div>
     </section><!-- /Pricing Section -->
-    
+
     <!-- Faq Section -->
     <section id="faq" class="faq section light-background">
 
@@ -583,7 +569,7 @@
                         <i class="bi bi-geo-alt flex-shrink-0"></i>
                         <div>
                             <h3>Alamat</h3>
-                            <p>Mojokerto, East Java, Indonesia</p>
+                            <p>Mojokerto, Jawa Timur, Indonesia</p>
                         </div>
                     </div><!-- End Info Item -->
 
@@ -652,8 +638,8 @@
                         <span class="sitename">KostDelapanBelas</span>
                     </a>
                     <div class="footer-contact pt-3">
-                        <p>Watu Umpak</p>
-                        <p>Mojokerto, East Java</p>
+                        <p>Kutorejo</p>
+                        <p>Mojokerto, Jawa Timur</p>
                         <p class="mt-3"><strong>Phone:</strong> <span>+62 857 0422 9619</span></p>
                         <p><strong>Email:</strong> <span>gilangsampurno@gmail.com</span></p>
                     </div>
@@ -678,16 +664,16 @@
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Layanan Kami</h4>
+                    <h4>Layanan Kos</h4>
                     <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Kamar Bersih</a></li>
+                        <li><a href="#">Keamanan 24 Jam</a></li>
+                        <li><a href="#">Wi-Fi Gratis</a></li>
+                        <li><a href="#">Layanan Laundry</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-4 col-md-12 footer-newsletter">
+                {{-- <div class="col-lg-4 col-md-12 footer-newsletter">
                     <h4>Buletin Kami</h4>
                     <p>Berlangganan buletin kami dan dapatkan berita terbaru tentang produk dan layanan kami!</p>
                     <form action="forms/newsletter.php" method="post" class="php-email-form">
@@ -696,7 +682,7 @@
                         <div class="error-message"></div>
                         <div class="sent-message">Your subscription request has been sent. Thank you!</div>
                     </form>
-                </div>
+                </div> --}}
 
             </div>
         </div>

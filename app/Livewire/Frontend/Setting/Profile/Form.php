@@ -1,30 +1,46 @@
 <?php
 
-namespace App\Livewire\Frontend;
+namespace App\Livewire\Frontend\Setting\Profile;
 
-use App\Models\Bedroom;
-use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-// use Livewire\WithFileUploads;
+use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
-class Booking extends Component
+class Form extends Component
 {
-    // use WithFileUploads;
-    #[Title('Pesan Kamar')]
-    #[Layout('livewire.frontend.template.main-booking')]
+    use WithFileUploads;
 
     // Property
+    public $name, $phone, $email, $user, $photo, $address, $city, $state;
+
     
     // Validation
-    protected $rules = [
-        'property' => '?',
-    ];
+    public function rules()
+    {
+        return [
+            'name'    => 'required',
+            'address' => 'required',
+            'city'    => 'required',
+            'state'   => 'required',
+            'phone'   => 'required|numeric',
+            'email'   => 'required|email|unique:users,email,' . $this->user->id,
+            'photo'   => 'nullable|image|mimes:jpg,jpeg,png,webp|max:1024',
+        ];
+    }
 
     public function mount()
     {
-        // mount some variable
+        $this->user    = User::find(Auth::user()->id);
+        $this->name    = $this->user->name;
+        $this->phone   = $this->user->phone;
+        $this->email   = $this->user->email;
+        $this->photo   = $this->user->photo;
+        $this->address = $this->user->address;
+        $this->city    = $this->user->city;
+        $this->state   = $this->user->state;
     }
 
     // run on .live / .blur
@@ -33,11 +49,37 @@ class Booking extends Component
         $this->validateOnly($propertyName);
     }
 
+    public function update()
+    {
+        $data = $this->validate();
+
+        if ($this->photo) {
+            $photoUser = $this->photo->getClientOriginalName();
+            $photoPath = $this->photo->storePubliclyAs('profile', $photoUser, 'public');
+            if ($this->user->photo) {
+                Storage::disk('public')->delete($this->user->photo);
+            }
+            $data['photo'] = $photoPath;
+        }
+
+        $this->user->update($data);
+
+        session()->flash('success-message', 'Successfully');
+        $this->redirectRoute('userAdmin.data', navigate: true);
+    }
+
+    public function deletePhoto()
+    {
+        if ($this->user->photo) {
+            Storage::disk('public')->delete($this->user->photo);
+            $this->user->update(['photo' => null]);
+        }
+        $this->photo = null;
+    }
+
     public function render()
     {
-        return view('livewire.frontend.booking', [
-            'bedroom' => Bedroom::with('bedroomDetail')->get()
-        ]);
+        return view('livewire.frontend.setting.profile.form');
     }
 
 /*
@@ -117,5 +159,12 @@ class Booking extends Component
 
             return isset($this->$field) ? 'is-valid' : '';
         }
+    custom message validation
+    protected $messages = [
+        'name'        => 'nama harus diisi',
+        'price'       => 'harga harus diisi',
+        'photo'       => 'gambar waib diisi',
+        'type'        => 'tipe harus diisi',
+    ];
 */
 }

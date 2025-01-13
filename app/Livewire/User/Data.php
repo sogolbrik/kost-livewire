@@ -2,6 +2,7 @@
 
 namespace App\Livewire\User;
 
+use App\Models\Bedroom;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -19,12 +20,31 @@ class Data extends Component
     protected $paginationTheme = 'bootstrap';
 
     public $search;
- 
+
     public function updatingSearch()
     {
         $this->resetPage();
     }
- 
+
+    public function inactiveUser($id)
+    {
+        $user = User::find($id);
+        if ($user) {
+            $bedroom = Bedroom::find($user->bedroom_id);
+            if ($bedroom) {
+                $bedroom->status = 'available';
+                $bedroom->save();
+            }
+            $user->bedroom_id = NULL;
+            $user->check_in   = NULL;
+            $user->status     = 'inactive';
+            $user->save();
+        }
+
+        session()->flash('success-message', 'User has been inactive');
+
+    }
+
     public function render()
     {
         return view('livewire.user.data', [

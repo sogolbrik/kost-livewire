@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Transaction;
 
+use App\Models\Fintech;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -16,7 +17,7 @@ class Form extends Component
     #[Layout('livewire.frontend.template.main-booking')]
 
     // Property
-    public $user_id, $bedroom_id, $payment_date, $transaction, $metode = '', $payment_proof;
+    public $user_id, $bedroom_id, $payment_date, $transaction, $metode = '', $payment_proof, $fintech;
 
     // Validation
     protected $rules = [
@@ -27,6 +28,7 @@ class Form extends Component
     public function mount()
     {
         $this->transaction = Session::get('transaction');
+        $this->fintech     = Fintech::get();
     }
 
     public function store()
@@ -52,7 +54,7 @@ class Form extends Component
         Session::forget('transaction');
 
         session()->flash('success-message', 'Pembayaran berhasil, silahkan tunggu konfirmasi dari admin');
-        $this->redirectRoute('front.index', navigate: true);
+        $this->redirectRoute('booking', navigate: true);
     }
 
     // run on .live / .blur

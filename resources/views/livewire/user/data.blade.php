@@ -57,6 +57,11 @@
                                                 </ul>
                                             </div>
                                         </td>
+                                        <td>
+                                            <form wire:submit.prevent="inactiveUser({{ $item->id }})">
+                                                <button class="btn btn-sm btn-warning">Deactivate</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @empty
                                     <pre class="fs-3 text-center">no does match.</pre>
@@ -84,41 +89,59 @@
                             <div class="col-md-6">
                                 <label class="fw-semibold">Name:</label>
                                 <ul>
-                                    <li><p>{{ $item->name }} </p></li>
+                                    <li>
+                                        <p>{{ $item->name }} </p>
+                                    </li>
                                 </ul>
                                 <label class="fw-semibold">Email:</label>
                                 <ul>
-                                    <li><p>{{ $item->email }} </p></li>
+                                    <li>
+                                        <p>{{ $item->email }} </p>
+                                    </li>
                                 </ul>
                                 <label class="fw-semibold">Phone:</label>
                                 <ul>
-                                    <li><p>{{ $item->phone }} </p></li>
+                                    <li>
+                                        <p>{{ $item->phone }} </p>
+                                    </li>
                                 </ul>
                                 <label class="fw-semibold">Address:</label>
                                 <ul>
-                                    <li><p>{{ $item->address }} </p></li>
+                                    <li>
+                                        <p>{{ $item->address }} </p>
+                                    </li>
                                 </ul>
                                 <label class="fw-semibold">City:</label>
                                 <ul>
-                                    <li><p>{{ $item->city }} </p></li>
+                                    <li>
+                                        <p>{{ $item->city }} </p>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <label class="fw-semibold">State:</label>
                                 <ul>
-                                    <li><p>{{ $item->state }} </p></li>
+                                    <li>
+                                        <p>{{ $item->state }} </p>
+                                    </li>
                                 </ul>
                                 <label class="fw-semibold">Check in:</label>
                                 <ul>
-                                    <li><p>{{ $item->check_in }} </p></li>
+                                    <li>
+                                        <p>{{ $item->check_in }} </p>
+                                    </li>
                                 </ul>
                                 <label class="fw-semibold">Status:</label>
                                 <ul>
-                                    <li><p>{{ $item->status }} </p></li>
+                                    <li>
+                                        <p>{{ $item->status }} </p>
+                                    </li>
                                 </ul>
                                 <label class="fw-semibold">Role:</label>
                                 <ul>
-                                    <li><p>{{ $item->role }} </p></li>
+                                    <li>
+                                        <p>{{ $item->role }} </p>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

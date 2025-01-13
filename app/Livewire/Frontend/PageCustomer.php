@@ -9,14 +9,15 @@ use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
-class Booking extends Component
+class PageCustomer extends Component
 {
     // use WithFileUploads;
-    #[Title('Pesan Kamar')]
-    #[Layout('livewire.frontend.template.main-booking')]
+    #[Title('Kamar Ku')]
+    #[Layout('livewire.frontend.template.main-customer')]
 
     // Property
-    
+    public $bedroom, $transaction;
+
     // Validation
     protected $rules = [
         'property' => '?',
@@ -24,7 +25,8 @@ class Booking extends Component
 
     public function mount()
     {
-        // mount some variable
+        $this->bedroom = Bedroom::find(Auth::user()->bedroom_id);
+        $this->transaction = Transaction::where('user_id', Auth::id())->get();
     }
 
     // run on .live / .blur
@@ -35,9 +37,7 @@ class Booking extends Component
 
     public function render()
     {
-        return view('livewire.frontend.booking', [
-            'bedroom' => Bedroom::with('bedroomDetail')->get()
-        ]);
+        return view('livewire.frontend.page-customer');
     }
 
 /*
@@ -117,5 +117,12 @@ class Booking extends Component
 
             return isset($this->$field) ? 'is-valid' : '';
         }
+    custom message validation
+    protected $messages = [
+        'name'        => 'nama harus diisi',
+        'price'       => 'harga harus diisi',
+        'photo'       => 'gambar waib diisi',
+        'type'        => 'tipe harus diisi',
+    ];
 */
 }

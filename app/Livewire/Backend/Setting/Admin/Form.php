@@ -15,6 +15,7 @@ class Form extends Component
 
     // Property
     public $name, $phone, $email, $user, $photo;
+    
     // Validation
     public function rules()
     {
