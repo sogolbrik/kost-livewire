@@ -149,11 +149,11 @@
                                 <div class="row mb-3" id="detailHargaKamar" style="display: none">
                                     <div class="col-md-12">
                                         <div class="p-2 border border-secondary-subtle rounded text-center">
-                                            <span class="fw-bold text-start">Detail Harga Kamar</span>
-                                            <div class="text-start">Harga per bulan: Rp {{ number_format($bedId->price, 0, ',', '.') }}</div>
+                                            <span class="fw-bold">Detail Harga Kamar</span>
+                                            <div>Harga per bulan: Rp {{ number_format($bedId->price, 0, ',', '.') }}</div>
                                             <hr>
-                                            <div class="text-start">Durasi: <span id="durasiText"></span></div>
-                                            <div class="text-start">Total Harga: Rp <span id="totalHarga"></span></div>
+                                            <div>Durasi: <span id="durasiText"></span></div>
+                                            <div>Total Harga: Rp <span id="totalHarga"></span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -167,6 +167,7 @@
                                             const $detailHargaKamar = $('#detailHargaKamar');
                                             const $durasiText = $('#durasiText');
                                             const $totalHarga = $('#totalHarga');
+                                            const $dpHarga = $('#dpHarga');
 
                                             function updateDetailHarga() {
                                                 const tanggal = $inputTanggal.val();
@@ -186,8 +187,11 @@
                                                             durasiText = 'Per 6 Bulan';
                                                             break;
                                                     }
+                                                    const totalHarga = durasi * {{ $bedId->price }};
+                                                    const dpHarga = totalHarga * 0.3;
                                                     $durasiText.text(durasiText);
-                                                    $totalHarga.text(new Intl.NumberFormat('id-ID').format(durasi * {{ $bedId->price }}));
+                                                    $totalHarga.text(new Intl.NumberFormat('id-ID').format(totalHarga));
+                                                    $dpHarga.text(new Intl.NumberFormat('id-ID').format(dpHarga));
                                                 } else {
                                                     $detailHargaKamar.hide();
                                                 }

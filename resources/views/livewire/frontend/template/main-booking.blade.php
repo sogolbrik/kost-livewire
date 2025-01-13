@@ -45,15 +45,12 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    {{-- @foreach ($transaction as $item)
-                        @if ($item->status_payment == 'new')
-                            <li><a wire:navigate href="{{ route('transaction.detail') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
-                                    <div class="me-2 mx-2"> pesanan</div>
-                                </a></li>
-                        @endif
-                    @endforeach --}}
                     <div class="d-flex mx-2">
                         @if (request()->routeIs('booking.detail'))
+                            <li><a wire:navigate href="{{ route('booking') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
+                                    <div class="me-2 mx-2"><i class="bi bi-arrow-left-short"> Kembali</i></div>
+                                </a></li>
+                        @elseif(request()->routeIs('transaction.detail'))
                             <li><a wire:navigate href="{{ route('booking') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
                                     <div class="me-2 mx-2"><i class="bi bi-arrow-left-short"> Kembali</i></div>
                                 </a></li>

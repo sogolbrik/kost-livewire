@@ -3,6 +3,7 @@
 namespace App\Livewire\Frontend;
 
 use App\Models\Transaction;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
@@ -14,8 +15,8 @@ class TransactionDetail extends Component
     #[Layout('livewire.frontend.template.main-booking')]
 
     // Property
-    
-    
+    public $transaction;
+
     // Validation
     protected $rules = [
         'property' => '?',
@@ -23,7 +24,7 @@ class TransactionDetail extends Component
 
     public function mount()
     {
-        //
+        $this->transaction = Transaction::where('user_id', Auth::id())->with('bedroom')->get();
     }
 
     // run on .live / .blur

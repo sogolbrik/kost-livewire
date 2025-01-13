@@ -17,12 +17,11 @@ class Form extends Component
     #[Layout('livewire.frontend.template.main-booking')]
 
     // Property
-    public $user_id, $bedroom_id, $payment_date, $transaction, $metode = '', $payment_proof, $fintech;
+    public $user_id, $bedroom_id, $payment_date, $transaction, $payment_proof, $fintech;
 
     // Validation
     protected $rules = [
         'payment_proof' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
-        'metode'        => 'required',
     ];
 
     public function mount()
@@ -44,7 +43,6 @@ class Form extends Component
             'payment_date'   => date('Y-m-d'),
             'billing_period' => date('Y-m'),
             'payment_proof'  => $data["payment_proof"],
-            'metode'         => $this->metode,
             'entering_room'  => $this->transaction['entering_room'],
             'duration'       => $this->transaction['duration'],
             'price'          => $this->transaction['price'],
@@ -54,7 +52,7 @@ class Form extends Component
         Session::forget('transaction');
 
         session()->flash('success-message', 'Pembayaran berhasil, silahkan tunggu konfirmasi dari admin');
-        $this->redirectRoute('booking', navigate: true);
+        $this->redirectRoute('transaction.detail', navigate: true);
     }
 
     // run on .live / .blur

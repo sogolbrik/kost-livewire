@@ -1,4 +1,4 @@
-<div>
+<div class="light-background">
     <section class="mt-4">
         <div class="container mt-5">
             <div class="row justify-content-center">
@@ -18,12 +18,6 @@
                                 @endforeach
                             </div>
                             <form wire:submit.prevent='store' enctype="multipart/form-data">
-                                <label class="form-label">Metode</label>
-                                <select wire:model='metode' class="form-control mb-3">
-                                    <option selected disabled value="">- Pilih metode -</option>
-                                    <option value="dp">DP</option>
-                                    <option value="pelunasan">Pelunasan</option>
-                                </select>
                                 <label class="form-label">Silahkan masukkan bukti pembayaran disini</label>
                                 <input type="file" wire:model.live='payment_proof' class="form-control mb-3">
                                 <button class="btn btn-sm btn-primary">Bayar Sekarang</button>
@@ -33,5 +27,6 @@
                 </div>
             </div>
         </div>
+        <div style="height: 230px;"></div>
     </section>
 </div>

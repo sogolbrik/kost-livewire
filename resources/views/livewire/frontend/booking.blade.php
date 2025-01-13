@@ -42,12 +42,24 @@
     <section id="pricing" class="pricing section mt-5 light-background">
 
         <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Booking</h2>
-            <div><span>Pesan</span> <span class="description-title">Kamar</span></div>
+        <div class="container section-title d-flex justify-content-between align-items-center" data-aos="fade-up">
+            <div>
+                <h2>Booking</h2>
+                <div><span>Pesan</span> <span class="description-title">Kamar</span></div>
+            </div>
+            @foreach ($transaction as $item)
+                @if ($item->status_payment == 'new')
+                    <div>
+                        <a href="{{ route('transaction.detail') }}" wire:navigate><i class="bi bi-bookmark-fill" style="font-size: 16px;"></i>
+                            <p style="display: inline; font-size: 16px;" class="text-decoration-underline">pesanan saya</p>
+                        </a>
+                    </div>
+                @endif
+            @endforeach
         </div><!-- End Section Title -->
 
         <div class="container">
+
             <div class="row gy-4">
                 @forelse ($bedroom as $see)
                     <div class="col-lg-4 shadow-sm" data-aos="zoom-in" data-aos-delay="100">
@@ -76,25 +88,6 @@
                 @endforelse
             </div>
 
-            {{-- Backup --}}
-            {{-- <div class="row gy-4">
-                <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="pricing-item">
-                        <h3>Standard Room</h3>
-                        <p class="description">Kamar standar dengan fasilitas dasar yang nyaman dan terjangkau.</p>
-                        <h4><sup>Rp</sup>750.000<span> / bulan</span></h4>
-                        <a href="#" class="cta-btn">Pesan Sekarang</a>
-                        <ul>
-                            <li><i class="bi bi-check"></i> <span>Kasur dan lemari</span></li>
-                            <li><i class="bi bi-check"></i> <span>Meja belajar</span></li>
-                            <li><i class="bi bi-check"></i> <span>Kamar mandi dalam</span></li>
-                            <li class="na"><i class="bi bi-x"></i> <span>AC</span></li>
-                            <li class="na"><i class="bi bi-x"></i> <span>Wi-Fi</span></li>
-                        </ul>
-                    </div>
-                </div><!-- End Pricing Item -->
-
-            </div> --}}
         </div>
     </section><!-- /Pricing Section -->
 

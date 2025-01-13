@@ -15,7 +15,7 @@ class Dashboard extends Component
     #[Layout('livewire.frontend.template.main')]
 
     // Property
-    public $customer, $bedroom;
+    public $customer, $bedroom, $user;
 
     // Validation
     protected $rules = [
@@ -26,6 +26,7 @@ class Dashboard extends Component
     {
         $this->customer = User::where('role', 'customer')->whereNotNull('bedroom_id')->count();
         $this->bedroom  = Bedroom::count();
+        $this->user     = User::count();
     }
 
     // run on .live / .blur

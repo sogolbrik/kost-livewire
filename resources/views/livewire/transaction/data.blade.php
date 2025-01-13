@@ -106,8 +106,6 @@
                             <div class="col-md-6">
                                 <label class="fw-semibold">Entering Room:</label>
                                 <em>{{ $item->entering_room }}</em>
-                                <label class="fw-semibold">Payment Method:</label>
-                                <em>{{ $item->metode }}</em>
                             </div>
                         </div>
                         <div class="modal-footer">

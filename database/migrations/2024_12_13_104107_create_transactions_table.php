@@ -18,7 +18,6 @@ return new class extends Migration
             $table->date('payment_date');
             $table->string('billing_period', 10);
             $table->string('payment_proof');
-            $table->enum('metode', ['dp', 'pelunasan'])->nullable();
             $table->string('entering_room', 20)->nullable();
             $table->string('duration', 20);
             $table->enum('status_payment', ['new', 'old'])->default('new');

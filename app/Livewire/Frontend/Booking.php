@@ -16,7 +16,8 @@ class Booking extends Component
     #[Layout('livewire.frontend.template.main-booking')]
 
     // Property
-    
+    public $transaction;
+
     // Validation
     protected $rules = [
         'property' => '?',
@@ -24,7 +25,7 @@ class Booking extends Component
 
     public function mount()
     {
-        // mount some variable
+        $this->transaction = Transaction::where('user_id', Auth::user()->id)->get();
     }
 
     // run on .live / .blur
