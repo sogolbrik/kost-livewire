@@ -65,7 +65,7 @@ class Form extends Component
         $this->user->update($data);
 
         session()->flash('success-message', 'Successfully');
-        $this->redirectRoute('userAdmin.data', navigate: true);
+        $this->redirectRoute('customer.profile', navigate: true);
     }
 
     public function deletePhoto()

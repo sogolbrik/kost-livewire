@@ -99,7 +99,8 @@
                         <div class="row mb-3">
                             <div class="col-md-6">
                                 <label class="fw-semibold">Bedroom:</label>
-                                <em class="me-5">{{ $item->bedroom->name }}</em>
+                                <em>{{ $item->bedroom->name }}</em>
+                                <br>
                                 <label class="fw-semibold">Type:</label>
                                 <em>{{ $item->bedroom->type }}</em>
                             </div>

@@ -54,6 +54,10 @@
                             <li><a wire:navigate href="{{ route('booking') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
                                     <div class="me-2 mx-2"><i class="bi bi-arrow-left-short"> Kembali</i></div>
                                 </a></li>
+                        @elseif(request()->routeIs('transaction.form'))
+                            <li><a wire:navigate href="{{ route('booking') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
+                                    <div class="me-2 mx-2"><i class="bi bi-arrow-left-short"> Kembali</i></div>
+                                </a></li>
                         @else
                             <li><a wire:navigate href="{{ route('front.index') }}" class="btn btn-lg btn-primary d-flex align-items-center justify-content-center">
                                     <div class="me-2 mx-2"><i class="bi bi-arrow-left-short"> Kembali</i></div>

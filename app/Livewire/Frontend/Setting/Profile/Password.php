@@ -38,7 +38,7 @@ class Password extends Component
         $this->adminId->update($data);
         
         session()->flash('success-message', 'Successfully');
-        $this->redirectRoute('userAdmin.data', navigate: true);
+        $this->redirectRoute('customer.profile', navigate: true);
     }
 
     public function isValid($field)

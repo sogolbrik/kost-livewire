@@ -4,7 +4,7 @@
         <h1>Kamar Ku</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('customer.page') }}" wire:navigate>Beranda</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('customer.dashboard') }}" wire:navigate>Beranda</a></li>
                 <li class="breadcrumb-item active">Singgah</li>
             </ol>
         </nav>
@@ -42,18 +42,30 @@
                                     <p class="badge bg-secondary">{{ auth()->user()->status }}</p>
                                 </div>
                                 <div class="col-6 mt-3">
-                                    @foreach ($transaction as $item)
-                                        @php
-                                            $today = date('Y-m-d');
-                                            $maturity = date('Y-m-d', strtotime($item->payment_date . ' +1 month'));
-                                        @endphp
-                                    @endforeach
-                                    @if ($today <= $maturity)
-                                        <h5>Perpanjang bulan: </h5> <a href="{{ route('transaction.period') }}" wire:navigate class="btn btn-primary btn-sm shadow-sm">
+                                    @php
+                                        $today = date('Y-m-d');
+                                        foreach ($transaction as $item) {
+                                            if ($item->duration == 1) {
+                                                $maturity = date('Y-m-d', strtotime($item->payment_date . ' +1 month'));
+                                            } elseif ($item->duration == 3) {
+                                                $maturity = date('Y-m-d', strtotime($item->payment_date . ' +3 month'));
+                                            } elseif ($item->duration == 6) {
+                                                $maturity = date('Y-m-d', strtotime($item->payment_date . ' +6 month'));
+                                            }
+                                        }
+                                    @endphp
+
+                                    <h5>Perpanjang bulan: </h5>
+                                    {{-- @if ($today >= $maturity) --}}
+                                        <a href="{{ route('transaction.period') }}" wire:navigate class="btn btn-primary btn-sm shadow-sm">
                                             Ajukan
                                         </a>
-                                    @endif
+                                    {{-- @else
+                                        <button class="btn btn-primary btn-sm shadow-sm"
+                                            onclick="Swal.fire('Perpanjangan', 'Belum waktunya mengajukan perpanjangan bulan ini.', 'info')">Ajukan</button>
+                                    @endif --}}
                                 </div>
+
                             </div>
                         </div>
                     </div>

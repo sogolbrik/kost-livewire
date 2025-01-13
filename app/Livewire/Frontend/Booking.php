@@ -25,7 +25,11 @@ class Booking extends Component
 
     public function mount()
     {
-        $this->transaction = Transaction::where('user_id', Auth::user()->id)->get();
+        if (Auth::check()) {
+            $this->transaction = Transaction::where('user_id', Auth::user()->id)->get();
+        } else {
+            $this->transaction = collect();
+        }
     }
 
     // run on .live / .blur

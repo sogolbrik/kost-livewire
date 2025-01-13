@@ -15,7 +15,6 @@
 
                 <div class="pt-2 px-4">
                     <input type="file" id="file-input" style="display: none;" wire:model="photo">
-                    {{-- onchange="document.getElementById('upload-form').submit();" --}}
 
                     <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('file-input').click();" title="Upload new profile image"><i
                             class="bi bi-upload"></i></button>

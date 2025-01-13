@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8" style="margin-left: -40px;">
-                    <img class="img-fluid rounded shadow" src="{{ Storage::url($bedId->photo) }}" alt="{{ $bedId->name }}">
+                    <img class="img-fluid rounded shadow-sm" src="{{ Storage::url($bedId->photo) }}" alt="{{ $bedId->name }}">
                 </div>
                 <div class="col-md-4" style="margin-left: 40px;">
                     <div class="mb-3">
@@ -56,12 +56,39 @@
                         <hr>
                     </div>
                     <div class="mt-3">
+                        <h4 class="fw-bold">Yang kamu dapatkan disini</h4>
+                        <div class="d-flex align-items-start mb-2">
+                            <i class="bi bi-shield-exclamation me-2" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <p class="fw-bold mb-1">Asuransi Khusus Penyewa</p>
+                                <p class="mb-0 text-secondary">Perlindungan selama ngekos atas kompensasi kehilangan barang dan kerusakan fasilitas pada unit kamar. Disediakan oleh kami sendiri.
+                                    Syarat & Ketentuan berlaku.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-2">
+                            <i class="bi bi-patch-check me-2" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <p class="fw-bold mb-1">Pro Service</p>
+                                <p class="mb-0 text-secondary">Ditangani secara profesional oleh tim DelapanBelasKos. Selama kamu ngekos di sini, ada tim dari kami yang akan merespon saran dan
+                                    komplainmu.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-2">
+                            <i class="bi bi-stars me-2" style="font-size: 1.5rem;"></i>
+                            <div>
+                                <p class="fw-bold mb-1">Dikelola Pendiri, Terjamin Nyaman</p>
+                                <p class="mb-0 text-secondary">Kos ini operasionalnya dikelola dan distandardisasi oleh Pendiri.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mt-3">
                         <h4 class="fw-bold">Spesifikasi tipe kamar</h4>
-                        <i class="bi bi-building"> {{ $bedId->width }}</i>
+                        <i class="bi bi-slash-square" style="font-size: 17px"> {{ $bedId->width }}</i>
                         <br>
                         @foreach ($bedId->bedroomDetail as $item)
                             @if ($item->facility == 'Listrik')
-                                <i class="bi bi-lightning"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
+                                <i class="bi bi-lightning-charge" style="font-size: 17px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
                             @endif
                         @endforeach
                         <hr>
@@ -70,15 +97,15 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     @if ($item->facility == 'Kasur & Bantal')
-                                        <i class="ri-hotel-bed-fill"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
+                                        <i class="ri-hotel-bed-fill" style="font-size: 17px"></i> <i>{{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
                                     @endif
-                                    @if ($item->facility == 'Kipas Angin' || $item->facility == 'AC')
-                                        <i class="bi bi-lightning"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
+                                    @if ($item->facility == 'Kipas Angin')
+                                        <i class="bi bi-fan" style="font-size: 17px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
+                                    @elseif ($item->facility == 'AC')
+                                        <i class="bi bi-usb-micro-fill" style="font-size: 17px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
                                     @endif
-                                </div>
-                                <div class="col-md-6">
                                     @if ($item->facility == 'Lemari')
-                                        <i class="bi bi-lightning"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
+                                        <i class="bi bi-inboxes-fill" style="font-size: 17px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
                                     @endif
                                 </div>
                             </div>
@@ -89,7 +116,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     @if ($item->facility == 'K. Mandi Dalam')
-                                        <i class="bi bi-lightning"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
+                                        <i class="bi bi-shop-window" style="font-size: 18px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
                                     @endif
                                 </div>
                             </div>
@@ -119,6 +146,22 @@
                             <i class="bi bi-dot"></i>
                             <div class="fw-normal text-black">Tidak boleh bawa anak</div>
                         </div>
+                        <hr>
+                        <h4 class="fw-bold">Seluruh fasilitas dalam kamar ini</h4>
+                        <div class="row">
+                            @php
+                                $chunks = $bedId->bedroomDetail->chunk(ceil($bedId->bedroomDetail->count() / 2));
+                            @endphp
+
+                            @foreach ($chunks as $chunk)
+                                <div class="col-md-6">
+                                    @foreach ($chunk as $item)
+                                        {{ ucfirst(str_replace('_', ' ', $item->facility)) }}<br>
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-4 mt-4">

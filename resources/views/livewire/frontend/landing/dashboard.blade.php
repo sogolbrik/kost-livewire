@@ -188,12 +188,12 @@
     </section><!-- /Details Section -->
 
     <!-- Gallery Section -->
-    <section id="gallery" class="gallery section">
+    {{-- <section id="gallery" class="gallery section">
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Gallery</h2>
-            <div><span>Check Our</span> <span class="description-title">Gallery</span></div>
+            <h2>Gallei</h2>
+            <div><span>Galeri</span> <span class="description-title">Kita</span></div>
         </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -202,64 +202,64 @@
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{{ asset('front-assets/assets/img/gallery/gallery-1.jpg') }}" class="glightbox" data-gallery="images-gallery">
-                            <img src="{{ asset('front-assets/assets/img/gallery/gallery-1.jpg') }}" alt="" class="img-fluid">
+                        <a href="{{ asset('front-assets/assets/img/gallery/bed-1.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                            <img src="{{ asset('front-assets/assets/img/gallery/bed-1.jpg') }}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{{ asset('front-assets/assets/img/gallery/gallery-2.jpg') }}" class="glightbox" data-gallery="images-gallery">
-                            <img src="{{ asset('front-assets/assets/img/gallery/gallery-2.jpg') }}" alt="" class="img-fluid">
+                        <a href="{{ asset('front-assets/assets/img/gallery/bed-2.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                            <img src="{{ asset('front-assets/assets/img/gallery/bed-2.jpg') }}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{{ asset('front-assets/assets/img/gallery/gallery-3.jpg') }}" class="glightbox" data-gallery="images-gallery">
-                            <img src="{{ asset('front-assets/assets/img/gallery/gallery-3.jpg') }}" alt="" class="img-fluid">
+                        <a href="{{ asset('front-assets/assets/img/gallery/bed-3.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                            <img src="{{ asset('front-assets/assets/img/gallery/bed-3.jpg') }}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{{ asset('front-assets/assets/img/gallery/gallery-4.jpg') }}" class="glightbox" data-gallery="images-gallery">
-                            <img src="{{ asset('front-assets/assets/img/gallery/gallery-4.jpg') }}" alt="" class="img-fluid">
+                        <a href="{{ asset('front-assets/assets/img/gallery/bed-4.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                            <img src="{{ asset('front-assets/assets/img/gallery/bed-4.jpg') }}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{{ asset('front-assets/assets/img/gallery/gallery-5.jpg') }}" class="glightbox" data-gallery="images-gallery">
-                            <img src="{{ asset('front-assets/assets/img/gallery/gallery-5.jpg') }}" alt="" class="img-fluid">
+                        <a href="{{ asset('front-assets/assets/img/gallery/bed-5.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                            <img src="{{ asset('front-assets/assets/img/gallery/bed-5.jpg') }}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{{ asset('front-assets/assets/img/gallery/gallery-6.jpg') }}" class="glightbox" data-gallery="images-gallery">
-                            <img src="{{ asset('front-assets/assets/img/gallery/gallery-6.jpg') }}" alt="" class="img-fluid">
+                        <a href="{{ asset('front-assets/assets/img/gallery/bed-6.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                            <img src="{{ asset('front-assets/assets/img/gallery/bed-6.jpg') }}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{{ asset('front-assets/assets/img/gallery/gallery-7.jpg') }}" class="glightbox" data-gallery="images-gallery">
-                            <img src="{{ asset('front-assets/assets/img/gallery/gallery-7.jpg') }}" alt="" class="img-fluid">
+                        <a href="{{ asset('front-assets/assets/img/gallery/bed-7.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                            <img src="{{ asset('front-assets/assets/img/gallery/bed-7.jpg') }}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
 
                 <div class="col-lg-3 col-md-4">
                     <div class="gallery-item">
-                        <a href="{{ asset('front-assets/assets/img/gallery/gallery-8.jpg') }}" class="glightbox" data-gallery="images-gallery">
-                            <img src="{{ asset('front-assets/assets/img/gallery/gallery-8.jpg') }}" alt="" class="img-fluid">
+                        <a href="{{ asset('front-assets/assets/img/gallery/bed-8.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                            <img src="{{ asset('front-assets/assets/img/gallery/bed-8.jpg') }}" alt="" class="img-fluid">
                         </a>
                     </div>
                 </div><!-- End Gallery Item -->
@@ -268,12 +268,12 @@
 
         </div>
 
-    </section><!-- /Gallery Section -->
+    </section><!-- /Gallery Section --> --}}
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section dark-background">
 
-        <img src="{{ asset('front-assets/assets/img/testimonials-bg.jpg') }}" class="testimonials-bg" alt="">
+        <img src="{{ asset('front-assets/assets/img/gallery/kos.jpg') }}" class="testimonials-bg" alt="">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -396,7 +396,7 @@
                         <div class="pic"><img src="{{ asset('front-assets/assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></div>
                         <div class="member-info">
                             <h4>Walter White</h4>
-                            <span>Chief Executive Officer</span>
+                            <span>Pendiri</span>
                             <div class="social">
                                 <a href=""><i class="bi bi-twitter-x"></i></a>
                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -412,7 +412,7 @@
                         <div class="pic"><img src="{{ asset('front-assets/assets/img/team/team-3.jpg') }}" class="img-fluid" alt=""></div>
                         <div class="member-info">
                             <h4>William Anderson</h4>
-                            <span>CTO</span>
+                            <span>Wakil</span>
                             <div class="social">
                                 <a href=""><i class="bi bi-twitter-x"></i></a>
                                 <a href=""><i class="bi bi-facebook"></i></a>
@@ -434,7 +434,7 @@
 
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-            <h2>Harga</h2>
+            <h2>Kamar</h2>
             <div><span>Cek Harga Kamar</span> <span class="description-title">Kos</span></div>
         </div><!-- End Section Title -->
 

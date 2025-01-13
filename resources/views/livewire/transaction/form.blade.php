@@ -8,11 +8,10 @@
                             <h2>Selesaikan Pembayaran</h2>
                         </div>
                         <div class="card-body">
-                            <div class="row mb-3">
+                            <div class="row mb-4">
                                 @foreach ($fintech as $item)
                                     <div class="col-md-3">
-                                        <label class="form-label">{{ $item->name }}</label>
-                                        <img src="{{ Storage::url($item->photo) }}" alt="{{ $item->name }}" class="img-fluid rounded">
+                                        <img src="{{ Storage::url($item->photo) }}" alt="{{ $item->name }}" class="img-fluid rounded shadow-sm mb-2">
                                         No Rek: <em>{{ $item->description }}</em>
                                     </div>
                                 @endforeach

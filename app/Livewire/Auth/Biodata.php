@@ -34,7 +34,7 @@ class Biodata extends Component
     {
         $data = $this->validate();
 
-        $fileName = "ktp-".rand(10,999).$this->ktp->getClientOriginalExtension();
+        $fileName = "ktp-" . rand(10, 999) . $this->ktp->getClientOriginalExtension();
         $data["ktp"] = $this->ktp->storePubliclyAs('ktp', $fileName, 'public');
 
         User::find($this->userid)->update($data);

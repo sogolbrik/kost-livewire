@@ -17,63 +17,86 @@
                 <div class="card-body">
                     <h5 class="card-title">User Data</h5>
                     <a href="{{ route('user.form') }}" class="btn btn-primary btn-sm" wire:navigate>New</a>
-                    <div class="table-responsive">
-                        <table class="table">
-                            <div class="col-md-4 mt-2">
-                                <div class="input-group mb-2">
-                                    <input wire:model.live="search" type="search" class="form-control" placeholder="Search user by name...">
-                                    <span class="input-group-text">
-                                        <i class="fa fa-search"></i>
-                                    </span>
-                                </div>
+                    <table class="table">
+                        <div class="col-md-4 mt-2">
+                            <div class="input-group mb-2">
+                                <input wire:model.live="search" type="search" class="form-control" placeholder="Search user by name...">
+                                <span class="input-group-text">
+                                    <i class="fa fa-search"></i>
+                                </span>
                             </div>
-                            <thead>
+                        </div>
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>
+                                    <b>N</b>ame
+                                </th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($user as $item)
                                 <tr>
-                                    <th>#</th>
-                                    <th>
-                                        <b>N</b>ame
-                                    </th>
-                                    <th>Email</th>
-                                    <th>Action</th>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bu bi-three-dots-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><button type="button" class="btn btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#detailUser{{ $item->id }}">
+                                                        Detail
+                                                    </button></li>
+                                                <li><a href="{{ route('user.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
+                                                <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Delete</button></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @if (!empty($item->bedroom_id))
+                                        <form wire:submit.prevent="inactiveUser({{ $item->id }})">
+                                            <button type="button" class="btn btn-sm btn-warning shadow-sm" onclick="confirmDeactivation({{ $item->id }})">Deactivate</button>
+
+                                            <script>
+                                                function confirmDeactivation(userId) {
+                                                    Swal.fire({
+                                                        title: 'Are you sure?',
+                                                        text: "You won't be able to revert this!",
+                                                        icon: 'warning',
+                                                        showCancelButton: true,
+                                                        confirmButtonColor: '#3085d6',
+                                                        cancelButtonColor: '#d33',
+                                                        confirmButtonText: 'Yes, deactivate it!'
+                                                    }).then((result) => {
+                                                        if (result.isConfirmed) {
+                                                            @this.call('inactiveUser', userId);
+                                                            Swal.fire(
+                                                                'Deactivated!',
+                                                                'The user has been deactivated.',
+                                                                'success'
+                                                            )
+                                                        }
+                                                    })
+                                                }
+                                            </script>
+                                        </form>
+                                        @endif
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @forelse ($user as $item)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td>
-                                        <td>{{ $item->email }}</td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bu bi-three-dots-vertical"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><button type="button" class="btn btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#detailUser{{ $item->id }}">
-                                                            Detail
-                                                        </button></li>
-                                                    <li><a href="{{ route('user.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
-                                                    <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Delete</button></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <form wire:submit.prevent="inactiveUser({{ $item->id }})">
-                                                <button class="btn btn-sm btn-warning">Deactivate</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <pre class="fs-3 text-center">no does match.</pre>
-                                @endforelse
-                            </tbody>
-                        </table>
-                        {{ $user->links() }}
-                    </div>
+                            @empty
+                                <pre class="fs-3 text-center">no does match.</pre>
+                            @endforelse
+                        </tbody>
+                    </table>
+                    {{ $user->links() }}
                 </div>
             </div>
-
         </div>
+
     </div>
 
     @foreach ($user as $item)
@@ -158,6 +181,5 @@
                     </div>
                 </div>
             </div>
-        </div>
     @endforeach
 </div>

@@ -58,7 +58,6 @@ Route::middleware([CustomerMiddleware::class])->group(function () {
     Route::get('perpanjang', FormPeriod::class)->name('transaction.period');
 });
 
-
 Route::middleware([AdministratorMiddleware::class])->group(function () {
     //Dashboard
     Route::get('admin-dashboard', Dashboard::class)->name('back.index');
