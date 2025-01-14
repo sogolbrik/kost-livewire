@@ -42,7 +42,6 @@
                                     <p class="badge bg-secondary">{{ auth()->user()->status }}</p>
                                 </div>
                                 <div class="col-6 mt-3">
-                                    @dd($today, $maturity)
                                     <h5>Perpanjang bulan: </h5>
                                     @if ($today >= $maturity)
                                         <a href="{{ route('transaction.period') }}" wire:navigate class="btn btn-primary btn-sm shadow-sm">
