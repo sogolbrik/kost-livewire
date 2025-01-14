@@ -42,28 +42,16 @@
                                     <p class="badge bg-secondary">{{ auth()->user()->status }}</p>
                                 </div>
                                 <div class="col-6 mt-3">
-                                    @php
-                                        $today = date('Y-m-d');
-                                        foreach ($transaction as $item) {
-                                            if ($item->duration == 1) {
-                                                $maturity = date('Y-m-d', strtotime($item->payment_date . ' +1 month'));
-                                            } elseif ($item->duration == 3) {
-                                                $maturity = date('Y-m-d', strtotime($item->payment_date . ' +3 month'));
-                                            } elseif ($item->duration == 6) {
-                                                $maturity = date('Y-m-d', strtotime($item->payment_date . ' +6 month'));
-                                            }
-                                        }
-                                    @endphp
-
+                                    @dd($today, $maturity)
                                     <h5>Perpanjang bulan: </h5>
-                                    {{-- @if ($today >= $maturity) --}}
+                                    @if ($today >= $maturity)
                                         <a href="{{ route('transaction.period') }}" wire:navigate class="btn btn-primary btn-sm shadow-sm">
                                             Ajukan
                                         </a>
-                                    {{-- @else
+                                    @else
                                         <button class="btn btn-primary btn-sm shadow-sm"
                                             onclick="Swal.fire('Perpanjangan', 'Belum waktunya mengajukan perpanjangan bulan ini.', 'info')">Ajukan</button>
-                                    @endif --}}
+                                    @endif
                                 </div>
 
                             </div>

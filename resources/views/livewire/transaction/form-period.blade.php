@@ -26,7 +26,7 @@
                                 @foreach ($fintech as $item)
                                     <div class="col-md-3">
                                         <label class="form-label fw-semibold">{{ $item->name }}</label>
-                                        <img src="{{ Storage::url($item->photo) }}" alt="{{ $item->name }}" class="img-fluid rounded shadow-sm w-100">
+                                        <img src="{{ Storage::url($item->photo) }}" alt="{{ $item->name }}" class="img-fluid rounded shadow-sm mb-2" style="width: 200px; height: 100px; object-fit: cover;">
                                         <em><span class="fw-normal">no rek:</span> {{ $item->description }}</em>
                                     </div>
                                 @endforeach

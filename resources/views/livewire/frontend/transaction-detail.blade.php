@@ -17,7 +17,7 @@
                                     <p><strong>Tanggal Masuk:</strong> {{ date('d F Y', strtotime($item->entering_room)) }}</p>
                                     <p><strong>Durasi:</strong> {{ $item->duration }} Bulan</p>
                                     <p><strong>Tanggal Pembayaran:</strong> {{ date('d F Y', strtotime($item->payment_date)) }}</p>
-                                    <p><strong>Harga:</strong> Rp{{ number_format($item->bedroom->price, 0, ',', '.') }}</p>
+                                    <p><strong>Harga:</strong> Rp{{ number_format($item->bedroom->price * $item->duration, 0, ',', '.') }}</p>
                                     @if ($item->status == 'pending')
                                         <p><strong>Status Pembayaran:</strong>
                                         <p class="badge rounded-pill bg-warning shadow-sm">Menunggu</p>

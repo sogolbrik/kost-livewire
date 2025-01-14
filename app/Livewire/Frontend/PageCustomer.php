@@ -4,6 +4,7 @@ namespace App\Livewire\Frontend;
 
 use App\Models\Bedroom;
 use App\Models\Transaction;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
@@ -16,7 +17,7 @@ class PageCustomer extends Component
     #[Layout('livewire.frontend.template.main-customer')]
 
     // Property
-    public $bedroom, $transaction;
+    public $bedroom, $transaction, $today, $maturity;
 
     // Validation
     protected $rules = [
@@ -25,8 +26,13 @@ class PageCustomer extends Component
 
     public function mount()
     {
-        $this->bedroom = Bedroom::find(Auth::user()->bedroom_id);
+        $this->bedroom     = Bedroom::find(Auth::user()->bedroom_id);
         $this->transaction = Transaction::where('user_id', Auth::id())->get();
+        $this->today       = Carbon::now()->toDateString();
+
+        foreach ($this->transaction as $item) {
+            $this->maturity = Carbon::parse($item->payment_date)->addMonths(intval($item->duration))->toDateString();
+        }        
     }
 
     // run on .live / .blur
@@ -40,7 +46,7 @@ class PageCustomer extends Component
         return view('livewire.frontend.page-customer');
     }
 
-/*
+    /*
     Just Delete This If You Pro...
 
     Title / Judul

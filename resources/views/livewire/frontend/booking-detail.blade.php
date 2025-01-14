@@ -116,7 +116,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     @if ($item->facility == 'K. Mandi Dalam')
-                                        <i class="bi bi-shop-window" style="font-size: 18px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
+                                        <i class="bi bi-badge-wc" style="font-size: 18px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
                                     @endif
                                 </div>
                             </div>

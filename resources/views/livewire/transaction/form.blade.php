@@ -10,9 +10,9 @@
                         <div class="card-body">
                             <div class="row mb-4">
                                 @foreach ($fintech as $item)
-                                    <div class="col-md-3">
-                                        <img src="{{ Storage::url($item->photo) }}" alt="{{ $item->name }}" class="img-fluid rounded shadow-sm mb-2">
-                                        No Rek: <em>{{ $item->description }}</em>
+                                    <div class="col-md-3 text-center">
+                                        <img src="{{ Storage::url($item->photo) }}" alt="{{ $item->name }}" class="img-fluid rounded shadow-sm mb-2" style="width: 200px; height: 100px; object-fit: cover;">
+                                        <div>No Rek: <em>{{ $item->description }}</em></div>
                                     </div>
                                 @endforeach
                             </div>
