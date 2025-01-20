@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        $photo = 'ktp/ktp.jpg';
+        // $photo = 'ktp/ktp.jpg';
+        $photo = url('seed/ktp/ktp.jpg');
         for ($i = 0; $i < 10; $i++) {
             User::create([
                 'name'     => fake()->name,
@@ -45,7 +46,7 @@ class DatabaseSeeder extends Seeder
             'role'     => 'customer',
         ]);
 
-        $photo = 'bedroom/standar.jpg';
+        $photo = url('seed/bedroom/standar.webp');
         for ($i = 0; $i < 3; $i++) {
             Bedroom::create([
                 'photo'       => $photo,
@@ -56,7 +57,7 @@ class DatabaseSeeder extends Seeder
                 'description' => "Kamar standar dengan fasilitas dasar yang nyaman dan terjangkau.",
             ]);
         }
-        $photo = 'bedroom/mewah.jpg';
+        $photo = url('seed/bedroom/mewah.webp');
         for ($i = 0; $i < 3; $i++) {
             Bedroom::create([
                 'photo'       => $photo,
@@ -67,7 +68,7 @@ class DatabaseSeeder extends Seeder
                 'description' => "Kamar Mewah dengan fasilitas lengkap untuk kenyamanan maksimal.",
             ]);
         }
-        $photo = 'bedroom/istimewa.webp';
+        $photo = url('seed/bedroom/istimewa.webp');
         for ($i = 0; $i < 3; $i++) {
             Bedroom::create([
                 'photo'       => $photo,
@@ -156,25 +157,25 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        $photo = 'fintech/bri.jpg';
+        $photo = url('seed/fintech/bri.jpg');
         Fintech::create([
             'name'        => 'BRI',
             'description' => 623872957278248,
             'photo'       => $photo,
         ]);
-        $photo = 'fintech/bni.jpg';
+        $photo = url('seed/fintech/bni.jpg');
         Fintech::create([
             'name'        => 'BNI',
             'description' => 3891462829,
             'photo'       => $photo,
         ]);
-        $photo = 'fintech/bca.jpg';
+        $photo = url('seed/fintech/bci.jpg');
         Fintech::create([
             'name'        => 'BCA',
             'description' => 8712876471,
             'photo'       => $photo,
         ]);
-        $photo = 'fintech/mandiri.jpg';
+        $photo = url('seed/fintech/mandiri.jpg');
         Fintech::create([
             'name'        => 'MANDIRI',
             'description' => 8001782381924,
