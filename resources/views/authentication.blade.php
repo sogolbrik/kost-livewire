@@ -7,6 +7,7 @@
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 	<img class="wave" src="{{ asset('back-asset/assets/img/wave.png') }}">
 	<div class="container">
