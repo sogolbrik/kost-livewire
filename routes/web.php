@@ -14,6 +14,8 @@ use App\Livewire\User\Form as UserForm;
 use App\Http\Middleware\AdministratorMiddleware;
 use App\Http\Middleware\CustomerMiddleware;
 use App\Livewire\Auth\Biodata;
+use App\Livewire\Auth\Daftar;
+use App\Livewire\Auth\Masuk;
 use App\Livewire\Frontend\Booking;
 use App\Livewire\Frontend\BookingDetail;
 use App\Livewire\Frontend\DashboardCustomer;
@@ -30,13 +32,16 @@ use App\Livewire\Transaction\FormPeriod;
 //     return view('welcome');
 // });
 
+
 Route::get('index', function () {
     return view('index');
 })->name('index');
 
 //Authentication
-Route::get('login', Login::class)->name('login');
-Route::get('register', Register::class)->name('register');
+// Route::get('login', Login::class)->name('login');
+Route::get('login', Masuk::class)->name('login');
+// Route::get('register', Register::class)->name('register');
+Route::get('register', Daftar::class)->name('register');
 Route::get('biodata', Biodata::class)->name('biodata');
 //Dashbard
 Route::get('/', LandingDashboard::class)->name('front.index');
