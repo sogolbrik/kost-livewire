@@ -19,7 +19,7 @@ class Login extends Component
 
     // Validation
     protected $rules = [
-        'name'     => 'required|string',
+        'name'     => 'required|string|min:4',
         'password' => 'required|min:4',
     ];
 

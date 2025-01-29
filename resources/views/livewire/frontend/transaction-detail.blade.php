@@ -13,7 +13,7 @@
                                     <h5 class="mb-1 d-flex justify-content-center">Pesanan #{{ $loop->iteration }}</h5>
                                     <p><strong>Nama Pelanggan:</strong> {{ auth()->user()->name }}</p>
                                     <p><strong>Nama Kamar:</strong> {{ $item->bedroom->name }}</p>
-                                    <p><strong>Type Kamar:</strong> {{ $item->bedroom->type }}</p>
+                                    <p><strong>Tipe Kamar:</strong> {{ $item->bedroom->type }}</p>
                                     <p><strong>Tanggal Masuk:</strong> {{ date('d F Y', strtotime($item->entering_room)) }}</p>
                                     <p><strong>Durasi:</strong> {{ $item->duration }} Bulan</p>
                                     <p><strong>Tanggal Pembayaran:</strong> {{ date('d F Y', strtotime($item->payment_date)) }}</p>

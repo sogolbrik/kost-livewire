@@ -65,9 +65,25 @@
                     <div class="col-lg-4 shadow-sm" data-aos="zoom-in" data-aos-delay="100">
                         <div class="pricing-item">
                             <div class="gallery-item mb-2">
-                                <a href="{{ Storage::url($see->photo) }}" class="glightbox" data-gallery="images-gallery">
-                                    <img src="{{ Storage::url($see->photo) }}" alt="{{ $see->name }}" class="img-fluid rounded">
-                                </a>
+                                @if ($see->photo == NULL)
+                                    @if ($see->type == 'Kamar Standar')
+                                        <a href="{{ asset('seed/bedroom/standar.webp') }}" class="glightbox" data-gallery="images-gallery">
+                                            <img src="{{ asset('seed/bedroom/standar.webp') }}" alt="{{ $see->name }}" class="img-fluid rounded">
+                                        </a>
+                                    @elseif ($see->type == 'Kamar Mewah')
+                                        <a href="{{ asset('seed/bedroom/mewah.webp') }}" class="glightbox" data-gallery="images-gallery">
+                                            <img src="{{ asset('seed/bedroom/mewah.webp') }}" alt="{{ $see->name }}" class="img-fluid rounded">
+                                        </a>
+                                    @elseif ($see->type == 'Kamar Istimewa')
+                                        <a href="{{ asset('seed/bedroom/istimewa.webp') }}" class="glightbox" data-gallery="images-gallery">
+                                            <img src="{{ asset('seed/bedroom/istimewa.webp') }}" alt="{{ $see->name }}" class="img-fluid rounded">
+                                        </a>
+                                    @endif
+                                @else
+                                    <a href="{{ Storage::url($see->photo) }}" class="glightbox" data-gallery="images-gallery">
+                                        <img src="{{ Storage::url($see->photo) }}" alt="{{ $see->name }}" class="img-fluid rounded">
+                                    </a>
+                                @endif
                             </div>
                             <h3>{{ $see->type }}</h3>
                             <p class="description">{{ $see->description }}</p>

@@ -8,17 +8,57 @@
         </div><!-- End Section Title -->
         <div class="container">
             <div class="row">
-                <div class="col-md-8" style="margin-left: -40px;">
-                    <img class="img-fluid rounded shadow-sm" src="{{ Storage::url($bedId->photo) }}" alt="{{ $bedId->name }}">
-                </div>
-                <div class="col-md-4" style="margin-left: 40px;">
-                    <div class="mb-3">
+                @if ($bedId->photo == null)
+                    @if ($bedId->type == 'Kamar Standar')
+                        <div class="col-md-8" style="margin-left: -40px;">
+                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.webp') }}" alt="{{ 'Standar' }}">
+                        </div>
+                        <div class="col-md-4" style="margin-left: 40px;">
+                            <div class="mb-3">
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.webp') }}" alt="{{ 'Standar' }}">
+                            </div>
+                            <div>
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.webp') }}" alt="{{ 'Standar' }}">
+                            </div>
+                        </div>
+                    @elseif($bedId->type == 'Kamar Mewah')
+                        <div class="col-md-8" style="margin-left: -40px;">
+                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.webp') }}" alt="{{ 'Mewah' }}">
+                        </div>
+                        <div class="col-md-4" style="margin-left: 40px;">
+                            <div class="mb-3">
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.webp') }}" alt="{{ 'Mewah' }}">
+                            </div>
+                            <div>
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.webp') }}" alt="{{ 'Mewah' }}">
+                            </div>
+                        </div>
+                    @elseif($bedId->type == 'Kamar Istimewa')
+                        <div class="col-md-8" style="margin-left: -40px;">
+                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.webp') }}" alt="{{ 'Istimewa' }}">
+                        </div>
+                        <div class="col-md-4" style="margin-left: 40px;">
+                            <div class="mb-3">
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.webp') }}" alt="{{ 'Istimewa' }}">
+                            </div>
+                            <div>
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.webp') }}" alt="{{ 'Istimewa' }}">
+                            </div>
+                        </div>
+                    @endif
+                @else
+                    <div class="col-md-8" style="margin-left: -40px;">
                         <img class="img-fluid rounded shadow-sm" src="{{ Storage::url($bedId->photo) }}" alt="{{ $bedId->name }}">
                     </div>
-                    <div>
-                        <img class="img-fluid rounded shadow-sm" src="{{ Storage::url($bedId->photo) }}" alt="{{ $bedId->name }}">
+                    <div class="col-md-4" style="margin-left: 40px;">
+                        <div class="mb-3">
+                            <img class="img-fluid rounded shadow-sm" src="{{ Storage::url($bedId->photo) }}" alt="{{ $bedId->name }}">
+                        </div>
+                        <div>
+                            <img class="img-fluid rounded shadow-sm" src="{{ Storage::url($bedId->photo) }}" alt="{{ $bedId->name }}">
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
             <div class="row mt-3">
                 <div class="col-md-8">
@@ -249,9 +289,15 @@
 
                                 <div class="d-grid">
                                     @if (Auth::check())
-                                        <button type="submit" class="btn btn-primary">
-                                            <div class="fw-semibold">Ajukan Sewa</div>
-                                        </button>
+                                        @if (empty(auth()->user()->bedroom_id))
+                                            <button type="submit" class="btn btn-primary">
+                                                <div class="fw-semibold">Ajukan Sewa</div>
+                                            </button>
+                                        @else
+                                            <button type="button" onclick="Swal.fire('Info', 'Mohon maaf, anda sudah mempunyai kamar.', 'info')" class="btn btn-primary">
+                                                <div class="fw-semibold">Ajukan Sewa</div>
+                                            </button>
+                                        @endif
                                     @else
                                         <a href="{{ route('login') }}" wire:navigate class="btn btn-primary">
                                             <div class="fw-semibold">Ajukan Sewa</div>

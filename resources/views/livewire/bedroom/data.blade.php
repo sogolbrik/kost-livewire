@@ -82,7 +82,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="d-flex justify-content-center">Photo:</label>
-                                <img src="{{ Storage::url($item->photo) }}" alt="{{ $item->name }}" class="img-fluid rounded w-100">
+                                <img src="{{ Storage::url($item->photo) ?? 'tidak ada'}}" alt="{{ $item->name }}" class="img-fluid rounded w-100">
                             </div>
                             <div class="col-md-6">
                                 <label class="d-flex justify-content-center">Facility:</label>

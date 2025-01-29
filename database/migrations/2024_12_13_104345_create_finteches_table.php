@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('finteches', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->text('description');
             $table->timestamps();
         });

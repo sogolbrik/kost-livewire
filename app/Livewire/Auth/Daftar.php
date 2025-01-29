@@ -19,7 +19,7 @@ class Daftar extends Component
 
     // Validation
     protected $rules = [
-        'name'     => 'required',
+        'name'     => 'required|min:4',
         'email'    => 'required|email|unique:users,email',
         'password' => 'required|confirmed|min:4',
     ];
