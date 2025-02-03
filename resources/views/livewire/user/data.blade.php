@@ -4,7 +4,7 @@
         <h1>User</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('back.index') }}" wire:navigate>Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('back.index') }}" wire:navigate>Beranda</a></li>
                 <li class="breadcrumb-item active">User</li>
             </ol>
         </nav>
@@ -15,7 +15,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">User Data</h5>
+                    <h5 class="card-title">Data User</h5>
                     <a href="{{ route('user.form') }}" class="btn btn-primary btn-sm" wire:navigate>New</a>
                     <table class="table">
                         <div class="col-md-4 mt-2">
@@ -30,10 +30,10 @@
                             <tr>
                                 <th>#</th>
                                 <th>
-                                    <b>N</b>ame
+                                    <b>N</b>ama
                                 </th>
                                 <th>Email</th>
-                                <th>Action</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,31 +52,31 @@
                                                         Detail
                                                     </button></li>
                                                 <li><a href="{{ route('user.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
-                                                <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Delete</button></li>
+                                                <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Hapu</button></li>
                                             </ul>
                                         </div>
                                     </td>
                                     <td>
                                         @if (!empty($item->bedroom_id))
                                         <form wire:submit.prevent="inactiveUser({{ $item->id }})">
-                                            <button type="button" class="btn btn-sm btn-warning shadow-sm" onclick="confirmDeactivation({{ $item->id }})">Deactivate</button>
+                                            <button type="button" class="btn btn-sm btn-warning shadow-sm" onclick="confirmDeactivation({{ $item->id }})">NonAktif</button>
 
                                             <script>
                                                 function confirmDeactivation(userId) {
                                                     Swal.fire({
-                                                        title: 'Are you sure?',
-                                                        text: "You won't be able to revert this!",
+                                                        title: 'Apa kamu yakin?',
+                                                        text: "Kamu tidak akan bisa mengembalikannya!",
                                                         icon: 'warning',
                                                         showCancelButton: true,
                                                         confirmButtonColor: '#3085d6',
                                                         cancelButtonColor: '#d33',
-                                                        confirmButtonText: 'Yes, deactivate it!'
+                                                        confirmButtonText: 'Ya, Nonaktifkan!'
                                                     }).then((result) => {
                                                         if (result.isConfirmed) {
                                                             @this.call('inactiveUser', userId);
                                                             Swal.fire(
-                                                                'Deactivated!',
-                                                                'The user has been deactivated.',
+                                                                'Nonaktif!',
+                                                                'Akun user telah dinonaktifkan.',
                                                                 'success'
                                                             )
                                                         }
@@ -88,7 +88,7 @@
                                     </td>
                                 </tr>
                             @empty
-                                <pre class="fs-3 text-center">no does match.</pre>
+                                <pre class="fs-3 text-center">tidak ada data.</pre>
                             @endforelse
                         </tbody>
                     </table>
@@ -104,13 +104,13 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">User Detail</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Detail User</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <label class="fw-semibold">Name:</label>
+                                <label class="fw-semibold">Nama:</label>
                                 <ul>
                                     <li>
                                         <p>{{ $item->name }} </p>
@@ -122,19 +122,19 @@
                                         <p>{{ $item->email }} </p>
                                     </li>
                                 </ul>
-                                <label class="fw-semibold">Phone:</label>
+                                <label class="fw-semibold">Telepon:</label>
                                 <ul>
                                     <li>
                                         <p>{{ $item->phone }} </p>
                                     </li>
                                 </ul>
-                                <label class="fw-semibold">Address:</label>
+                                <label class="fw-semibold">Alamat:</label>
                                 <ul>
                                     <li>
                                         <p>{{ $item->address }} </p>
                                     </li>
                                 </ul>
-                                <label class="fw-semibold">City:</label>
+                                <label class="fw-semibold">Kota:</label>
                                 <ul>
                                     <li>
                                         <p>{{ $item->city }} </p>
@@ -142,13 +142,13 @@
                                 </ul>
                             </div>
                             <div class="col-md-6">
-                                <label class="fw-semibold">State:</label>
+                                <label class="fw-semibold">Provinsi:</label>
                                 <ul>
                                     <li>
                                         <p>{{ $item->state }} </p>
                                     </li>
                                 </ul>
-                                <label class="fw-semibold">Check in:</label>
+                                <label class="fw-semibold">Tanggal Check in:</label>
                                 <ul>
                                     <li>
                                         <p>{{ $item->check_in }} </p>
@@ -177,7 +177,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     </div>
                 </div>
             </div>

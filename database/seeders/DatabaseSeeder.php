@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 0; $i < 3; $i++) {
             Bedroom::create([
-                'name'        => 'BEDROOM C' . ($i + 1),
+                'name'        => 'Kamar C' . ($i + 1),
                 'price'       => 850000,
                 'type'        => "Kamar Standar",
                 'width'       => "3 x 2.5 meter",
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
         }
         for ($i = 0; $i < 3; $i++) {
             Bedroom::create([
-                'name'        => 'BEDROOM B' . ($i + 1),
+                'name'        => 'Kamar B' . ($i + 1),
                 'price'       => 1500000,
                 'type'        => "Kamar Mewah",
                 'width'       => "3 x 2.5 meter",
@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
         }
         for ($i = 0; $i < 3; $i++) {
             Bedroom::create([
-                'name'        => 'BEDROOM A' . ($i + 1),
+                'name'        => 'Kamar A' . ($i + 1),
                 'price'       => 2100000,
                 'type'        => "Kamar Istimewa",
                 'width'       => "3 x 2.5 meter",

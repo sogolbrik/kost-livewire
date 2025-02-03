@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('entering_room', 20)->nullable();
             $table->string('duration', 20);
             $table->enum('status_payment', ['new', 'old'])->default('new');
-            $table->enum('status', ['pending', 'paid', 'declined'])->default('pending');
+            $table->enum('status', ['Ditunda', 'Disetujui', 'Ditolak'])->default('Ditunda');
             $table->timestamps();
         });
     }

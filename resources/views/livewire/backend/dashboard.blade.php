@@ -4,7 +4,7 @@
         <h1>Dashboard</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('back.index') }}" wire:navigate>Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('back.index') }}" wire:navigate>Beranda</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
         </nav>
@@ -19,7 +19,7 @@
                         <div class="card info-card sales-card">
 
                             <div class="card-body">
-                                <h5 class="card-title">Sales <span>| This Month</span></h5>
+                                <h5 class="card-title">Terjual <span>| Bulan Ini</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -39,7 +39,7 @@
                         <div class="card info-card revenue-card">
 
                             <div class="card-body">
-                                <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                                <h5 class="card-title">Pemasukan <span>| Bulan Ini</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -60,7 +60,7 @@
                         <div class="card info-card customers-card">
 
                             <div class="card-body">
-                                <h5 class="card-title">Customers <span>| This Month</span></h5>
+                                <h5 class="card-title">Pelanggan <span>| Bulan Ini</span></h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -81,7 +81,7 @@
                         <div class="card info-card sales-card">
 
                             <div class="card-body">
-                                <h5 class="card-title">Bedroom Available</h5>
+                                <h5 class="card-title">Kamar Kosong</h5>
 
                                 <div class="d-flex align-items-center">
                                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -101,15 +101,15 @@
                         <div class="card recent-sales overflow-auto">
 
                             <div class="card-body">
-                                <h5 class="card-title">Recent Sales <span>| This Month</span></h5>
+                                <h5 class="card-title">Data Transaksi <span>| Bulan ini</span></h5>
 
                                 <table class="table table-borderless datatable">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">Customer</th>
-                                            <th scope="col">Bedroom</th>
-                                            <th scope="col">Period</th>
+                                            <th scope="col">Pelanggan</th>
+                                            <th scope="col">Kamar</th>
+                                            <th scope="col">Periode</th>
                                             <th scope="col">Status</th>
                                         </tr>
                                     </thead>

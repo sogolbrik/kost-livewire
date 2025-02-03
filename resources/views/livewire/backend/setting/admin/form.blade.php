@@ -3,7 +3,7 @@
     <form id="upload-form" wire:submit.prevent="update" enctype="multipart/form-data">
 
         <div class="row mb-3">
-            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+            <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Gambar Profile</label>
             <div class="col-md-8 col-lg-9">
                 @if (is_object($photo))
                     <img src="{{ $photo->temporaryUrl() }}" class="img-fluid rounded">
@@ -25,7 +25,7 @@
         </div>
 
         <div class="row mb-3">
-            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Name</label>
+            <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Nama</label>
             <div class="col-md-8 col-lg-9">
                 <input type="text" class="form-control" id="fullName" wire:model.live="name">
                 @error('name')
@@ -45,7 +45,7 @@
         </div>
 
         <div class="row mb-3">
-            <label for="about" class="col-md-4 col-lg-3 col-form-label">Phone</label>
+            <label for="about" class="col-md-4 col-lg-3 col-form-label">Telepon</label>
             <div class="col-md-8 col-lg-9">
                 <input type="number" class="form-control" id="phone" wire:model.live="phone">
                 @error('phone')
@@ -55,7 +55,7 @@
         </div>
 
         <div class="text-center">
-            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
         </div>
     </form><!-- End Profile Edit Form -->
 </div>

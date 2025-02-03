@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Animated Login Form</title>
+    <title>Kost - {{ $title ?? 'Page' }}</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('back-assets/assets/css/auth.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <link href="{{ asset('back-assetss/assets/vendor/sweetalert/sweetalert.min.css') }}" rel="stylesheet">

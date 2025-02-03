@@ -196,7 +196,7 @@
                             @foreach ($chunks as $chunk)
                                 <div class="col-md-6">
                                     @foreach ($chunk as $item)
-                                        {{ ucfirst(str_replace('_', ' ', $item->facility)) }}<br>
+                                      -  {{ ucfirst(str_replace('_', ' ', $item->facility)) }}<br>
                                     @endforeach
                                 </div>
                             @endforeach

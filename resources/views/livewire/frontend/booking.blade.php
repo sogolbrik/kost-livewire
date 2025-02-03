@@ -88,7 +88,7 @@
                             <h3>{{ $see->type }}</h3>
                             <p class="description">{{ $see->description }}</p>
                             <h4><sup>Rp</sup>{{ number_format($see->price, 0, ',', '.') }}<br><span> / bulan</span></h4>
-                            @if ($see->status == 'available')
+                            @if ($see->status == 'Tersedia')
                                 <a href="{{ route('booking.detail', $see->id) }}" wire:navigate class="cta-btn">Detail Kamar</a>
                             @else
                                 <div class="d-flex justify-content-center">

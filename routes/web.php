@@ -22,7 +22,6 @@ use App\Livewire\Frontend\DashboardCustomer;
 use App\Livewire\Frontend\Landing\Dashboard as LandingDashboard;
 use App\Livewire\Frontend\PageCustomer;
 use App\Livewire\Frontend\Setting\Profile\Data as ProfileData;
-use App\Livewire\Frontend\Template\MainBooking;
 use App\Livewire\Frontend\TransactionDetail;
 use App\Livewire\Transaction\Data;
 use App\Livewire\Transaction\Form;

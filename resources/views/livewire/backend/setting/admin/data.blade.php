@@ -3,7 +3,7 @@
         <h1>Profile</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item">Home</li>
+                <li class="breadcrumb-item">Beranda</li>
                 <li class="breadcrumb-item">Setting</li>
                 <li class="breadcrumb-item active">Profile</li>
             </ol>
@@ -44,7 +44,7 @@
                         <ul class="nav nav-tabs nav-tabs-bordered">
 
                             <li class="nav-item">
-                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Akun</button>
                             </li>
 
                             <li class="nav-item">
@@ -52,20 +52,20 @@
                             </li>
 
                             <li class="nav-item">
-                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Ubah Kata Sandi</button>
                             </li>
 
                         </ul>
                         <div class="tab-content pt-2">
 
                             <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                                <h5 class="card-title">Words for you life.</h5>
-                                <p class="small fst-italic">The struggle you're in today is developing the strength you need for tomorrow.</p>
+                                <h5 class="card-title">Kata-kata untuk hidup Anda.</h5>
+                                <p class="small fst-italic">Perjuangan yang Anda hadapi hari ini sedang mengembangkan kekuatan yang Anda butuhkan untuk besok.</p>
 
-                                <h5 class="card-title">Profile Details</h5>
+                                <h5 class="card-title">Detail Profile</h5>
 
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-4 label ">Name</div>
+                                    <div class="col-lg-3 col-md-4 label ">Nama</div>
                                     <div class="col-lg-9 col-md-8">{{ auth()->user()->name }}</div>
                                 </div>
 
@@ -75,7 +75,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-3 col-md-4 label">Phone</div>
+                                    <div class="col-lg-3 col-md-4 label">Telepon</div>
                                     <div class="col-lg-9 col-md-8">{{ auth()->user()->phone }}</div>
                                 </div>
 

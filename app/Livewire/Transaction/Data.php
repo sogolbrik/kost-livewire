@@ -31,8 +31,8 @@ class Data extends Component
         $transaction->status = $status;
         $transaction->save();
         
-        if ($status == 'paid') {
-            $bedroom->status = 'occupied';
+        if ($status == 'Disetujui') {
+            $bedroom->status = 'Terisi';
             $bedroom->save();
 
             $user->bedroom_id = $transaction->bedroom_id;

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('width', 30);
             $table->text('description');
             $table->string('photo')->nullable();
-            $table->enum('status', ['available', 'occupied'])->default('available');
+            $table->enum('status', ['Tersedia', 'Terisi'])->default('Tersedia');
             $table->timestamps();
         });
     }

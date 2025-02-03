@@ -11,20 +11,20 @@
                 </a>
             </li>
 
-            <li class="nav-heading">Control</li>
+            <li class="nav-heading">Kontrol</li>
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-layout-text-window-reverse"></i><span>Manage Data</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Kelola Data</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="tables-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="{{ route('bedroom.data') }}" wire:current='active' wire:navigate>
-                            <i class="bi bi-circle"></i><span>Bedroom</span>
+                            <i class="bi bi-circle"></i><span>Kamar</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('transaction.data') }}" wire:current="active" wire:navigate>
-                            <i class="bi bi-circle"></i><span>Transaction</span>
+                            <i class="bi bi-circle"></i><span>Transaksi</span>
                         </a>
                     </li>
                 </ul>
@@ -36,7 +36,7 @@
                 <ul id="fintech" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                     <li>
                         <a href="{{ route('fintech.data') }}" wire:current='active' wire:navigate>
-                            <i class="bi bi-circle"></i><span>Fintech</span>
+                            <i class="bi bi-circle"></i><span>Rekening</span>
                         </a>
                     </li>
                 </ul>
