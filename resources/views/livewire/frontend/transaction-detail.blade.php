@@ -18,18 +18,21 @@
                                     <p><strong>Durasi:</strong> {{ $item->duration }} Bulan</p>
                                     <p><strong>Tanggal Pembayaran:</strong> {{ date('d F Y', strtotime($item->payment_date)) }}</p>
                                     <p><strong>Harga:</strong> Rp{{ number_format($item->bedroom->price * $item->duration, 0, ',', '.') }}</p>
-                                    @if ($item->status == 'pending')
+                                    @if ($item->status == 'Ditunda')
                                         <p><strong>Status Pembayaran:</strong>
                                         <p class="badge rounded-pill bg-warning shadow-sm">Menunggu</p>
                                         </p>
-                                    @elseif($item->status == 'paid')
+                                    @elseif($item->status == 'Disetujui')
                                         <p><strong>Status Pembayaran:</strong>
                                         <p class="badge rounded-pill bg-success shadow-sm">Diterima</p>
                                         </p>
-                                    @elseif($item->status == 'declined')
+                                    @elseif($item->status == 'Ditolak')
                                         <p><strong>Status Pembayaran:</strong>
                                         <p class="badge rounded-pill bg-danger shadow-sm">Ditolak</p>
                                         </p>
+                                    @endif
+                                    @if ($item->status == 'Disetujui')
+                                        <p><strong>Catatan:</strong> Permintaan anda sudah disetujui oleh pemilik, silahkan memasuki kamar kos yang anda pilih! ( <strong>{{ $item->bedroom->name }}</strong> )</p>
                                     @endif
                                 </div>
                             @endforeach
@@ -38,5 +41,6 @@
                 </div>
             </div>
         </div>
+        <div style="height: 95px"></div>
     </section>
 </div>

@@ -44,7 +44,6 @@
                 <ul>
                     <li><a href="#hero" class="active">Beranda</a></li>
                     <li><a href="#about">Tentang Kami</a></li>
-                    <li><a href="#gallery">Galeri</a></li>
                     <li><a href="{{ route('booking') }}" wire:navigate>Booking Kos</a></li>
                     <li><a href="#faq">FAQs</a></li>
                     <li><a href="#contact">Kontak</a></li>

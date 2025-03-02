@@ -30,6 +30,20 @@ class DatabaseSeeder extends Seeder
                 'role'     => 'customer',
             ]);
         }
+
+        for ($i = 0; $i < 9; $i++) {
+            User::create([
+                'bedroom_id' => $i,
+                'name'       => fake()->name,
+                'email'      => fake()->email,
+                'password'   => fake()->password,
+                'phone'      => fake()->phoneNumber,
+                'address'    => fake()->address,
+                'city'       => fake()->city,
+                'state'      => fake()->state,
+                'role'       => 'customer',
+            ]);
+        }
         User::create([
             'name'     => 'admin',
             'email'    => 'admin@gmail.com',

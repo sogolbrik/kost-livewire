@@ -67,16 +67,16 @@
                             <div class="gallery-item mb-2">
                                 @if ($see->photo == NULL)
                                     @if ($see->type == 'Kamar Standar')
-                                        <a href="{{ asset('seed/bedroom/standar.webp') }}" class="glightbox" data-gallery="images-gallery">
-                                            <img src="{{ asset('seed/bedroom/standar.webp') }}" alt="{{ $see->name }}" class="img-fluid rounded">
+                                        <a href="{{ asset('seed/bedroom/standar.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                                            <img src="{{ asset('seed/bedroom/standar.jpg') }}" alt="{{ $see->name }}" class="img-fluid rounded">
                                         </a>
                                     @elseif ($see->type == 'Kamar Mewah')
-                                        <a href="{{ asset('seed/bedroom/mewah.webp') }}" class="glightbox" data-gallery="images-gallery">
-                                            <img src="{{ asset('seed/bedroom/mewah.webp') }}" alt="{{ $see->name }}" class="img-fluid rounded">
+                                        <a href="{{ asset('seed/bedroom/mewah.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                                            <img src="{{ asset('seed/bedroom/mewah.jpg') }}" alt="{{ $see->name }}" class="img-fluid rounded">
                                         </a>
                                     @elseif ($see->type == 'Kamar Istimewa')
-                                        <a href="{{ asset('seed/bedroom/istimewa.webp') }}" class="glightbox" data-gallery="images-gallery">
-                                            <img src="{{ asset('seed/bedroom/istimewa.webp') }}" alt="{{ $see->name }}" class="img-fluid rounded">
+                                        <a href="{{ asset('seed/bedroom/istimewa.jpg') }}" class="glightbox" data-gallery="images-gallery">
+                                            <img src="{{ asset('seed/bedroom/istimewa.jpg') }}" alt="{{ $see->name }}" class="img-fluid rounded">
                                         </a>
                                     @endif
                                 @else

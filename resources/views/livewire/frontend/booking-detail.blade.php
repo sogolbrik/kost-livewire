@@ -11,38 +11,38 @@
                 @if ($bedId->photo == null)
                     @if ($bedId->type == 'Kamar Standar')
                         <div class="col-md-8" style="margin-left: -40px;">
-                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.webp') }}" alt="{{ 'Standar' }}">
+                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.jpg') }}" alt="{{ 'Standar' }}">
                         </div>
                         <div class="col-md-4" style="margin-left: 40px;">
                             <div class="mb-3">
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.webp') }}" alt="{{ 'Standar' }}">
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.jpg') }}" alt="{{ 'Standar' }}">
                             </div>
                             <div>
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.webp') }}" alt="{{ 'Standar' }}">
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.jpg') }}" alt="{{ 'Standar' }}">
                             </div>
                         </div>
                     @elseif($bedId->type == 'Kamar Mewah')
                         <div class="col-md-8" style="margin-left: -40px;">
-                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.webp') }}" alt="{{ 'Mewah' }}">
+                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.jpg') }}" alt="{{ 'Mewah' }}">
                         </div>
                         <div class="col-md-4" style="margin-left: 40px;">
                             <div class="mb-3">
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.webp') }}" alt="{{ 'Mewah' }}">
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.jpg') }}" alt="{{ 'Mewah' }}">
                             </div>
                             <div>
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.webp') }}" alt="{{ 'Mewah' }}">
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.jpg') }}" alt="{{ 'Mewah' }}">
                             </div>
                         </div>
                     @elseif($bedId->type == 'Kamar Istimewa')
                         <div class="col-md-8" style="margin-left: -40px;">
-                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.webp') }}" alt="{{ 'Istimewa' }}">
+                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.jpg') }}" alt="{{ 'Istimewa' }}">
                         </div>
                         <div class="col-md-4" style="margin-left: 40px;">
                             <div class="mb-3">
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.webp') }}" alt="{{ 'Istimewa' }}">
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.jpg') }}" alt="{{ 'Istimewa' }}">
                             </div>
                             <div>
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.webp') }}" alt="{{ 'Istimewa' }}">
+                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.jpg') }}" alt="{{ 'Istimewa' }}">
                             </div>
                         </div>
                     @endif

@@ -18,9 +18,9 @@ class Dashboard extends Component
     public function mount()
     {
         $this->transaction = Transaction::latest()->get();
-        $this->sale        = Bedroom::where('status', 'occupied')->count();
-        $this->available   = Bedroom::where('status', 'available')->count();
-        $this->revenue     = Bedroom::where('status', 'occupied')->sum('price');
+        $this->sale        = Bedroom::where('status', 'Terisi')->count();
+        $this->available   = Bedroom::where('status', 'Tersedia')->count();
+        $this->revenue     = Bedroom::where('status', 'Terisi')->sum('price');
         $this->customer    = User::where('status', 'active')->count();
     }
 
