@@ -42,6 +42,7 @@ class Form extends Component
             'bedroom_id'     => $this->transaction['bedroom_id'],
             'payment_date'   => date('Y-m-d'),
             'billing_period' => date('Y-m'),
+            'code'           => "KOS-".date('ymdHis').rand(10,99),
             'payment_proof'  => $data["payment_proof"],
             'entering_room'  => $this->transaction['entering_room'],
             'duration'       => $this->transaction['duration'],

@@ -1,316 +1,444 @@
 <div>
 
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --light-blue: #dbeafe;
+            --dark-blue: #1e40af;
+        }
 
-    <section class="light-background mt-2">
-        <div class="container section-title mt-4" data-aos="fade-in">
-            <h2>Booking</h2>
-            <div><span>Detail</span> <span class="description-title">Kamar</span></div>
-        </div><!-- End Section Title -->
-        <div class="container">
-            <div class="row">
-                @if ($bedId->photo == null)
-                    @if ($bedId->type == 'Kamar Standar')
-                        <div class="col-md-8" style="margin-left: -40px;">
-                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.jpg') }}" alt="{{ 'Standar' }}">
-                        </div>
-                        <div class="col-md-4" style="margin-left: 40px;">
-                            <div class="mb-3">
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.jpg') }}" alt="{{ 'Standar' }}">
-                            </div>
-                            <div>
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/standar.jpg') }}" alt="{{ 'Standar' }}">
-                            </div>
-                        </div>
-                    @elseif($bedId->type == 'Kamar Mewah')
-                        <div class="col-md-8" style="margin-left: -40px;">
-                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.jpg') }}" alt="{{ 'Mewah' }}">
-                        </div>
-                        <div class="col-md-4" style="margin-left: 40px;">
-                            <div class="mb-3">
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.jpg') }}" alt="{{ 'Mewah' }}">
-                            </div>
-                            <div>
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/mewah.jpg') }}" alt="{{ 'Mewah' }}">
-                            </div>
-                        </div>
-                    @elseif($bedId->type == 'Kamar Istimewa')
-                        <div class="col-md-8" style="margin-left: -40px;">
-                            <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.jpg') }}" alt="{{ 'Istimewa' }}">
-                        </div>
-                        <div class="col-md-4" style="margin-left: 40px;">
-                            <div class="mb-3">
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.jpg') }}" alt="{{ 'Istimewa' }}">
-                            </div>
-                            <div>
-                                <img class="img-fluid rounded shadow-sm" src="{{ asset('seed/bedroom/istimewa.jpg') }}" alt="{{ 'Istimewa' }}">
-                            </div>
-                        </div>
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+        }
+
+        .hero-image {
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .badge-custom {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .feature-card {
+            background: white;
+            border: 2px solid var(--light-blue);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+        }
+
+        .booking-card {
+            position: sticky;
+            top: 20px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+            border: 2px solid var(--light-blue);
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-blue);
+            border-color: var(--primary-blue);
+            color: white;
+            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 8px;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: var(--dark-blue);
+            border-color: var(--dark-blue);
+        }
+
+        .facility-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .facility-item:last-child {
+            border-bottom: none;
+        }
+
+        .facility-icon {
+            width: 24px;
+            color: var(--primary-blue);
+            margin-right: 12px;
+        }
+
+        .rule-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .rule-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-highlight {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+        }
+
+        .price-detail {
+            background: var(--light-blue);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+    </style>
+
+    <div class="container-fluid px-4 py-4" style="margin-top: 80px">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-8">
+                <!-- Hero Image -->
+                <div class="mb-4">
+                    @if ($bedId->photo == null)
+                        @if ($bedId->type == 'Kamar Standar')
+                            <img src="{{ asset('seed/bedroom/standar.jpg') }}" alt="Kamar Kos" class="img-fluid hero-image w-100">
+                        @elseif($bedId->type == 'Kamar Mewah')
+                            <img src="{{ asset('seed/bedroom/mewah.jpg') }}" alt="Kamar Kos" class="img-fluid hero-image w-100">
+                        @elseif($bedId->type == 'Kamar Istimewa')
+                            <img src="{{ asset('seed/bedroom/istimewa.jpg') }}" alt="Kamar Kos" class="img-fluid hero-image w-100">
+                        @endif
+                    @else
+                        <img src="{{ Storage::url($bedId->photo) }}" alt="Kamar Kos" class="img-fluid hero-image w-100">
                     @endif
-                @else
-                    <div class="col-md-8" style="margin-left: -40px;">
-                        <img class="img-fluid rounded shadow-sm" src="{{ Storage::url($bedId->photo) }}" alt="{{ $bedId->name }}">
+                </div>
+
+                <!-- Title & Basic Info -->
+                <div class="mb-4">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge-custom">Kos Putra/Putri</span>
+                        <span class="badge-custom">Dikelola GlgDev</span>
                     </div>
-                    <div class="col-md-4" style="margin-left: 40px;">
-                        <div class="mb-3">
-                            <img class="img-fluid rounded shadow-sm" src="{{ Storage::url($bedId->photo) }}" alt="{{ $bedId->name }}">
-                        </div>
-                        <div>
-                            <img class="img-fluid rounded shadow-sm" src="{{ Storage::url($bedId->photo) }}" alt="{{ $bedId->name }}">
-                        </div>
-                    </div>
-                @endif
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-8">
-                    <div class="mt-4" data-aos="fade-in">
-                        <h1 class="fw-semibold">{{ $bedId->name }} Type {{ $bedId->type }}</h1>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3" style="margin-right: -20px">
-                            <div class="p-2 border border-secondary-subtle rounded text-center">
-                                <span class="fw-bold">Kos Putra/Putri</span>
+                    <h1 class="h2 fw-bold text-dark mb-2">{{ $bedId->name }} -
+                        @if ($bedId->type == 'Kamar Standar')
+                            Standar
+                        @elseif($bedId->type == 'Kamar Mewah')
+                            Mewah
+                        @else
+                            Istimewa
+                        @endif
+                    </h1>
+                    <p class="text-muted mb-0"><i class="fas fa-map-marker-alt me-2"></i>Kos Putra/Putri</p>
+                </div>
+
+                <!-- Keunggulan -->
+                <div class="mb-5">
+                    <h3 class="h4 fw-bold mb-4 text-dark">Yang Kamu Dapatkan Disini</h3>
+
+                    <div class="feature-card">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-shield-alt"></i>
                             </div>
-                        </div>
-                        <div class="col-md-1 d-flex justify-content-center align-items-center">
-                            <i class="bi bi-dot"></i>
-                        </div>
-                        <div class="col-md-3" style="margin-left: -70px;">
-                            <div class="p-2 text-center">
-                                <i class="bi bi-geo-alt-fill"></i>
-                                <span class="fw-bold">Kutorejo</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4">
-                        <p><i class="bi bi-door-open"></i> Banyak pilihan kamar untukmu</p>
-                        <hr class="mb-4">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h5 class="fw-bold mb-2">Kos dikelola oleh Pemilik</h5>
-                                <p class="text-secondary">Sogol</p>
-                            </div>
-                            <div class="col-md-6 d-flex justify-content-end" style="margin-left: -60px">
-                                <img src="{{ asset('front-assets/assets/img/team/user.png') }}" alt="user" class="img-fluid rounded-circle" style="width: 60px; height: 60px">
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="mt-3">
-                        <h4 class="fw-bold">Yang kamu dapatkan disini</h4>
-                        <div class="d-flex align-items-start mb-2">
-                            <i class="bi bi-shield-exclamation me-2" style="font-size: 1.5rem;"></i>
                             <div>
-                                <p class="fw-bold mb-1">Asuransi Khusus Penyewa</p>
-                                <p class="mb-0 text-secondary">Perlindungan selama ngekos atas kompensasi kehilangan barang dan kerusakan fasilitas pada unit kamar. Disediakan oleh kami sendiri.
+                                <h5 class="fw-bold text-dark mb-2">Asuransi Khusus Penyewa</h5>
+                                <p class="text-muted mb-0">Perlindungan selama ngekos atas kompensasi kehilangan barang dan kerusakan fasilitas pada unit kamar. Disediakan oleh kami sendiri.
                                     Syarat & Ketentuan berlaku.</p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-start mb-2">
-                            <i class="bi bi-patch-check me-2" style="font-size: 1.5rem;"></i>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-headset"></i>
+                            </div>
                             <div>
-                                <p class="fw-bold mb-1">Pro Service</p>
-                                <p class="mb-0 text-secondary">Ditangani secara profesional oleh tim DelapanBelasKos. Selama kamu ngekos di sini, ada tim dari kami yang akan merespon saran dan
+                                <h5 class="fw-bold text-dark mb-2">Pro Service</h5>
+                                <p class="text-muted mb-0">Ditangani secara profesional oleh tim DelapanBelasKos. Selama kamu ngekos di sini, ada tim dari kami yang akan merespon saran dan
                                     komplainmu.</p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-start mb-2">
-                            <i class="bi bi-stars me-2" style="font-size: 1.5rem;"></i>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="d-flex align-items-start">
+                            <div class="feature-icon me-3">
+                                <i class="fas fa-crown"></i>
+                            </div>
                             <div>
-                                <p class="fw-bold mb-1">Dikelola Pendiri, Terjamin Nyaman</p>
-                                <p class="mb-0 text-secondary">Kos ini operasionalnya dikelola dan distandardisasi oleh Pendiri.</p>
+                                <h5 class="fw-bold text-dark mb-2">Dikelola Pendiri, Terjamin Nyaman</h5>
+                                <p class="text-muted mb-0">Kos ini operasionalnya dikelola dan distandardisasi oleh Pendiri.</p>
                             </div>
                         </div>
                     </div>
-                    <hr>
-                    <div class="mt-3">
-                        <h4 class="fw-bold">Spesifikasi tipe kamar</h4>
-                        <i class="bi bi-slash-square" style="font-size: 17px"> {{ $bedId->width }}</i>
-                        <br>
-                        @foreach ($bedId->bedroomDetail as $item)
-                            @if ($item->facility == 'Listrik')
-                                <i class="bi bi-lightning-charge" style="font-size: 17px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
-                            @endif
-                        @endforeach
-                        <hr>
-                        <h4 class="fw-bold">Fasilitas Kamar</h4>
-                        @foreach ($bedId->bedroomDetail as $item)
-                            <div class="row">
-                                <div class="col-md-6">
-                                    @if ($item->facility == 'Kasur & Bantal')
-                                        <i class="ri-hotel-bed-fill" style="font-size: 17px"></i> <i>{{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
-                                    @endif
-                                    @if ($item->facility == 'Kipas Angin')
-                                        <i class="bi bi-fan" style="font-size: 17px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
-                                    @elseif ($item->facility == 'AC')
-                                        <i class="bi bi-usb-micro-fill" style="font-size: 17px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
-                                    @endif
-                                    @if ($item->facility == 'Lemari')
-                                        <i class="bi bi-inboxes-fill" style="font-size: 17px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
-                                    @endif
-                                </div>
-                            </div>
-                        @endforeach
-                        <hr>
-                        <h4 class="fw-bold">Fasilitas Kamar Mandi</h4>
-                        @foreach ($bedId->bedroomDetail as $item)
-                            <div class="row">
-                                <div class="col-md-6">
-                                    @if ($item->facility == 'K. Mandi Dalam')
-                                        <i class="bi bi-badge-wc" style="font-size: 18px"> {{ ucfirst(str_replace('_', ' ', $item->facility)) }}</i>
-                                    @endif
-                                </div>
-                            </div>
-                        @endforeach
-                        <hr>
-                        <h4 class="fw-bold">Peraturan khusus kamar ini</h4>
-                        <div class="d-flex align-items-center">
-                            <i class="bi bi-dot"></i>
-                            <div class="fw-normal text-black">Tamu boleh menginap</div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i class="bi bi-dot"></i>
-                            <div class="fw-normal text-black">Tamu menginap dikenakan biaya</div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i class="bi bi-dot"></i>
-                            <div class="fw-normal text-black">Tipe ini bisa diisi maks. 2 orang/ kamar</div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i class="bi bi-dot"></i>
-                            <div class="fw-normal text-black">Boleh pasutri</div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <div class="text-secondary fw-normal ms-3">Wajib sertakan surat nikah saat pengajuan sewa</div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i class="bi bi-dot"></i>
-                            <div class="fw-normal text-black">Tidak boleh bawa anak</div>
-                        </div>
-                        <hr>
-                        <h4 class="fw-bold">Seluruh fasilitas dalam kamar ini</h4>
-                        <div class="row">
-                            @php
-                                $chunks = $bedId->bedroomDetail->chunk(ceil($bedId->bedroomDetail->count() / 2));
-                            @endphp
+                </div>
 
-                            @foreach ($chunks as $chunk)
-                                <div class="col-md-6">
-                                    @foreach ($chunk as $item)
-                                      -  {{ ucfirst(str_replace('_', ' ', $item->facility)) }}<br>
-                                    @endforeach
-                                </div>
+                <!-- Spesifikasi Kamar -->
+                <div class="mb-5">
+                    <h3 class="h4 fw-bold mb-4 text-dark">Spesifikasi Tipe Kamar</h3>
+                    <div class="bg-white rounded-3 p-4 border" style="border-color: var(--light-blue) !important;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold text-dark mb-3">Ukuran Kamar</h6>
+                                <p class="mb-3"><i class="fas fa-ruler-combined text-primary me-2"></i>{{ $bedId->width }}</p>
+
+                                <h6 class="fw-bold text-dark mb-3">Fasilitas Utama</h6>
+                                @if ($bedId->type == 'Kamar Standar')
+                                    <div class="facility-item">
+                                        <i class="fas fa-bed facility-icon"></i>
+                                        <span>Kasur & Bantal</span>
+                                    </div>
+                                    <div class="facility-item">
+                                        <i class="fas fa-wifi facility-icon"></i>
+                                        <span>Wifi</span>
+                                    </div>
+                                    <div class="facility-item">
+                                        <i class="fas fa-plug facility-icon"></i>
+                                        <span>Stopkontak</span>
+                                    </div>
+                                @elseif($bedId->type == 'Kamar Mewah')
+                                    <div class="facility-item">
+                                        <i class="fas fa-chair facility-icon"></i>
+                                        <span>Kursi & Meja</span>
+                                    </div>
+                                    <div class="facility-item">
+                                        <i class="fas fa-tv facility-icon"></i>
+                                        <span>TV</span>
+                                    </div>
+                                    <div class="facility-item">
+                                        <i class="fas fa-snowflake facility-icon"></i>
+                                        <span>AC</span>
+                                    </div>
+                                @else
+                                    <div class="facility-item">
+                                        <i class="fas fa-utensils facility-icon"></i>
+                                        <span>Dapur Pribadi</span>
+                                    </div>
+                                    <div class="facility-item">
+                                        <i class="fas fa-shower facility-icon"></i>
+                                        <span>K. Mandi Dalam</span>
+                                    </div>
+                                    <div class="facility-item">
+                                        <i class="fas fa-shoe-prints facility-icon"></i>
+                                        <span>Rak Sepatu</span>
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Peraturan Khusus -->
+                <div class="mb-5">
+                    <h3 class="h4 fw-bold mb-4 text-dark">Peraturan Khusus Kamar Ini</h3>
+                    <div class="bg-white rounded-3 p-4 border" style="border-color: var(--light-blue) !important;">
+                        <div class="rule-item">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            <span>Tamu boleh menginap</span>
+                        </div>
+                        <div class="rule-item">
+                            <i class="fas fa-users text-primary me-2"></i>
+                            <span>Tipe ini bisa diisi maks. 2 orang/kamar</span>
+                        </div>
+                        <div class="rule-item">
+                            <i class="fas fa-heart text-danger me-2"></i>
+                            <span>Boleh pasutri</span>
+                        </div>
+                        <div class="rule-item">
+                            <i class="fas fa-file-alt text-info me-2"></i>
+                            <span>Wajib sertakan surat nikah saat pengajuan sewa</span>
+                        </div>
+                        <div class="rule-item">
+                            <i class="fas fa-times-circle text-danger me-2"></i>
+                            <span>Tidak boleh bawa anak</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seluruh Fasilitas -->
+                <div class="mb-5">
+                    <h3 class="h4 fw-bold mb-4 text-dark">Seluruh Fasilitas Dalam Kamar</h3>
+                    <div class="bg-white rounded-3 p-4 border" style="border-color: var(--light-blue) !important;">
+                        @php
+                            $iconMap = [
+                                'Kasur & Bantal' => 'fa-bed',
+                                'Lemari' => 'fa-warehouse',
+                                'Meja dan Kursi' => 'fa-chair',
+                                'K. Mandi Dalam' => 'fa-shower',
+                                'Kaca' => 'fa-square',
+                                'TV' => 'fa-tv',
+                                'Dapur Pribadi' => 'fa-utensils',
+                                'WI-FI' => 'fa-wifi',
+                                'Tempat Sampah' => 'fa-trash-alt',
+                                'Listrik' => 'fa-bolt',
+                                'Jendela dan Tirai' => 'fa-window-maximize',
+                                'Stopkontak' => 'fa-plug',
+                                'Rak Sepatu' => 'fa-shoe-prints',
+                                'AC' => 'fa-snowflake',
+                                'Kipas Angin' => 'fa-fan',
+                            ];
+                        @endphp
+
+                        <div class="row">
+                            @foreach ($bedId->bedroomDetail->chunk(2) as $pair)
+                                @foreach ($pair as $item)
+                                    <div class="col-md-6 mb-2">
+                                        <div class="facility-item d-flex align-items-center">
+                                            @php
+                                                $icon = $iconMap[$item->facility] ?? null;
+                                            @endphp
+                                            @if ($icon)
+                                                <i class="fas {{ $icon }} facility-icon me-2"></i>
+                                            @else
+                                                <span class="me-4 d-inline-block" style="width: 1.25rem;"></span> {{-- spacer if no icon --}}
+                                            @endif
+                                            <span>{{ $item->facility }}</span>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                @if ($pair->count() == 1)
+                                    <div class="col-md-6 mb-2"><!-- Empty to fill row --></div>
+                                @endif
                             @endforeach
                         </div>
 
                     </div>
                 </div>
-                <div class="col-md-4 mt-4">
-                    <div class="card shadow-sm" id="sticky">
-                        <div class="card-body">
+            </div>
 
-                            <form wire:submit.prevent="sessionTransaction">
-                                <div class="mb-3">
-                                    <h3 class="fw-bold text-decoration-underline">Rp {{ number_format($bedId->price, 0, ',', '.') }}</h3>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <label class="form-label">Tanggal Masuk</label>
-                                        <input id="inputTanggal" type="date" class="form-control" wire:model="entering_room">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label class="form-label">Durasi</label>
-                                        <select class="form-select" id="selectDurasi" wire:model='duration'>
-                                            <option value="" selected disabled>Pilih</option>
-                                            <option value="1">Per Bulan</option>
-                                            <option value="3">Per 3 Bulan</option>
-                                            <option value="6">Per 6 Bulan</option>
-                                        </select>
-                                    </div>
-                                </div>
+            <!-- Booking Card -->
+            <div class="col-lg-4">
+                <div class="booking-card p-4">
+                    <div class="text-center mb-4">
+                        <div class="price-highlight">Rp {{ number_format($bedId->price, 0, ',', '.') }}</div>
+                        <small class="text-muted">per bulan</small>
+                    </div>
 
-                                {{-- Detail Harga Kamar --}}
-                                <div class="row mb-3" id="detailHargaKamar" style="display: none">
-                                    <div class="col-md-12">
-                                        <div class="p-2 border border-secondary-subtle rounded text-center">
-                                            <span class="fw-bold">Detail Harga Kamar</span>
-                                            <div>Harga per bulan: Rp {{ number_format($bedId->price, 0, ',', '.') }}</div>
-                                            <hr>
-                                            <div>Durasi: <span id="durasiText"></span></div>
-                                            <div>Total Harga: Rp <span id="totalHarga"></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @script
-                                    <script>
-                                        $(document).ready(function() {
-                                            //Tanggal & Durasi
-                                            const $inputTanggal = $('#inputTanggal');
-                                            const $selectDurasi = $('#selectDurasi');
-                                            const $detailHargaKamar = $('#detailHargaKamar');
-                                            const $durasiText = $('#durasiText');
-                                            const $totalHarga = $('#totalHarga');
-                                            const $dpHarga = $('#dpHarga');
-
-                                            function updateDetailHarga() {
-                                                const tanggal = $inputTanggal.val();
-                                                const durasi = $selectDurasi.val();
-
-                                                if (tanggal && durasi) {
-                                                    $detailHargaKamar.show();
-                                                    let durasiText = '';
-                                                    switch (durasi) {
-                                                        case '1':
-                                                            durasiText = 'Per Bulan';
-                                                            break;
-                                                        case '3':
-                                                            durasiText = 'Per 3 Bulan';
-                                                            break;
-                                                        case '6':
-                                                            durasiText = 'Per 6 Bulan';
-                                                            break;
-                                                    }
-                                                    const totalHarga = durasi * {{ $bedId->price }};
-                                                    const dpHarga = totalHarga * 0.3;
-                                                    $durasiText.text(durasiText);
-                                                    $totalHarga.text(new Intl.NumberFormat('id-ID').format(totalHarga));
-                                                    $dpHarga.text(new Intl.NumberFormat('id-ID').format(dpHarga));
-                                                } else {
-                                                    $detailHargaKamar.hide();
-                                                }
-                                            }
-
-                                            $inputTanggal.on('change', updateDetailHarga);
-                                            $selectDurasi.on('change', updateDetailHarga);
-
-                                        });
-                                    </script>
-                                @endscript
-
-                                <div class="d-grid">
-                                    @if (Auth::check())
-                                        @if (empty(auth()->user()->bedroom_id))
-                                            <button type="submit" class="btn btn-primary">
-                                                <div class="fw-semibold">Ajukan Sewa</div>
-                                            </button>
-                                        @else
-                                            <button type="button" onclick="Swal.fire('Info', 'Mohon maaf, anda sudah mempunyai kamar.', 'info')" class="btn btn-primary">
-                                                <div class="fw-semibold">Ajukan Sewa</div>
-                                            </button>
-                                        @endif
-                                    @else
-                                        <a href="{{ route('login') }}" wire:navigate class="btn btn-primary">
-                                            <div class="fw-semibold">Ajukan Sewa</div>
-                                        </a>
-                                    @endif
-                                </div>
-                            </form>
-
-                            {{-- Detail Harga Kamar Hide Show --}}
+                    <form id="bookingForm" wire:submit.prevent="sessionTransaction">
+                        <div class="mb-3">
+                            <label for="tanggalMasuk" class="form-label fw-bold">Tanggal Masuk</label>
+                            <input type="date" class="form-control" id="tanggalMasuk" required wire:model='entering_room'>
                         </div>
+
+                        <div class="mb-4">
+                            <label for="durasi" class="form-label fw-bold">Pilih Durasi</label>
+                            <select class="form-select" id="durasi" required wire:model='duration'>
+                                <option value="">Pilih durasi sewa</option>
+                                <option value="1">1 Bulan</option>
+                                <option value="3">3 Bulan</option>
+                                <option value="6">6 Bulan</option>
+                            </select>
+                        </div>
+
+                        <div id="priceDetail" class="price-detail" style="display: none;">
+                            <h6 class="fw-bold mb-3">Detail Harga</h6>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Harga per bulan:</span>
+                                <span class="fw-bold">Rp {{ number_format($bedId->price, 0, ',', '.') }}</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span id="durasiText">Durasi:</span>
+                                <span id="durasiValue" class="fw-bold"></span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <span class="fw-bold">Total Harga:</span>
+                                <span id="totalHarga" class="fw-bold text-primary"></span>
+                            </div>
+                        </div>
+
+                        @if (Auth::check())
+                            @if (empty(auth()->user()->bedroom_id))
+                                <button type="submit" class="btn btn-primary-custom w-100 mt-4">
+                                    <i class="fas fa-calendar-check me-2"></i>Pesan Sekarang
+                                </button>
+                            @else
+                                <button type="button" class="btn btn-primary-custom w-100 mt-4" onclick="Swal.fire('Info', 'Mohon maaf, anda sudah mempunyai kamar.', 'info')">
+                                    <i class="fas fa-calendar-check me-2"></i>Pesan Sekarang
+                                </button>
+                            @endif
+                        @else
+                            <a href="{{ Route('login') }}" wire:navigate class="btn btn-primary-custom w-100 mt-4">
+                                <i class="fas fa-calendar-check me-2"></i>Pesan Sekarang
+                            </a>
+                        @endif
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <small class="text-muted">
+                            <i class="fas fa-info-circle me-1"></i>
+                            Tidak ada biaya tersembunyi
+                        </small>
                     </div>
                 </div>
             </div>
-    </section>
+        </div>
+    </div>
+
+    @script
+        <script>
+            const hargaPerBulan = {{ $bedId->price }};
+
+            function formatRupiah(angka) {
+                return new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    minimumFractionDigits: 0
+                }).format(angka);
+            }
+
+            function updatePriceDetail() {
+                const durasi = $('#durasi').val();
+                const priceDetail = $('#priceDetail');
+
+                if (durasi) {
+                    const totalHarga = hargaPerBulan * parseInt(durasi);
+
+                    $('#durasiValue').text(durasi + ' Bulan');
+                    $('#totalHarga').text(formatRupiah(totalHarga));
+
+                    priceDetail.show();
+                } else {
+                    priceDetail.hide();
+                }
+            }
+
+            $(document).ready(function() {
+                $('#durasi').on('change', updatePriceDetail);
+
+                $('#bookingForm').on('submit', function(e) {
+                    e.preventDefault();
+
+                    const tanggalMasuk = $('#tanggalMasuk').val();
+                    const durasi = $('#durasi').val();
+
+                    if (!tanggalMasuk || !durasi) {
+                        alert('Mohon lengkapi semua field!');
+                        return;
+                    }
+
+                });
+
+                // Set minimum date to today
+                $('#tanggalMasuk').attr('min', new Date().toISOString().split('T')[0]);
+            });
+        </script>
+    @endscript
 
 </div>

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('payment_proof');
             $table->string('entering_room', 20)->nullable();
             $table->string('duration', 20);
+            $table->string('code')->unique();
             $table->enum('status_payment', ['new', 'old'])->default('new');
             $table->enum('status', ['Ditunda', 'Disetujui', 'Ditolak'])->default('Ditunda');
             $table->timestamps();

@@ -1,5 +1,11 @@
-<div>
-
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Pesanan - Kos Modern</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary-blue: #2563eb;
@@ -311,36 +317,78 @@
             .hero-title {
                 font-size: 1.8rem;
             }
-
+            
             .order-body {
                 padding: 1.5rem;
             }
-
+            
             .info-section {
                 padding: 1.5rem;
             }
-
+            
             .action-buttons {
                 flex-direction: column;
             }
-
+            
             .total-price {
                 font-size: 2rem;
             }
         }
     </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand text-primary" href="#">
+                <i class="fas fa-home me-2"></i>Kos Modern
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-list me-1"></i>Semua Pesanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-user me-1"></i>Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-phone me-1"></i>Bantuan</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Detail Pesanan</h1>
+            <p class="hero-subtitle">Informasi lengkap pesanan kamar kos Anda</p>
+            
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home me-1"></i>Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pesanan Saya</a></li>
+                    <li class="breadcrumb-item active">Detail Pesanan</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
 
     <!-- Order Detail Section -->
-    <div class="container" style="margin-top: 110px">
+    <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <!-- Order Information Card -->
                 <div class="order-card">
                     <div class="order-header">
-                        <div class="order-id">#{{ $transaction->code }}</div>
-                        <div class="order-date">Pesanan dibuat pada {{ date('d F Y', strtotime($transaction->payment_date)) }}</div>
+                        <div class="order-id">#KOS-2025-001234</div>
+                        <div class="order-date">Pesanan dibuat pada 5 Juni 2025</div>
                     </div>
-
+                    
                     <div class="order-body">
                         <!-- Customer Information -->
                         <div class="info-section">
@@ -353,21 +401,21 @@
                                     <i class="fas fa-id-card"></i>
                                     Nama Pelanggan
                                 </div>
-                                <div class="info-value">{{ auth()->user()->name }}</div>
+                                <div class="info-value">Ahmad Budi Santoso</div>
                             </div>
                             <div class="info-row">
                                 <div class="info-label">
                                     <i class="fas fa-envelope"></i>
                                     Email
                                 </div>
-                                <div class="info-value">{{ auth()->user()->email }}</div>
+                                <div class="info-value">ahmad.budi@email.com</div>
                             </div>
                             <div class="info-row">
                                 <div class="info-label">
                                     <i class="fas fa-phone"></i>
                                     No. Telepon
                                 </div>
-                                <div class="info-value">{{ auth()->user()->phone }}</div>
+                                <div class="info-value">+62 812-3456-7890</div>
                             </div>
                         </div>
 
@@ -382,35 +430,35 @@
                                     <i class="fas fa-door-open"></i>
                                     Nama Kamar
                                 </div>
-                                <div class="info-value">{{ $transaction->bedroom->name }}</div>
+                                <div class="info-value">Kamar Deluxe A1</div>
                             </div>
                             <div class="info-row">
                                 <div class="info-label">
                                     <i class="fas fa-home"></i>
                                     Tipe Kamar
                                 </div>
-                                <div class="info-value">{{ $transaction->bedroom->type }}</div>
+                                <div class="info-value">Deluxe - AC & Kamar Mandi Dalam</div>
                             </div>
                             <div class="info-row">
                                 <div class="info-label">
                                     <i class="fas fa-calendar-alt"></i>
                                     Tanggal Masuk
                                 </div>
-                                <div class="info-value">{{ date('d F Y', strtotime($transaction->entering_room)) }}</div>
+                                <div class="info-value">15 Juni 2025</div>
                             </div>
                             <div class="info-row">
                                 <div class="info-label">
                                     <i class="fas fa-clock"></i>
                                     Durasi Sewa
                                 </div>
-                                <div class="info-value">{{ $transaction->duration }} Bulan</div>
+                                <div class="info-value">6 Bulan</div>
                             </div>
                             <div class="info-row">
                                 <div class="info-label">
                                     <i class="fas fa-calendar-check"></i>
                                     Tanggal Berakhir
                                 </div>
-                                <div class="info-value">{{ date('d F Y', strtotime($transaction->entering_room . ' + ' . $transaction->duration . ' months')) }}</div>
+                                <div class="info-value">15 Desember 2025</div>
                             </div>
                         </div>
 
@@ -425,22 +473,21 @@
                                     <i class="fas fa-calendar"></i>
                                     Tanggal Pembayaran
                                 </div>
-                                {{-- <div class="info-value">{{ date('d F Y', strtotime($transaction->created_at)) }}</div> --}}
-                                <div class="info-value">{{ $transaction->created_at }}</div>
+                                <div class="info-value">6 Juni 2025, 14:30 WIB</div>
                             </div>
                             <div class="info-row">
                                 <div class="info-label">
                                     <i class="fas fa-money-bill"></i>
                                     Harga per Bulan
                                 </div>
-                                <div class="info-value">Rp {{ number_format($transaction->bedroom->price, 0, ',', '.') }}</div>
+                                <div class="info-value">Rp 1.200.000</div>
                             </div>
                             <div class="info-row">
                                 <div class="info-label">
                                     <i class="fas fa-calculator"></i>
                                     Total Harga
                                 </div>
-                                <div class="info-value">Rp {{ number_format($transaction->bedroom->price * $transaction->duration, 0, ',', '.') }}</div>
+                                <div class="info-value">Rp 7.200.000</div>
                             </div>
                             <div class="info-row">
                                 <div class="info-label">
@@ -448,19 +495,9 @@
                                     Status Pembayaran
                                 </div>
                                 <div class="info-value">
-                                    @if ($transaction->status == 'Ditunda')
-                                        <span class="status-badge status-pending">
-                                            <i class="fas fa-hourglass-half me-1"></i> Menunggu
-                                        </span>
-                                    @elseif($transaction->status == 'Disetujui')
-                                        <span class="status-badge status-paid">
-                                            <i class="fas fa-check-circle me-1"></i>Lunas
-                                        </span>
-                                    @else
-                                        <span class="status-badge status-failed">
-                                            <i class="fas fa-times-circle me-1"></i> Ditolak
-                                        </span>
-                                    @endif
+                                    <span class="status-badge status-paid">
+                                        <i class="fas fa-check-circle me-1"></i>Lunas
+                                    </span>
                                 </div>
                             </div>
                             <div class="info-row">
@@ -468,7 +505,7 @@
                                     <i class="fas fa-university"></i>
                                     Metode Pembayaran
                                 </div>
-                                <div class="info-value">Transfer Bank</div>
+                                <div class="info-value">Transfer Bank BCA</div>
                             </div>
                         </div>
                     </div>
@@ -478,34 +515,35 @@
             <div class="col-lg-4">
                 <!-- Room Preview -->
                 <div class="room-preview mb-4">
-                    <img src="{{ Storage::url($transaction->bedroom->photo) }}" class="room-image" alt="{{ $transaction->bedroom->name }}">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=200&fit=crop" 
+                         class="room-image" alt="Kamar Deluxe A1">
                     <div class="room-info">
-                        <div class="room-name">{{ $transaction->bedroom->name }}</div>
-                        <div class="room-type">{{ $transaction->bedroom->type }}</div>
+                        <div class="room-name">Kamar Deluxe A1</div>
+                        <div class="room-type">Deluxe Room - Lantai 2</div>
                     </div>
                 </div>
 
                 <!-- Price Summary -->
                 <div class="price-section mb-4">
-                    <div class="total-price">Rp {{ number_format($transaction->bedroom->price * $transaction->duration, 0, ',', '.') }}</div>
+                    <div class="total-price">Rp 7.200.000</div>
                     <div class="price-breakdown">
-                        Rp {{ number_format($transaction->bedroom->price) }} × {{ $transaction->duration }} bulan<br>
+                        Rp 1.200.000 × 6 bulan<br>
                         <small class="text-muted">Sudah termasuk listrik & air</small>
                     </div>
                 </div>
 
                 <!-- Action Buttons -->
-                {{-- <div class="action-buttons">
-                    <button class="btn btn-primary-custom text-white">
+                <div class="action-buttons">
+                    <button class="btn btn-primary-custom">
                         <i class="fas fa-download me-2"></i>
                         Download Invoice
                     </button>
-                </div> --}}
+                </div>
                 <div class="action-buttons">
-                    <a href="https://wa.me/+6285704229619" target="_blank" class="btn btn-outline-custom">
+                    <button class="btn btn-outline-custom">
                         <i class="fas fa-headset me-2"></i>
                         Hubungi CS
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Timeline -->
@@ -514,32 +552,20 @@
                         <i class="fas fa-history me-2"></i>Riwayat Pesanan
                     </h5>
                     <div class="timeline">
-                        @if ($transaction->status == 'Disetujui')
-                            <div class="timeline-item">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <div class="timeline-date">{{ date('d F Y, H:i', strtotime($transaction->updated_at)) }}</div>
-                                    <div class="timeline-title">Pembayaran <span class="fw-bold">Berhasil</span></div>
-                                    <small class="text-muted">Pembayaran sebesar Rp {{ number_format($transaction->bedroom->price * $transaction->duration, 0, ',', '.') }} telah diterima</small>
-                                </div>
-                            </div>
-                        @elseif($transaction->status == 'Ditolak')
-                            <div class="timeline-item">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <div class="timeline-date">{{ date('d F Y, H:i', strtotime($transaction->updated_at)) }}</div>
-                                    <div class="timeline-title">Pembayaran <span class="fw-bold">Ditolak</span></div>
-                                    <small class="text-muted">Pembayaran sebesar Rp {{ number_format($transaction->bedroom->price * $transaction->duration, 0, ',', '.') }} telah ditolak. Silakan cek
-                                        kembali informasi pembayaran atau hubungi customer service untuk bantuan lebih lanjut.</small>
-                                </div>
-                            </div>
-                        @endif
                         <div class="timeline-item">
                             <div class="timeline-marker"></div>
                             <div class="timeline-content">
-                                <div class="timeline-date">{{ date('d F Y, H:i', strtotime($transaction->created_at)) }}</div>
+                                <div class="timeline-date">6 Juni 2025, 14:30</div>
+                                <div class="timeline-title">Pembayaran Berhasil</div>
+                                <small class="text-muted">Pembayaran sebesar Rp 7.200.000 telah diterima</small>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <div class="timeline-date">5 Juni 2025, 16:45</div>
                                 <div class="timeline-title">Pesanan Dibuat</div>
-                                <small class="text-muted">Pesanan {{ $transaction->bedroom->name }} berhasil dibuat</small>
+                                <small class="text-muted">Pesanan kamar Deluxe A1 berhasil dibuat</small>
                             </div>
                         </div>
                     </div>
@@ -548,6 +574,8 @@
         </div>
     </div>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Add smooth animations
@@ -555,12 +583,23 @@
             cards.forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(20px)';
-
+                
                 setTimeout(() => {
                     card.style.transition = 'all 0.6s ease';
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                 }, index * 100);
+            });
+
+            // Handle button clicks
+            document.querySelector('.btn-primary-custom').addEventListener('click', function() {
+                alert('Mengunduh invoice...');
+                // Here you would implement actual download functionality
+            });
+
+            document.querySelector('.btn-outline-custom').addEventListener('click', function() {
+                alert('Menghubungkan ke Customer Service...');
+                // Here you would implement customer service contact functionality
             });
 
             // Add timeline animation
@@ -570,16 +609,18 @@
                     item.style.opacity = '1';
                     item.style.transform = 'translateX(0)';
                 }, (index + 3) * 200);
-
+                
                 item.style.opacity = '0';
                 item.style.transform = 'translateX(-20px)';
                 item.style.transition = 'all 0.5s ease';
             });
         });
     </script>
-</div>
+</body>
+</html>
 
-{{-- <div class="light-background">
+
+<div class="light-background">
     <section class="mt-4">
         <div class="container mt-4">
             <div class="row justify-content-center">
@@ -624,4 +665,4 @@
         </div>
         <div style="height: 95px"></div>
     </section>
-</div> --}}
+</div>

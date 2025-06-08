@@ -17,20 +17,9 @@ class TransactionDetail extends Component
     // Property
     public $transaction;
 
-    // Validation
-    protected $rules = [
-        'property' => '?',
-    ];
-
     public function mount()
     {
-        $this->transaction = Transaction::where('user_id', Auth::id())->with('bedroom')->get();
-    }
-
-    // run on .live / .blur
-    public function updated($propertyName)
-    {
-        $this->validateOnly($propertyName);
+        $this->transaction = Transaction::where('user_id', Auth::id())->with('bedroom')->first();
     }
 
     public function render()

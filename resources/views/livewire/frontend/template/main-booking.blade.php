@@ -20,6 +20,7 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
+    <link href="{{ asset('back-assets/assets/vendor/fontawesome/css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('front-assets/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('front-assets/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('front-assets/assets/vendor/aos/aos.css') }}" rel="stylesheet">
