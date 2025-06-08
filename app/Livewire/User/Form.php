@@ -56,7 +56,7 @@ class Form extends Component
                 'password' => $hashPass,
             ]
         );
-        session()->flash('success-message', 'Successfully');
+        session()->flash('success-message', 'Berhasil');
         $this->redirectRoute('user.data', navigate: true);
     }
 

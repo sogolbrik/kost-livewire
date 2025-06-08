@@ -29,11 +29,23 @@
     <script src="{{ asset('front-assets/assets/js/jquery.js') }}"></script>
     <script src="{{ asset('front-assets/assets/js/moment.js') }}"></script>
 
+    {{-- Sweet Alert --}}
+    @if (session()->has('error-message'))
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: "{{ session('error-message') }}",
+                showConfirmButton: true,
+            });
+        </script>
+    @endif
+
     {{-- Success --}}
     @if (session('success-message'))
         <script>
             Swal.fire({
-                position: "top-end",
+                position: "top",
                 title: "{{ session('success-message') }}",
                 icon: "success",
                 showConfirmButton: false,
@@ -47,7 +59,7 @@
     @if (session('error-message'))
         <script>
             Swal.fire({
-                position: "top-end",
+                position: "top",
                 title: "{{ session('error-message') }}",
                 icon: "error",
                 showConfirmButton: false,
@@ -61,7 +73,7 @@
     @if (session('info-message'))
         <script>
             Swal.fire({
-                position: "top-end",
+                position: "top",
                 title: "{{ session('info-message') }}",
                 icon: "info",
                 showConfirmButton: false,
@@ -72,10 +84,10 @@
     @endif
 
     {{-- Error --}}
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <script>
             Swal.fire({
-                position: "top-end",
+                position: "top",
                 title: "An error occurred, please try again!",
                 icon: "error",
                 toast: true,
@@ -83,7 +95,7 @@
                 timer: 2500,
             });
         </script>
-    @endif
+    @endif --}}
 
     {{-- confirm deletion --}}
     <script>

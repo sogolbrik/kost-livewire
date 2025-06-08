@@ -54,7 +54,7 @@
                                                         Detail
                                                     </button></li>
                                                 <li><a href="{{ route('bedroom.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
-                                                <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Hapus</button></li>
+                                                <li><button onclick="confirmationDelete({{ $item->id }})" class="btn btn-sm dropdown-item">Hapus</button></li>
                                             </ul>
                                         </div>
                                     </td>

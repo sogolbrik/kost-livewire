@@ -14,12 +14,12 @@ class Data extends Component
     // use WithFileUploads; 
     use WithPagination;
 
-    #[Title('User')]
+    #[Title('Pengguna')]
     #[Layout('livewire.backend.template.main')]
 
     protected $paginationTheme = 'bootstrap';
 
-    public $search;
+    public $search, $userLoad;
 
     public function updatingSearch()
     {
@@ -32,7 +32,7 @@ class Data extends Component
         if ($user) {
             $bedroom = Bedroom::find($user->bedroom_id);
             if ($bedroom) {
-                $bedroom->status = 'available';
+                $bedroom->status = 'Terisi';
                 $bedroom->save();
             }
             $user->bedroom_id = NULL;
@@ -42,7 +42,19 @@ class Data extends Component
         }
 
         session()->flash('success-message', 'User has been inactive');
+    }
 
+    public $selectedUser;
+    public $showModal = false;
+
+    public function showUserDetail($id)
+    {
+        $this->selectedUser = User::find($id);
+        $this->showModal = true;
+    }
+
+    public function loadUser() {
+        $this->userLoad = User::get();
     }
 
     public function render()
@@ -52,9 +64,13 @@ class Data extends Component
         ]);
     }
 
+    #[On('destroy')]
     public function destroy($id)
     {
-        User::destroy($id);
+        $user = User::findOrFail($id);
+        $user->delete();
+        $this->loadUser();
+        session()->flash('success-message', 'Pengguna berhasil dihapus');
     }
 
     /*

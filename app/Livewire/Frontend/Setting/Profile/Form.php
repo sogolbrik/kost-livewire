@@ -64,7 +64,7 @@ class Form extends Component
 
         $this->user->update($data);
 
-        session()->flash('success-message', 'Successfully');
+        session()->flash('success-message', 'Berhasil');
         $this->redirectRoute('customer.profile', navigate: true);
     }
 

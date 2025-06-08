@@ -1,4 +1,10 @@
 <div>
+    <!-- Menampilkan Pesan Flash Error -->
+    @if (session()->has('error-message'))
+        <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+            {{ session('error-message') }}
+        </div>
+    @endif
     <div>
         <form wire:submit.prevent="login">
             <img src="{{ asset('back-assets/assets/img/avatar.svg') }}">
@@ -40,21 +46,6 @@
             </div>
         </div>
     </div>
-
-    {{-- @error('name')
-        @script
-            <script>
-                Swal.fire({
-                    position: "top",
-                    title: "Ada yang salah nih!",
-                    icon: "error",
-                    showConfirmButton: false,
-                    toast: true,
-                    timer: 2500,
-                });
-            </script>
-        @endscript
-    @enderror --}}
 
     @script
         <script>

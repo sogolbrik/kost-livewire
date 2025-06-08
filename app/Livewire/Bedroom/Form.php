@@ -121,7 +121,7 @@ class Form extends Component
             );
         }
 
-        session()->flash('success-message', 'Successfully');
+        session()->flash('success-message', 'Berhasil');
         $this->redirectRoute('bedroom.data', navigate: true);
     }
 

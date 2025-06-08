@@ -22,8 +22,21 @@ class Biodata extends Component
         'address' => 'required',
         'city'    => 'required',
         'state'   => 'required',
-        'ktp'     => 'required|image|mimes:jpeg,png,jpg,webp|max:1024',
+        'ktp'     => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
     ];
+
+    public $currentStep = 1;
+    public function nextStep()
+    {
+        $this->validate();
+        $this->currentStep = 2;
+    }
+
+    public function prevStep()
+    {
+        $this->currentStep = 1;
+    }
+
 
     public function mount()
     {

@@ -121,11 +121,11 @@
                                                 <td>{{ $item->bedroom->name }}</td>
                                                 <td>{{ date('F Y', strtotime($item->billing_period)) }}</td>
                                                 <td>
-                                                    @if ($item->status == 'pending')
+                                                    @if ($item->status == 'Ditunda')
                                                         <span class="badge bg-warning mt-2 text-light shadow-sm">{{ $item->status }}</span>
-                                                    @elseif ($item->status == 'paid')
+                                                    @elseif ($item->status == 'Disetujui')
                                                         <span class="badge bg-success mt-2 text-light shadow-sm">{{ $item->status }}</span>
-                                                    @elseif ($item->status == 'declined')
+                                                    @elseif ($item->status == 'Ditolak')
                                                         <span class="badge bg-danger mt-2 text-light shadow-sm">{{ $item->status }}</span>
                                                     @endif
                                                 </td>

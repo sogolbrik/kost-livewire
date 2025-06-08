@@ -143,18 +143,18 @@
 
     {{-- confirm deletion --}}
     <script>
-        function confirmDelete(id) {
+        function confirmationDelete(id) {
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to return them!",
+                title: 'Apakah anda yakin?',
+                text: "Anda tidak akan bisa mengembalikannya!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, Delete'
+                confirmButtonText: 'Ya, Hapus'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('delete-form-' + id).submit();
+                    Livewire.dispatch('destroy', { id: id });
                 }
             });
         }

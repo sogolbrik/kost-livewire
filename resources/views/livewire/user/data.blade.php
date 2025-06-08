@@ -1,11 +1,11 @@
 <div>
     <!-- Page Title -->
     <div class="pagetitle">
-        <h1>User</h1>
+        <h1>Pengguna</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('back.index') }}" wire:navigate>Beranda</a></li>
-                <li class="breadcrumb-item active">User</li>
+                <li class="breadcrumb-item active">Pengguna</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
@@ -15,12 +15,12 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Data User</h5>
-                    <a href="{{ route('user.form') }}" class="btn btn-primary btn-sm" wire:navigate>New</a>
+                    <h5 class="card-title">Data Pengguna</h5>
+                    <a href="{{ route('user.form') }}" class="btn btn-primary btn-sm" wire:navigate>Baru</a>
                     <table class="table">
                         <div class="col-md-4 mt-2">
                             <div class="input-group mb-2">
-                                <input wire:model.live="search" type="search" class="form-control" placeholder="Search user by name...">
+                                <input wire:model.live="search" type="search" class="form-control" placeholder="Cari nama...">
                                 <span class="input-group-text">
                                     <i class="fa fa-search"></i>
                                 </span>
@@ -48,42 +48,44 @@
                                                 <i class="bu bi-three-dots-vertical"></i>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><button type="button" class="btn btn-sm dropdown-item" data-bs-toggle="modal" data-bs-target="#detailUser{{ $item->id }}">
+                                                <li>
+                                                    <button type="button" class="btn btn-sm dropdown-item" wire:click="showUserDetail({{ $item->id }})">
                                                         Detail
-                                                    </button></li>
+                                                    </button>
+                                                </li>
                                                 <li><a href="{{ route('user.form', $item->id) }}" wire:navigate class="btn btn-sm dropdown-item">Edit</a></li>
-                                                <li><button wire:click="destroy({{ $item->id }})" class="btn btn-sm dropdown-item">Hapu</button></li>
+                                                <li><button onclick="confirmationDelete({{ $item->id }})" class="btn btn-sm dropdown-item">Hapus</button></li>
                                             </ul>
                                         </div>
                                     </td>
                                     <td>
                                         @if (!empty($item->bedroom_id))
-                                        <form wire:submit.prevent="inactiveUser({{ $item->id }})">
-                                            <button type="button" class="btn btn-sm btn-warning shadow-sm" onclick="confirmDeactivation({{ $item->id }})">NonAktif</button>
+                                            <form wire:submit.prevent="inactiveUser({{ $item->id }})">
+                                                <button type="button" class="btn btn-sm btn-warning shadow-sm" onclick="confirmDeactivation({{ $item->id }})">Matikan akun</button>
 
-                                            <script>
-                                                function confirmDeactivation(userId) {
-                                                    Swal.fire({
-                                                        title: 'Apa kamu yakin?',
-                                                        text: "Kamu tidak akan bisa mengembalikannya!",
-                                                        icon: 'warning',
-                                                        showCancelButton: true,
-                                                        confirmButtonColor: '#3085d6',
-                                                        cancelButtonColor: '#d33',
-                                                        confirmButtonText: 'Ya, Nonaktifkan!'
-                                                    }).then((result) => {
-                                                        if (result.isConfirmed) {
-                                                            @this.call('inactiveUser', userId);
-                                                            Swal.fire(
-                                                                'Nonaktif!',
-                                                                'Akun user telah dinonaktifkan.',
-                                                                'success'
-                                                            )
-                                                        }
-                                                    })
-                                                }
-                                            </script>
-                                        </form>
+                                                <script>
+                                                    function confirmDeactivation(userId) {
+                                                        Swal.fire({
+                                                            title: 'Apa kamu yakin?',
+                                                            text: "Kamu tidak akan bisa mengembalikannya!",
+                                                            icon: 'warning',
+                                                            showCancelButton: true,
+                                                            confirmButtonColor: '#3085d6',
+                                                            cancelButtonColor: '#d33',
+                                                            confirmButtonText: 'Ya, Nonaktifkan!'
+                                                        }).then((result) => {
+                                                            if (result.isConfirmed) {
+                                                                @this.call('inactiveUser', userId);
+                                                                Swal.fire(
+                                                                    'Nonaktif!',
+                                                                    'Akun user telah dinonaktifkan.',
+                                                                    'success'
+                                                                )
+                                                            }
+                                                        })
+                                                    }
+                                                </script>
+                                            </form>
                                         @endif
                                     </td>
                                 </tr>
@@ -99,87 +101,39 @@
 
     </div>
 
-    @foreach ($user as $item)
-        <div class="modal fade" id="detailUser{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+    <!-- Modal Detail User -->
+    <div class="modal fade @if ($showModal) show d-block @endif" tabindex="-1" role="dialog"
+        style="@if ($showModal) display: block; background-color: rgba(0,0,0,0.5); @endif">
+        <div class="modal-dialog" role="document">
+            @if ($selectedUser)
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Detail User</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title">Detail User</h5>
+                        <button type="button" class="btn-close" wire:click="$set('showModal', false)"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label class="fw-semibold">Nama:</label>
-                                <ul>
-                                    <li>
-                                        <p>{{ $item->name }} </p>
-                                    </li>
-                                </ul>
-                                <label class="fw-semibold">Email:</label>
-                                <ul>
-                                    <li>
-                                        <p>{{ $item->email }} </p>
-                                    </li>
-                                </ul>
-                                <label class="fw-semibold">Telepon:</label>
-                                <ul>
-                                    <li>
-                                        <p>{{ $item->phone }} </p>
-                                    </li>
-                                </ul>
-                                <label class="fw-semibold">Alamat:</label>
-                                <ul>
-                                    <li>
-                                        <p>{{ $item->address }} </p>
-                                    </li>
-                                </ul>
-                                <label class="fw-semibold">Kota:</label>
-                                <ul>
-                                    <li>
-                                        <p>{{ $item->city }} </p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="fw-semibold">Provinsi:</label>
-                                <ul>
-                                    <li>
-                                        <p>{{ $item->state }} </p>
-                                    </li>
-                                </ul>
-                                <label class="fw-semibold">Tanggal Check in:</label>
-                                <ul>
-                                    <li>
-                                        <p>{{ $item->check_in }} </p>
-                                    </li>
-                                </ul>
-                                <label class="fw-semibold">Status:</label>
-                                <ul>
-                                    <li>
-                                        <p>{{ $item->status }} </p>
-                                    </li>
-                                </ul>
-                                <label class="fw-semibold">Role:</label>
-                                <ul>
-                                    <li>
-                                        <p>{{ $item->role }} </p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label class="fw-semibold">KTP:</label>
-                                <img src="{{ Storage::url($item->ktp) }}" alt="{{ $item->name }}" class="img-fluid rounded">
-                            </div>
-                        </div>
+                        <p><strong>Nama:</strong> {{ $selectedUser->name }}</p>
+                        <p><strong>Email:</strong> {{ $selectedUser->email }}</p>
+                        <p><strong>Telepon:</strong> {{ $selectedUser->phone }}</p>
+                        <p><strong>Alamat:</strong> {{ $selectedUser->address }}</p>
+                        <p><strong>Kota:</strong> {{ $selectedUser->city }}</p>
+                        <p><strong>Provinsi:</strong> {{ $selectedUser->state }}</p>
+                        <p><strong>Check In:</strong> {{ $selectedUser->check_in }}</p>
+                        <p><strong>Status:</strong> {{ $selectedUser->status }}</p>
+                        <p><strong>Role:</strong> {{ $selectedUser->role }}</p>
+                        <p><strong>KTP:</strong></p>
+                        @if ($selectedUser->ktp)
+                            <img src="{{ Storage::url($selectedUser->ktp) }}" class="img-fluid rounded" alt="KTP">
+                        @else
+                            <img src="{{ asset('seed/ktp/ktp.jpg') }}" class="img-fluid rounded" alt="KTP Default">
+                        @endif
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                        <button type="button" class="btn btn-secondary" wire:click="$set('showModal', false)">Tutup</button>
                     </div>
                 </div>
-            </div>
-    @endforeach
+            @endif
+        </div>
+    </div>
+
 </div>

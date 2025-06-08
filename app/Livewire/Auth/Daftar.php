@@ -31,20 +31,50 @@ class Daftar extends Component
 
     public function register()
     {
-        $validation = $this->validate();
+        try {
+            $this->validate();
 
-        $validation['password'] = password_hash($validation['password'], PASSWORD_BCRYPT);
+            if ($this->password !== $this->password_confirmation) {
+                session()->flash('error-message', 'Konfirmasi password tidak cocok.');
+                return;
+            }
 
-        User::create($validation);
+            User::create([
+                'name'     => $this->name,
+                'email'    => $this->email,
+                'password' => bcrypt($this->password),
+            ]);
 
-        session()->flash('success-message', 'Akun berhasil dibuat. silakan isi data pribadi Anda!');
+            session()->flash('success-message', 'Akun berhasil dibuat. silakan isi data pribadi Anda!');
 
-        if (Auth::attempt(['name' => $this->name, 'password' => $this->password])) {
-            $this->redirectIntended('/');
+            if (Auth::attempt(['name' => $this->name, 'password' => $this->password])) {
+                $this->redirectIntended('/');
+            }
+
+            $this->redirectIntended('biodata');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            session()->flash('error-message', 'Terdapat kesalahan pada input. Mohon periksa kembali.');
+            throw $e;
         }
-
-        $this->redirectIntended('biodata');
     }
+
+
+    // public function register()
+    // {
+    //     $validation = $this->validate();
+
+    //     $validation['password'] = password_hash($validation['password'], PASSWORD_BCRYPT);
+
+    //     User::create($validation);
+
+    //     session()->flash('success-message', 'Akun berhasil dibuat. silakan isi data pribadi Anda!');
+
+    //     if (Auth::attempt(['name' => $this->name, 'password' => $this->password])) {
+    //         $this->redirectIntended('/');
+    //     }
+
+    //     $this->redirectIntended('biodata');
+    // }
 
     // run on .live / .blur
     public function updated($propertyName)

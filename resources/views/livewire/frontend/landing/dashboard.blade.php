@@ -395,7 +395,7 @@
                     <div class="member">
                         <div class="pic"><img src="{{ asset('front-assets/assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></div>
                         <div class="member-info">
-                            <h4>Walter White</h4>
+                            <h4>Gilang S.</h4>
                             <span>Pendiri</span>
                             <div class="social">
                                 <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -411,8 +411,8 @@
                     <div class="member">
                         <div class="pic"><img src="{{ asset('front-assets/assets/img/team/team-3.jpg') }}" class="img-fluid" alt=""></div>
                         <div class="member-info">
-                            <h4>William Anderson</h4>
-                            <span>Wakil</span>
+                            <h4>Sogol's</h4>
+                            <span>Developer</span>
                             <div class="social">
                                 <a href=""><i class="bi bi-twitter-x"></i></a>
                                 <a href=""><i class="bi bi-facebook"></i></a>

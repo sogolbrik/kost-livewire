@@ -1,4 +1,10 @@
 <div>
+    <!-- Menampilkan Pesan Flash Error -->
+    @if (session()->has('error-message'))
+        <div class="alert alert-danger alert-dismissible fade show mb-4 mt-3" role="alert">
+            {{ session('error-message') }}
+        </div>
+    @endif
     <div>
         <form wire:submit.prevent="register">
             <img src="{{ asset('back-assets/assets/img/avatar.svg') }}">
@@ -9,7 +15,7 @@
                     <i class="bi bi-person" style="font-size: 23px"></i>
                 </div>
                 <div class="div">
-                    <h5>Username</h5>
+                    {{-- <h5>Username</h5> --}}
                     <input type="text" class="input {{ $this->isValid('name') }}" wire:model.live="name" wire:focus='setFocusUser(true)' wire:blur='setFocusUser(false)'>
                 </div>
             </div>
@@ -65,21 +71,6 @@
         </div>
 
     </div>
-
-    {{-- @error('name')
-        @script
-            <script>
-                Swal.fire({
-                    position: "top",
-                    title: "Ada yang salah nih!",
-                    icon: "error",
-                    showConfirmButton: false,
-                    toast: true,
-                    timer: 2500,
-                });
-            </script>
-        @endscript
-    @enderror --}}
 
     @script
         <script>

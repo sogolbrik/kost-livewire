@@ -44,11 +44,11 @@ class Masuk extends Component
                     session()->flash('success-message', 'Berhasil Login!');
                 }
             } elseif ($user->role == 'administrator') {
-                session()->flash('success-message', 'Logged in successfully!');
+                session()->flash('success-message', 'Berhasil Login!');
                 $this->redirectIntended('admin-dashboard');
             }
         } else {
-            session()->flash('error-message', 'salah');
+            session()->flash('error-message', 'Login gagal, periksa username atau password anda');
         }
     }
 

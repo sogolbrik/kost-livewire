@@ -39,7 +39,11 @@
                                 </div>
                                 <div class="col-6 mb-4">
                                     <h5>Status User: </h5>
-                                    <p class="badge bg-secondary">{{ auth()->user()->status }}</p>
+                                    @if (auth()->user()->status == 'active')
+                                        <p class="badge bg-secondary">Aktif</p>
+                                    @else
+                                        <p class="badge bg-secondary">Tidak Aktif</p>
+                                    @endif
                                 </div>
                                 <div class="col-6 mt-3">
                                     <h5>Perpanjang bulan: </h5>
@@ -83,11 +87,11 @@
                                             </td>
                                             <td>{{ $item->payment_date }}</td>
                                             <td>{{ $item->billing_period }}</td>
-                                            @if ($item->status == 'pending')
+                                            @if ($item->status == 'Ditunda')
                                                 <td class="badge bg-warning mt-2 text-light">{{ $item->status }}</td>
-                                            @elseif ($item->status == 'paid')
+                                            @elseif ($item->status == 'Disetujui')
                                                 <td class="badge bg-success mt-2 text-light">{{ $item->status }}</td>
-                                            @elseif ($item->status == 'declined')
+                                            @elseif ($item->status == 'Ditolak')
                                                 <td class="badge bg-danger mt-2 text-light">{{ $item->status }}</td>
                                             @endif
                                         </tr>

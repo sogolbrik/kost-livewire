@@ -9,21 +9,31 @@ use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
 class Data extends Component
 {
-    #[Title('Fintech')]
+    #[Title('Rekening')]
     #[Layout('livewire.backend.template.main')]
+    public $fintech;
+
+    public function mount()
+    {
+        $this->loadFintech();
+    }
+    
+    public function loadFintech(){
+        $this->fintech = Fintech::latest()->get();
+    }
 
     public function render()
     {
-        return view('livewire.fintech.data', [
-            'fintech' => Fintech::get()
-        ]);
+        return view('livewire.fintech.data');
     }
 
+    #[On('destroy')]
     public function destroy($id){
         $fintech = Fintech::find($id);
         Storage::disk('public')->delete($fintech->photo);
-
         $fintech->delete();
+        $this->loadFintech();
+        session()->flash('success-message', 'Berhasil Dihapus');
     }
 
 /*

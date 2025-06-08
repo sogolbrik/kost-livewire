@@ -10,7 +10,7 @@ use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 class Data extends Component
 {
     // use WithFileUploads;
-    #[Title('Transaction')]
+    #[Title('Transaksi')]
     #[Layout('livewire.backend.template.main')]
 
     // Property

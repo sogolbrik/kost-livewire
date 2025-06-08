@@ -27,15 +27,6 @@ use App\Livewire\Transaction\Data;
 use App\Livewire\Transaction\Form;
 use App\Livewire\Transaction\FormPeriod;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-Route::get('index', function () {
-    return view('index');
-})->name('index');
-
 //Authentication
 // Route::get('login', Login::class)->name('login');
 Route::get('login', Masuk::class)->name('login');
