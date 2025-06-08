@@ -163,20 +163,28 @@ class DatabaseSeeder extends Seeder
         }
 
         Fintech::create([
-            'name'        => 'BRI',
-            'description' => 623872957278248,
+            'name'           => 'BCA',
+            'account_name'   => 'Gilang Sampurno',
+            'account_number' => '623872957278248',
+            'description'    => 'Bank Central Asia',
         ]);
         Fintech::create([
-            'name'        => 'BNI',
-            'description' => 3891462829,
+            'name'           => 'MANDIRI',
+            'account_name'   => 'Gilang Sampurno',
+            'account_number' => '3891462829',
+            'description'    => 'Bank Mandiri',
         ]);
         Fintech::create([
-            'name'        => 'BCA',
-            'description' => 8712876471,
+            'name'           => 'GOPAY',
+            'account_name'   => 'GlgDev',
+            'account_number' => '085704229619',
+            'description'    => 'Gopay',
         ]);
         Fintech::create([
-            'name'        => 'MANDIRI',
-            'description' => 8001782381924,
+            'name'           => 'OVO',
+            'account_name'   => 'GlgDev',
+            'account_number' => '085704229619',
+            'description'    => 'OVO',
         ]);
     }
 }

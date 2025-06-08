@@ -18,10 +18,10 @@ class Form extends Component
 
     // Property
     public $user_id, $bedroom_id, $payment_date, $transaction, $payment_proof, $fintech;
-
+    
     // Validation
     protected $rules = [
-        'payment_proof' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'payment_proof' => 'required|image|mimes:jpeg,png,jpg,webp|max:5120',
     ];
 
     public function mount()
@@ -32,9 +32,19 @@ class Form extends Component
 
     public function store()
     {
+        // Check if the user already has a pending transaction
+        $pendingTransaction = Transaction::where('user_id', Auth::id())
+            ->where('status', 'Ditunda')
+            ->first();
+
+        if ($pendingTransaction) {
+            session()->flash('error-message', 'Anda sudah memiliki transaksi yang sedang menunggu konfirmasi.');
+            return;
+        }
+
         $data = $this->validate();
 
-        $fileName = rand(100,999).date("ymdHis").".".$this->payment_proof->getClientOriginalExtension();
+        $fileName = rand(100, 999) . date("ymdHis") . "." . $this->payment_proof->getClientOriginalExtension();
         $data["payment_proof"] = $this->payment_proof->storePubliclyAs('payment', $fileName, 'public');
 
         Transaction::create([
@@ -42,7 +52,7 @@ class Form extends Component
             'bedroom_id'     => $this->transaction['bedroom_id'],
             'payment_date'   => date('Y-m-d'),
             'billing_period' => date('Y-m'),
-            'code'           => "KOS-".date('ymdHis').rand(10,99),
+            'code'           => "KOS-" . date('ymdHis') . rand(10, 99),
             'payment_proof'  => $data["payment_proof"],
             'entering_room'  => $this->transaction['entering_room'],
             'duration'       => $this->transaction['duration'],
@@ -60,6 +70,15 @@ class Form extends Component
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
+    }
+
+    public function isValid($field)
+    {
+        if ($this->getErrorBag()->has($field)) {
+            return 'border-danger';
+        }
+
+        return isset($this->$field) ? 'border-success' : '';
     }
 
     public function render()

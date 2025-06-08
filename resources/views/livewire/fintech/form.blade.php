@@ -32,6 +32,26 @@
                         </div>
 
                         <div class="form-group mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Nama Akun</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control {{ $this->isValid('account_name') }}" wire:model.live="account_name">
+                            </div>
+                            @error('account_name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="inputText" class="col-sm-2 col-form-label">Nomor Akun</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control {{ $this->isValid('account_number') }}" wire:model.live="account_number">
+                            </div>
+                            @error('account_number')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-3">
                             <label for="inputDescription" class="col-sm-2 col-form-label">Deskripsi</label>
                             <div class="col-sm-10">
                                 <textarea name="description" class="form-control {{ $this->isValid('description') }}" rows="4" wire:model.live="description"></textarea>

@@ -326,17 +326,17 @@
 
                                     <div class="d-grid">
                                         @if (Auth::check())
-                                        @if (empty(auth()->user()->bedroom_id))
-                                        <button type="submit" class="btn btn-primary">
-                                            <div class="fw-semibold">Ajukan Sewa</div>
-                                        </button>
-                                        @else
-                                        <button type="button"
-                                            onclick="Swal.fire('Info', 'Mohon maaf, anda sudah mempunyai kamar.', 'info')"
-                                            class="btn btn-primary">
-                                            <div class="fw-semibold">Ajukan Sewa</div>
-                                        </button>
-                                        @endif
+                                            @if (empty(auth()->user()->bedroom_id))
+                                            <button type="submit" class="btn btn-primary">
+                                                <div class="fw-semibold">Ajukan Sewa</div>
+                                            </button>
+                                            @else
+                                            <button type="button"
+                                                onclick="Swal.fire('Info', 'Mohon maaf, anda sudah mempunyai kamar.', 'info')"
+                                                class="btn btn-primary">
+                                                <div class="fw-semibold">Ajukan Sewa</div>
+                                            </button>
+                                            @endif
                                         @else
                                         <a href="{{ route('login') }}" wire:navigate class="btn btn-primary">
                                             <div class="fw-semibold">Ajukan Sewa</div>

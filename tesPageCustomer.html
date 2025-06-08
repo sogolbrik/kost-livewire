@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Dashboard Customer - DelapanBelasKos</title>
+
+  <!-- Favicons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <style>
+    /*--------------------------------------------------------------
+        # General
+        --------------------------------------------------------------*/
+    :root {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Open Sans", sans-serif;
+      background: #f6f9ff;
+      color: #444444;
+    }
+
+    a {
+      color: #4154f1;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #717ff5;
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Nunito", sans-serif;
+    }
+
+    /*--------------------------------------------------------------
+        # Header
+        --------------------------------------------------------------*/
+    .header {
+      transition: all 0.5s;
+      z-index: 997;
+      height: 60px;
+      box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+      background-color: #fff;
+      padding-left: 20px;
+    }
+
+    .header .logo {
+      line-height: 1;
+    }
+
+    .header .logo img {
+      max-height: 26px;
+      margin-right: 6px;
+    }
+
+    .header .logo span {
+      font-size: 26px;
+      font-weight: 700;
+      color: #012970;
+      font-family: "Nunito", sans-serif;
+    }
+
+    /*--------------------------------------------------------------
+        # Header Nav
+        --------------------------------------------------------------*/
+    .header-nav ul {
+      list-style: none;
+    }
+
+    .header-nav>ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .header-nav .nav-icon {
+      font-size: 22px;
+      color: #012970;
+      margin-right: 25px;
+      position: relative;
+    }
+
+    .header-nav .nav-profile {
+      color: #012970;
+    }
+
+    .header-nav .nav-profile img {
+      max-height: 36px;
+    }
+
+    .header-nav .nav-profile span {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .header-nav .profile {
+      min-width: 240px;
+      padding-bottom: 0;
+      top: 8px !important;
+    }
+
+    .header-nav .profile .dropdown-header h6 {
+      font-size: 18px;
+      margin-bottom: 0;
+      font-weight: 600;
+      color: #444444;
+    }
+
+    .header-nav .profile .dropdown-header span {
+      font-size: 14px;
+    }
+
+    .header-nav .profile .dropdown-item {
+      font-size: 14px;
+      padding: 10px 15px;
+      transition: 0.3s;
+    }
+
+    .header-nav .profile .dropdown-item i {
+      margin-right: 10px;
+      font-size: 18px;
+      line-height: 0;
+    }
+
+    .header-nav .profile .dropdown-item:hover {
+      background-color: #f6f9ff;
+    }
+
+    /*--------------------------------------------------------------
+        # Sidebar
+        --------------------------------------------------------------*/
+    .sidebar {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      z-index: 996;
+      transition: all 0.3s;
+      padding: 20px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #aab7cf transparent;
+      box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+      background-color: #fff;
+    }
+
+    .sidebar-nav {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .sidebar-nav li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .sidebar-nav .nav-item {
+      margin-bottom: 5px;
+    }
+
+    .sidebar-nav .nav-heading {
+      font-size: 11px;
+      text-transform: uppercase;
+      color: #899bbd;
+      font-weight: 600;
+      margin: 10px 0 5px 15px;
+    }
+
+    .sidebar-nav .nav-link {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: #4154f1;
+      transition: 0.3;
+      background: #f6f9ff;
+      padding: 10px 15px;
+      border-radius: 4px;
+    }
+
+    .sidebar-nav .nav-link i {
+      font-size: 16px;
+      margin-right: 10px;
+      color: #4154f1;
+    }
+
+    .sidebar-nav .nav-link.collapsed {
+      color: #012970;
+      background: #fff;
+    }
+
+    .sidebar-nav .nav-link.collapsed i {
+      color: #899bbd;
+    }
+
+    .sidebar-nav .nav-link:hover {
+      color: #4154f1;
+      background: #f6f9ff;
+    }
+
+    .sidebar-nav .nav-link:hover i {
+      color: #4154f1;
+    }
+
+    /*--------------------------------------------------------------
+        # Main
+        --------------------------------------------------------------*/
+    .main {
+      margin-left: 300px;
+      margin-top: 60px;
+      padding: 20px 30px;
+      transition: all 0.3s;
+    }
+
+    .pagetitle {
+      margin-bottom: 10px;
+    }
+
+    .pagetitle h1 {
+      font-size: 24px;
+      margin-bottom: 0;
+      font-weight: 600;
+      color: #012970;
+    }
+
+    /*--------------------------------------------------------------
+        # Dashboard
+        --------------------------------------------------------------*/
+    .dashboard .info-card {
+      padding-bottom: 10px;
+    }
+
+    .dashboard .info-card h6 {
+      font-size: 28px;
+      color: #012970;
+      font-weight: 700;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dashboard .card-icon {
+      color: #blue;
+      background: #f6f6fe;
+    }
+
+    .dashboard .card-icon i {
+      font-size: 32px;
+      line-height: 0;
+    }
+
+    .dashboard .card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /*--------------------------------------------------------------
+        # Cards
+        --------------------------------------------------------------*/
+    .card {
+      margin-bottom: 30px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+    }
+
+    .card-header,
+    .card-footer {
+      border-color: #ebeef4;
+    }
+
+    .card-title {
+      padding: 20px 0 15px 0;
+      font-size: 18px;
+      font-weight: 500;
+      color: #012970;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .card-title span {
+      color: #899bbd;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .card-body {
+      padding: 0 20px 20px 20px;
+    }
+
+    .card-img-top {
+      border-radius: 5px 5px 0 0;
+    }
+
+    /*--------------------------------------------------------------
+        # Profile Card
+        --------------------------------------------------------------*/
+    .profile-card img {
+      max-width: 120px;
+    }
+
+    .profile-card h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #2c384e;
+      margin: 10px 0 0 0;
+    }
+
+    .profile-card h3 {
+      font-size: 18px;
+    }
+
+    /*--------------------------------------------------------------
+        # Tables
+        --------------------------------------------------------------*/
+    .table {
+      --bs-table-bg: transparent;
+    }
+
+    .table thead th {
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #dee2e6;
+      font-weight: 600;
+      color: #012970;
+    }
+
+    /*--------------------------------------------------------------
+        # Status Badges
+        --------------------------------------------------------------*/
+    .status-aktif {
+      background-color: #d1edff;
+      color: #2f8be6;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .status-tidak-aktif {
+      background-color: #ffe0e0;
+      color: #e74c3c;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .badge-pending {
+      background-color: #fff3cd;
+      color: #856404;
+    }
+
+    .badge-approved {
+      background-color: #d1edff;
+      color: #2f8be6;
+    }
+
+    .badge-rejected {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    /*--------------------------------------------------------------
+        # Button Extensions
+        --------------------------------------------------------------*/
+    .btn-extend {
+      background: linear-gradient(90deg, #4154f1, #677dff);
+      border: none;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn-extend:hover {
+      background: linear-gradient(90deg, #3749db, #5b6fff);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    /*--------------------------------------------------------------
+        # Responsive
+        --------------------------------------------------------------*/
+    @media (max-width: 1199px) {
+      .sidebar {
+        left: -300px;
+      }
+
+      .main {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .pagetitle h1 {
+        font-size: 20px;
+      }
+
+      .dashboard .info-card h6 {
+        font-size: 20px;
+      }
+
+      .card-body {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <span class="d-none d-lg-block">DelapanBelasKos</span>
+      </a>
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+              alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">Ahmad Rizky</span>
+          </a><!-- End Profile Image Icon -->
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li class="dropdown-header">
+              <h6>Ahmad Rizky</h6>
+              <span>Customer</span>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-person"></i>
+                <span>Profile Saya</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-gear"></i>
+                <span>Pengaturan</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Keluar</span>
+              </a>
+            </li>
+
+          </ul><!-- End Profile Dropdown Items -->
+        </li><!-- End Profile Nav -->
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="bi bi-house"></i>
+          <span>Kamar Saya</span>
+        </a>
+      </li><!-- End Kamar Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="bi bi-credit-card"></i>
+          <span>Riwayat Pembayaran</span>
+        </a>
+      </li><!-- End Pembayaran Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="bi bi-person"></i>
+          <span>Profile</span>
+        </a>
+      </li><!-- End Profile Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#">
+          <i class="bi bi-envelope"></i>
+          <span>Bantuan</span>
+        </a>
+      </li><!-- End Bantuan Nav -->
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+        <!-- Profile Card -->
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+              <img
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+                alt="Kamar" class="rounded">
+              <h2>Ahmad Rizky</h2>
+              <h3>Kamar A-12</h3>
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-calendar3 me-2"></i>
+                <span><strong>Check In:</strong> 15 Oktober 2024</span>
+              </div>
+              <div class="mb-3">
+                <span class="status-aktif">
+                  <i class="bi bi-check-circle me-1"></i>Status: Aktif
+                </span>
+              </div>
+              <button class="btn btn-extend" data-bs-toggle="modal" data-bs-target="#extendModal">
+                <i class="bi bi-plus-circle me-2"></i>Perpanjang Bulan
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="col-lg-8">
+          <div class="row">
+
+            <!-- Sisa Hari Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card">
+                <div class="card-body">
+                  <h5 class="card-title">Sisa Hari <span>| Berlaku</span></h5>
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-calendar-week"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>12</h6>
+                      <span class="text-success small pt-1 fw-bold">Hari</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Sisa Hari Card -->
+
+            <!-- Bulan Ke Card -->
+            <div class="col-xxl-4 col-md-6">
+              <div class="card info-card">
+                <div class="card-body">
+                  <h5 class="card-title">Bulan Ke <span>| Sewa</span></h5>
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-house-check"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>3</h6>
+                      <span class="text-muted small pt-1 fw-bold">dari 6 bulan</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Bulan Ke Card -->
+
+            <!-- Total Pembayaran Card -->
+            <div class="col-xxl-4 col-xl-12">
+              <div class="card info-card">
+                <div class="card-body">
+                  <h5 class="card-title">Total Dibayar <span>| Semua</span></h5>
+                  <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                      <i class="bi bi-currency-dollar"></i>
+                    </div>
+                    <div class="ps-3">
+                      <h6>2.550.000</h6>
+                      <span class="text-success small pt-1 fw-bold">Rupiah</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Total Pembayaran Card -->
+
+          </div>
+        </div><!-- End Info Cards -->
+
+        <!-- Riwayat Transaksi -->
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Riwayat Transaksi <span>| Pembayaran</span></h5>
+
+              <div class="table-responsive">
+                <table class="table table-borderless">
+                  <thead>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Bukti Pembayaran</th>
+                      <th scope="col">Tanggal Pembayaran</th>
+                      <th scope="col">Periode Bulan</th>
+                      <th scope="col">Total</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <a href="#" class="text-primary" data-bs-toggle="modal" data-bs-target="#proofModal1">
+                          <i class="bi bi-file-earmark-image"></i> bukti_bayar_001.jpg
+                        </a>
+                      </td>
+                      <td>15 Oktober 2024</td>
+                      <td>Oktober - Desember 2024</td>
+                      <td>Rp 2.550.000</td>
+                      <td><span class="badge badge-approved">Disetujui</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                          data-bs-target="#detailModal1">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>
+                        <a href="#" class="text-warning" data-bs-toggle="modal" data-bs-target="#proofModal2">
+                          <i class="bi bi-file-earmark-image"></i> bukti_bayar_002.jpg
+                        </a>
+                      </td>
+                      <td>10 Januari 2025</td>
+                      <td>Januari - Maret 2025</td>
+                      <td>Rp 2.550.000</td>
+                      <td><span class="badge badge-pending">Ditunda</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                          data-bs-target="#detailModal2">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>
+                        <a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#proofModal3">
+                          <i class="bi bi-file-earmark-image"></i> bukti_bayar_003.jpg
+                        </a>
+                      </td>
+                      <td>05 Desember 2024</td>
+                      <td>Desember 2024</td>
+                      <td>Rp 850.000</td>
+                      <td><span class="badge badge-rejected">Ditolak</span></td>
+                      <td>
+                        <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                          data-bs-target="#detailModal3">
+                          <i class="bi bi-eye"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div><!-- End Riwayat Transaksi -->
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- Modal Perpanjang Bulan -->
+  <div class="modal fade" id="extendModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Perpanjang Sewa Kamar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="extendForm">
+            <div class="mb-3">
+              <label for="extendDuration" class="form-label">Pilih Durasi Perpanjangan</label>
+              <select class="form-select" id="extendDuration" required>
+                <option value="">Pilih durasi...</option>
+                <option value="1">1 Bulan - Rp 850.000</option>
+                <option value="3">3 Bulan - Rp 2.550.000</option>
+                <option value="6">6 Bulan - Rp 5.100.000</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="startDate" class="form-label">Mulai Berlaku Tanggal</label>
+              <input type="date" class="form-control" id="startDate" required>
+            </div>
+            <div class="alert alert-info">
+              <i class="bi bi-info-circle me-2"></i>
+              <strong>Informasi:</strong> Setelah mengajukan perpanjangan, Anda akan dialihkan ke halaman pembayaran
+              untuk menyelesaikan transaksi.
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary" onclick="submitExtend()">Ajukan Pembayaran</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Bukti Pembayaran -->
+  <div class="modal fade" id="proofModal1" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Bukti Pembayaran</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img
+            src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+            class="img-fluid" alt="Bukti Pembayaran">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Detail Transaksi -->
+  <div class="modal fade" id="detailModal1" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detail Transaksi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <dl class="row">
+            <dt class="col-sm-4">Nomor Transaksi:</dt>
+            <dd class="col-sm-8">TRX-001-2024</dd>
+
+            <dt class="col-sm-4">Tanggal Upload:</dt>
+            <dd class="col-sm-8">15 Oktober 2024, 14:30 WIB</dd>
+
+            <dt class="col-sm-4">Periode Sewa:</dt>
+            <dd class="col-sm-8">Oktober - Desember 2024</dd>
+
+            <dt class="col-sm-4">Total Pembayaran:</dt>
+            <dd class="col-sm-8">Rp 2.550.000</dd>
+
+            <dt class="col-sm-4">Status:</dt>
+            <dd class="col-sm-8"><span class="badge badge-approved">Disetujui</span></dd>
+
+            <dt class="col-sm-4">Disetujui Tanggal:</dt>
+            <dd class="col-sm-8">16 Oktober 2024, 09:15 WIB</dd>
+
+            <dt class="col-sm-4">Catatan Admin:</dt>
+            <dd class="col-sm-8">Pembayaran telah diterima dan diverifikasi. Selamat menempati!</dd>
+          </dl>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    // Set minimum date untuk perpanjangan
+    document.getElementById('startDate').min = new Date().toISOString().split('T')[0];
+
+    // Function untuk submit perpanjangan
+    function submitExtend() {
+      const duration = document.getElementById('extendDuration').value;
+      const startDate = document.getElementById('startDate').value;
+
+      if (!duration || !startDate) {
+        alert('Mohon lengkapi semua field!');
+        return;
+      }
+
+      // Simulasi proses
+      alert('Pengajuan perpanjangan berhasil! Anda akan dialihkan ke halaman pembayaran.');
+
+      // Close modal
+      bootstrap.Modal.getInstance(document.getElementById('extendModal')).hide();
+
+      // Redirect ke halaman pembayaran (ganti dengan URL sebenarnya)
+      // window.location.href = '/pembayaran?extend=true&duration=' + duration;
+    }
+
+    // Toggle sidebar untuk mobile
+    function toggleSidebar() {
+      document.querySelector('.sidebar').classList.toggle('sidebar-show');
+    }
+
+    // Handle responsive sidebar
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1199) {
+        document.querySelector('.sidebar').classList.remove('sidebar-show');
+      }
+    });
+
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  </script>
+
+</body>
+
+</html>

@@ -24,6 +24,8 @@
                                 <th>
                                     <b>N</b>ama
                                 </th>
+                                <th>Nama Akun</th>
+                                <th>Nomor Akun</th>
                                 <th>Deskripsi</th>
                                 <th>Foto</th>
                                 <th>Aksi</th>
@@ -34,6 +36,8 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
+                                    <td>{{ $item->account_name }}</td>
+                                    <td>{{ $item->account_number }}</td>
                                     <td>{{ $item->description }}</td>
                                     <td>
                                         @if ($item->photo)

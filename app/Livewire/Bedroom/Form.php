@@ -125,15 +125,6 @@ class Form extends Component
         $this->redirectRoute('bedroom.data', navigate: true);
     }
 
-    public function isValid($field)
-    {
-        if ($this->getErrorBag()->has($field)) {
-            return 'border-danger';
-        }
-
-        return isset($this->$field) ? 'border-success' : '';
-    }
-
     public function render()
     {
         return view('livewire.bedroom.form');

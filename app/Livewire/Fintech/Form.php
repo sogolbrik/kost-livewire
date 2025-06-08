@@ -14,13 +14,15 @@ class Form extends Component
     #[Layout('livewire.backend.template.main')]
 
     // Property
-    public $name, $photo, $description, $fintechId, $fintech;
+    public $name, $photo, $description, $fintechId, $fintech, $account_name, $account_number;
 
     // Validation
     protected $rules = [
-        'name'        => 'required',
-        'photo'       => 'required|image|mimes:jpeg,png,jpg,webp|max:1024',
-        'description' => 'required',
+        'name'           => 'required',
+        'account_name'   => 'required',
+        'account_number' => 'required',
+        'photo'          => 'required|image|mimes: jpeg,png,jpg,webp|max: 1024',
+        'description'    => 'required',
     ];
 
     public function mount($fintechId = NULL)
@@ -29,10 +31,12 @@ class Form extends Component
             $this->fintech = Fintech::find($fintechId);
             $fintech = Fintech::find($fintechId);
             if ($fintech) {
-                $this->fintechId   = $fintech->id;
-                $this->name        = $fintech->name;
-                $this->photo       = $fintech->photo;
-                $this->description = $fintech->description;
+                $this->fintechId      = $fintech->id;
+                $this->name           = $fintech->name;
+                $this->account_name   = $fintech->account_name;
+                $this->account_number = $fintech->account_number;
+                $this->photo          = $fintech->photo;
+                $this->description    = $fintech->description;
             }
         }
     }
@@ -57,9 +61,11 @@ class Form extends Component
         Fintech::updateOrCreate(
             ['id' => $this->fintechId],
             [
-                'name'        => $this->name,
-                'photo'       => $photoPath,
-                'description' => $this->description,
+                'name'           => $this->name,
+                'account_name'   => $this->account_name,
+                'account_number' => $this->account_number,
+                'photo'          => $photoPath,
+                'description'    => $this->description,
             ]
         );
 

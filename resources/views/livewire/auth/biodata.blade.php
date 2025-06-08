@@ -313,13 +313,13 @@
                             </div>
                         </div>
 
-                        <div id="ktpPreview" class="mb-3" style="display: none;">
+                        {{-- <div id="ktpPreview" class="mb-3" style="display: none;">
                             <div class="alert alert-success">
                                 <i class="fas fa-check-circle me-2"></i>
                                 <strong id="fileName"></strong> berhasil dipilih
                                 <button type="button" class="btn-close float-end" id="removeFile"></button>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary btn-lg" id="submitForm">
