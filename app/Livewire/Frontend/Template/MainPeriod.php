@@ -1,86 +1,27 @@
 <?php
 
-namespace App\Livewire\Transaction;
+namespace App\Livewire\Frontend\Template;
 
-use App\Models\Bedroom;
-use App\Models\Fintech;
-use App\Models\Transaction;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Livewire\WithFileUploads;
+// use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
 
-class FormPeriod extends Component
+class MainPeriod extends Component
 {
-    use WithFileUploads;
-    #[Title('Yuk Perpanjang')]
-    #[Layout('livewire.frontend.template.main-period')]
+    // use WithFileUploads;
+    #[Title('your_title')]
+    #[Layout('template_view')]
 
     // Property
-    public $fintech, $user_id, $bedroom_id, $payment_date, $billing_period, $payment_proof, $duration = "", $status_payment, $bedroom;
-    public $totalPrice;
 
     // Validation
     protected $rules = [
-        'duration'      => 'required|integer|in:1,3,6',
-        'payment_proof' => 'required|image|mimes:jpeg,png,jpg,webp|max:2048',
+        'property' => '?',
     ];
 
     public function mount()
     {
-        $this->fintech = Fintech::get();
-        $this->bedroom = Bedroom::find(Auth::user()->bedroom_id);
-        $this->user_id = Auth::id();
-        $this->totalPrice = 0;
-    }
-
-    public function updatedDuration($value)
-    {
-        $this->totalPrice = $this->bedroom->price * (int)$value; // Hitung total pembayaran
-    }
-
-    public function store()
-    {
-        $pendingTransaction = Transaction::where('user_id', Auth::id())
-            ->where('status', 'Ditunda')
-            ->first();
-
-        if ($pendingTransaction) {
-            session()->flash('error-message', 'Anda sudah memiliki transaksi yang sedang menunggu konfirmasi.');
-            return;
-        }
-
-        $data = $this->validate();
-
-        $fileName = rand(100, 999) . date("ymdHis") . "." . $this->payment_proof->getClientOriginalExtension();
-        $data["payment_proof"] = $this->payment_proof->storePubliclyAs('payment', $fileName, 'public');
-
-        $user = User::find($this->user_id);
-
-        Transaction::create([
-            'user_id'        => $this->user_id,
-            'bedroom_id'     => $user->bedroom_id,
-            'payment_date'   => date('Y-m-d'),
-            'billing_period' => date('Y-m'),
-            'code'           => "KOS-" . date('ymdHis') . rand(10, 99),
-            'payment_proof'  => $data["payment_proof"],
-            'duration'       => $this->duration,
-            'status'         => 'Ditunda',
-            'status_payment' => 'old',
-        ]);
-
-        session()->flash('success-message', 'Pembayaran berhasil, silahkan tunggu konfirmasi dari admin');
-        $this->redirectRoute('customer.page', navigate: true);
-    }
-
-    public function isValid($field)
-    {
-        if ($this->getErrorBag()->has($field)) {
-            return 'border-danger';
-        }
-
-        return isset($this->$field) ? 'border-success' : '';
+        // mount some variable
     }
 
     // run on .live / .blur
@@ -91,10 +32,10 @@ class FormPeriod extends Component
 
     public function render()
     {
-        return view('livewire.transaction.form-period');
+        return view('livewire.frontend.template.main-period');
     }
 
-    /*
+/*
     Just Delete This If You Pro...
 
     Title / Judul
