@@ -240,10 +240,11 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="tel" class="form-control" id="phone" wire:model="phone" placeholder="Nomor Telepon" required>
+                                    <input type="number" class="form-control" id="phone" wire:model="phone" placeholder="Nomor Telepon" required>
                                     <label for="phone">
                                         <i class="fas fa-phone me-2"></i>Nomor Telepon
                                     </label>
+                                    <div class="text-muted text-secondary me-5">contoh: 6285789335612</div>
                                     <div class="invalid-feedback">
                                         Nomor telepon wajib diisi dengan format yang benar
                                     </div>

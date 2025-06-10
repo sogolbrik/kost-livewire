@@ -3,6 +3,7 @@
 namespace App\Livewire\Transaction;
 
 use App\Models\Transaction;
+use App\Services\Fonnte;
 use Livewire\Component;
 // use Livewire\WithFileUploads;
 use Livewire\Attributes\{On, Url, Layout, Title, Locked, Validate};
@@ -30,7 +31,7 @@ class Data extends Component
 
         $transaction->status = $status;
         $transaction->save();
-        
+
         if ($status == 'Disetujui') {
             $bedroom->status = 'Terisi';
             $bedroom->save();
@@ -39,6 +40,21 @@ class Data extends Component
             $user->check_in   = $transaction->entering_room;
             $user->status     = 'active';
             $user->save();
+
+            // Kirim WhatsApp via Fonnte
+            $nomor = $user->phone; // Pastikan ini dalam format 628xxxxxxxxx
+            $nama  = $user->name;
+            $kamar = $bedroom->name ?? 'Kamar yang ditentukan';
+
+            $pesan = "Halo $nama, pengajuan kos Anda telah disetujui. Anda akan menempati $kamar mulai tanggal {$transaction->entering_room}. Terima kasih 🙏";
+
+            $fonnte = new Fonnte();
+            $res = $fonnte->kirimPesan($nomor, $pesan);
+
+            if (!$res['status']) {
+                session()->flash('error', 'Transaksi disetujui tapi gagal mengirim WhatsApp.');
+                return;
+            }
         };
     }
 

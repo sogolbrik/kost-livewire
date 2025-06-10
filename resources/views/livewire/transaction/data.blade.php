@@ -54,6 +54,11 @@
                                             </button>
                                         </td>
                                         <td>
+                                            @if (session()->has('error-message'))
+                                                <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert">
+                                                    {{ session('error-message') }}
+                                                </div>
+                                            @endif
                                             @if ($item->status == 'Ditunda')
                                                 <div class="d-flex">
                                                     <form wire:submit.prevent="changeStatus('Disetujui', {{ $item->id }})" class="me-2">

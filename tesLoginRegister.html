@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KosKu - Platform Pencarian Kos Terbaik</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .floating-shape {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 197, 253, 0.05));
+            border-radius: 50%;
+            animation: floatShape 15s ease-in-out infinite;
+            backdrop-filter: blur(10px);
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: -50px;
+            animation-delay: 5s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            bottom: -50px;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes floatShape {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(180deg) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .auth-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px) saturate(180%);
+            border-radius: 32px;
+            box-shadow:
+                0 32px 64px rgba(59, 130, 246, 0.08),
+                0 0 0 1px rgba(255, 255, 255, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            width: 100%;
+            max-width: 1000px;
+            height: 650px;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            display: flex;
+        }
+
+        .content-slider {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            width: 200%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .slider-wrapper.slide-to-register {
+            transform: translateX(-50%);
+        }
+
+        .slide-panel {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            position: relative;
+        }
+
+        .form-section {
+            width: 50%;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .visual-section {
+            width: 50%;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .visual-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            max-width: 350px;
+            padding: 0 20px;
+        }
+
+        .visual-illustration {
+            width: 280px;
+            height: 280px;
+            margin-bottom: 40px;
+            animation: floatIllustration 6s ease-in-out infinite;
+        }
+
+        @keyframes floatIllustration {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+        }
+
+        .visual-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .visual-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .brand-section {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 3;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .brand-text {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .form-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .form-subtitle {
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 18px 24px 18px 60px;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            background: rgba(248, 250, 252, 0.8);
+            font-size: 16px;
+            font-weight: 500;
+            color: #1e293b;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow:
+                0 0 0 4px rgba(59, 130, 246, 0.1),
+                0 4px 12px rgba(59, 130, 246, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .input-field::placeholder {
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .input-field:focus+.input-icon {
+            color: #3b82f6;
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #64748b;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border: none;
+            border-radius: 16px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 32px;
+        }
+
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .switch-section {
+            text-align: center;
+        }
+
+        .switch-text {
+            color: #64748b;
+            font-size: 15px;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .switch-button {
+            background: transparent;
+            border: 2px solid #e2e8f0;
+            color: #3b82f6;
+            padding: 12px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .switch-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        .switch-button:hover::before {
+            width: 100%;
+        }
+
+        .switch-button:hover {
+            color: white;
+            border-color: #3b82f6;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
+        }
+
+        .notification {
+            position: fixed;
+            top: 32px;
+            right: 32px;
+            background: white;
+            color: #1e293b;
+            padding: 20px 24px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #10b981;
+            transform: translateX(400px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            font-weight: 500;
+            min-width: 300px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification-icon {
+            color: #10b981;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                flex-direction: column;
+                max-width: 95%;
+                height: auto;
+                min-height: 700px;
+            }
+
+            .slide-panel {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .form-section {
+                width: 100%;
+                padding: 40px 30px;
+                order: 2;
+            }
+
+            .visual-section {
+                width: 100%;
+                height: 300px;
+                order: 1;
+            }
+
+            .visual-illustration {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 20px;
+            }
+
+            .visual-title {
+                font-size: 2rem;
+                margin-bottom: 12px;
+            }
+
+            .visual-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .form-title {
+                font-size: 2.2rem;
+            }
+
+            .brand-section {
+                top: 20px;
+                left: 30px;
+            }
+        }
+
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center mt-4 mb-4">
+
+        <div class="background-grid"></div>
+        <div class="floating-elements">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+
+        <div class="notification" id="notification">
+            <i class="fas fa-check-circle notification-icon"></i>
+            <span id="notificationText">Berhasil!</span>
+        </div>
+
+        <div class="auth-container">
+            <div class="brand-section">
+                <div class="brand-logo">K</div>
+                <div class="brand-text">KosKu</div>
+            </div>
+
+            <div class="content-slider">
+                <div class="slider-wrapper" id="sliderWrapper">
+                    <!-- Login Panel -->
+                    <div class="slide-panel">
+                        <div class="form-section">
+                            <div class="form-header">
+                                <h1 class="form-title">Selamat Datang</h1>
+                                <p class="form-subtitle">Masuk ke akun KosKu Anda untuk melanjutkan pencarian kos impian
+                                </p>
+                            </div>
+
+                            <form id="loginForm">
+                                <div class="input-container">
+                                    <input type="text" class="input-field" id="loginName" placeholder="Nama Pengguna"
+                                        required>
+                                    <i class="fas fa-user input-icon"></i>
+                                </div>
+                                <div class="input-container">
+                                    <input type="password" class="input-field" id="loginPassword"
+                                        placeholder="Kata Sandi" required>
+                                    <i class="fas fa-lock input-icon"></i>
+                                    <i class="fas fa-eye password-toggle" onclick="togglePassword('loginPassword')"></i>
+                                </div>
+                                <button type="submit" class="submit-button">
+                                    <i class="fas fa-sign-in-alt me-2"></i>
+                                    Masuk ke Akun
+                                </button>
+                            </form>
+
+                            <div class="switch-section">
+                                <p class="switch-text">Belum punya akun KosKu?</p>
+                                <button class="switch-button" onclick="switchToRegister()">
+                                    <i class="fas fa-user-plus me-2"></i>Daftar Sekarang
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="visual-section">
+                            <div class="visual-content">
+                                <div class="visual-illustration">
+                                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="buildingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%"
+                                                    style="stop-color:rgba(255,255,255,0.9);stop-opacity:1" />
+                                                <stop offset="100%"
+                                                    style="stop-color:rgba(255,255,255,0.7);stop-opacity:1" />
+                                            </linearGradient>
+                                            <filter id="softGlow">
+                                                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                                                <feMerge>
+                                                    <feMergeNode in="coloredBlur" />
+                                                    <feMergeNode in="SourceGraphic" />
+                                                </feMerge>
+                                            </filter>
+                                        </defs>
+
+                                        <!-- Kos Building -->
+                                        <rect x="100" y="150" width="200" height="200" rx="20" fill="url(#buildingGrad)"
+                                            filter="url(#softGlow)" />
+
+                                        <!-- Windows -->
+                                        <rect x="130" y="180" width="30" height="30" rx="8"
+                                            fill="rgba(59, 130, 246, 0.6)" />
+                                        <rect x="240" y="180" width="30" height="30" rx="8"
+                                            fill="rgba(59, 130, 246, 0.6)" />
+                                        <rect x="130" y="230" width="30" height="30" rx="8"
+                                            fill="rgba(59, 130, 246, 0.4)" />
+                                        <rect x="240" y="230" width="30" height="30" rx="8"
+                                            fill="rgba(59, 130, 246, 0.4)" />
+                                        <rect x="130" y="280" width="30" height="30" rx="8"
+                                            fill="rgba(59, 130, 246, 0.5)" />
+                                        <rect x="240" y="280" width="30" height="30" rx="8"
+                                            fill="rgba(59, 130, 246, 0.5)" />
+
+                                        <!-- Door -->
+                                        <rect x="170" y="300" width="60" height="50" rx="12"
+                                            fill="rgba(29, 78, 216, 0.8)" />
+                                        <circle cx="210" cy="325" r="3" fill="rgba(255, 255, 255, 0.9)" />
+
+                                        <!-- Key -->
+                                        <circle cx="200" cy="100" r="25" fill="rgba(255, 255, 255, 0.9)"
+                                            filter="url(#softGlow)" />
+                                        <rect x="195" y="125" width="10" height="20" fill="rgba(255, 255, 255, 0.9)" />
+                                        <rect x="200" y="140" width="8" height="5" fill="rgba(255, 255, 255, 0.9)" />
+                                    </svg>
+                                </div>
+                                <h2 class="visual-title">Temukan Kos Impian</h2>
+                                <p class="visual-subtitle">Masuk untuk mengakses ribuan pilihan kos terbaik di seluruh
+                                    Indonesia dengan fasilitas lengkap dan harga terjangkau</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Register Panel -->
+                    <div class="slide-panel">
+                        <div class="form-section">
+                            <div class="form-header">
+                                <h1 class="form-title">Bergabung</h1>
+                                <p class="form-subtitle">Buat akun KosKu untuk mulai mencari kos yang sesuai dengan
+                                    kebutuhan Anda</p>
+                            </div>
+
+                            <form id="registerForm">
+                                <div class="input-container">
+                                    <input type="text" class="input-field" id="registerName" placeholder="Nama Lengkap"
+                                        required>
+                                    <i class="fas fa-user input-icon"></i>
+                                </div>
+                                <div class="input-container">
+                                    <input type="email" class="input-field" id="registerEmail" placeholder="Email"
+                                        required>
+                                    <i class="fas fa-envelope input-icon"></i>
+                                </div>
+                                <div class="input-container">
+                                    <input type="password" class="input-field" id="registerPassword"
+                                        placeholder="Kata Sandi" required>
+                                    <i class="fas fa-lock input-icon"></i>
+                                    <i class="fas fa-eye password-toggle"
+                                        onclick="togglePassword('registerPassword')"></i>
+                                </div>
+                                <div class="input-container">
+                                    <input type="password" class="input-field" id="confirmPassword"
+                                        placeholder="Konfirmasi Kata Sandi" required>
+                                    <i class="fas fa-lock input-icon"></i>
+                                    <i class="fas fa-eye password-toggle"
+                                        onclick="togglePassword('confirmPassword')"></i>
+                                </div>
+                                <button type="submit" class="submit-button">
+                                    <i class="fas fa-user-plus me-2"></i>
+                                    Daftar Sekarang
+                                </button>
+                            </form>
+
+                            <div class="switch-section">
+                                <p class="switch-text">Sudah punya akun KosKu?</p>
+                                <button class="switch-button" onclick="switchToLogin()">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Masuk
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="visual-section">
+                            <div class="visual-content">
+                                <div class="visual-illustration">
+                                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                                        <defs>
+                                            <linearGradient id="searchGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%"
+                                                    style="stop-color:rgba(255,255,255,0.9);stop-opacity:1" />
+                                                <stop offset="100%"
+                                                    style="stop-color:rgba(255,255,255,0.7);stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+
+                                        <!-- Search Interface -->
+                                        <rect x="80" y="120" width="240" height="160" rx="20" fill="url(#searchGrad)"
+                                            filter="url(#softGlow)" />
+
+                                        <!-- Search Bar -->
+                                        <rect x="100" y="150" width="200" height="40" rx="20"
+                                            fill="rgba(59, 130, 246, 0.2)" />
+                                        <circle cx="280" cy="170" r="15" fill="rgba(59, 130, 246, 0.8)" />
+                                        <path d="M275 165 L285 175 M285 165 L275 175" stroke="white" stroke-width="2"
+                                            stroke-linecap="round" />
+
+                                        <!-- Results -->
+                                        <rect x="100" y="200" width="180" height="20" rx="10"
+                                            fill="rgba(59, 130, 246, 0.3)" />
+                                        <rect x="100" y="230" width="160" height="20" rx="10"
+                                            fill="rgba(59, 130, 246, 0.2)" />
+                                        <rect x="100" y="260" width="200" height="20" rx="10"
+                                            fill="rgba(59, 130, 246, 0.25)" />
+
+                                        <!-- Buildings in background -->
+                                        <rect x="60" y="80" width="40" height="60" rx="8"
+                                            fill="rgba(255, 255, 255, 0.6)" />
+                                        <rect x="300" y="70" width="50" height="70" rx="8"
+                                            fill="rgba(255, 255, 255, 0.6)" />
+                                        <rect x="140" y="60" width="35" height="50" rx="8"
+                                            fill="rgba(255, 255, 255, 0.5)" />
+                                        <rect x="220" y="65" width="45" height="55" rx="8"
+                                            fill="rgba(255, 255, 255, 0.5)" />
+
+                                        <!-- Stars (rating) -->
+                                        <path
+                                            d="M200 320 L205 330 L215 330 L207 337 L210 347 L200 340 L190 347 L193 337 L185 330 L195 330 Z"
+                                            fill="rgba(255, 255, 255, 0.9)" />
+                                        <path
+                                            d="M230 325 L233 332 L240 332 L235 337 L237 344 L230 340 L223 344 L225 337 L220 332 L227 332 Z"
+                                            fill="rgba(255, 255, 255, 0.7)" />
+                                        <path
+                                            d="M170 325 L173 332 L180 332 L175 337 L177 344 L170 340 L163 344 L165 337 L160 332 L167 332 Z"
+                                            fill="rgba(255, 255, 255, 0.7)" />
+                                    </svg>
+                                </div>
+                                <h2 class="visual-title">Mulai Pencarian</h2>
+                                <p class="visual-subtitle">Bergabung dengan ribuan pencari kos lainnya. Dapatkan akses
+                                    ke
+                                    filter pencarian canggih dan rekomendasi personal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="public/front-assets/assets/js/jquery.js"></script>
+    <script src="public/front-assets/assets/js/moment.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
+</body>
+
+</html>
+<script>
+    $(document).ready(function () {
+        // Slide to Register
+        function switchToRegister() {
+            $('#sliderWrapper').addClass('slide-to-register');
+        }
+
+        // Slide to Login
+        function switchToLogin() {
+            $('#sliderWrapper').removeClass('slide-to-register');
+        }
+
+        // Toggle Password Visibility
+        function togglePassword(inputId) {
+            const inputField = $('#' + inputId);
+            const type = inputField.attr('type') === 'password' ? 'text' : 'password';
+            inputField.attr('type', type);
+        }
+
+        // Show Notification
+        function showNotification(message) {
+            $('#notificationText').text(message);
+            $('#notification').addClass('show');
+            setTimeout(() => {
+                $('#notification').removeClass('show');
+            }, 3000);
+        }
+
+        // Handle Login Form Submission
+        $('#loginForm').on('submit', function (e) {
+            e.preventDefault();
+            const username = $('#loginName').val();
+            const password = $('#loginPassword').val();
+
+            if (username && password) {
+                showNotification('Login berhasil!');
+                // Add your login logic here
+            } else {
+                showNotification('Harap isi semua kolom!');
+            }
+        });
+
+        // Handle Register Form Submission
+        $('#registerForm').on('submit', function (e) {
+            e.preventDefault();
+            const name = $('#registerName').val();
+            const email = $('#registerEmail').val();
+            const password = $('#registerPassword').val();
+            const confirmPassword = $('#confirmPassword').val();
+
+            if (name && email && password && confirmPassword) {
+                if (password === confirmPassword) {
+                    showNotification('Registrasi berhasil!');
+                    // Add your registration logic here
+                } else {
+                    showNotification('Kata sandi tidak cocok!');
+                }
+            } else {
+                showNotification('Harap isi semua kolom!');
+            }
+        });
+
+        // Attach functions to buttons
+        window.switchToRegister = switchToRegister;
+        window.switchToLogin = switchToLogin;
+        window.togglePassword = togglePassword;
+    });
+</script>

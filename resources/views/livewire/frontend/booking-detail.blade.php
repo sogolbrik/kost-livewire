@@ -363,8 +363,13 @@
                             </div>
                         </div>
 
+                        @endif
                         @if (Auth::check())
-                            @if (empty(auth()->user()->bedroom_id))
+                            @if (empty(auth()->user()->phone))
+                                <a href="{{ Route('biodata') }}" wire:navigate class="btn btn-primary-custom w-100 mt-4">
+                                    <i class="fas fa-calendar-check me-2"></i>Pesan Sekarang
+                                </a>
+                            @elseif (empty(auth()->user()->bedroom_id))
                                 <button type="submit" class="btn btn-primary-custom w-100 mt-4">
                                     <i class="fas fa-calendar-check me-2"></i>Pesan Sekarang
                                 </button>

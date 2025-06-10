@@ -13,9 +13,6 @@
     <link href="{{ asset('back-assets/assets/img/favicon.png') }}" rel="icon">
     <link href="{{ asset('back-assets/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-    {{-- DataTable --}}
-    <link href="{{ asset('back-assets/assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -33,11 +30,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('back-assets/assets/css/style.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('back-assets/assets/css/style.css') }}" rel="stylesheet"> --}}
     @livewireStyles
 </head>
 
-<body style="background-color: #eee">
+<body>
 
     {{ $slot }}
 
@@ -49,7 +46,9 @@
     <!-- Page level plugins -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Template Main JS File -->
-    <script src="{{ asset('back-assets/assets/js/main.js') }}"></script>
+    <script src="{{ asset('front-assets/assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('front-assets/assets/js/moment.js') }}"></script>
+    {{-- <script src="{{ asset('back-assets/assets/js/main.js') }}"></script> --}}
     {{-- Sweetalert --}}
     <script src="{{ asset('back-assets/assets/vendor/sweetalert/sweetalert.min.js') }}"></script>
 

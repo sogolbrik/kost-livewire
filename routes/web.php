@@ -28,9 +28,11 @@ use App\Livewire\Transaction\Form;
 use App\Livewire\Transaction\FormPeriod;
 
 //Authentication
+// v1
 // Route::get('login', Login::class)->name('login');
-Route::get('login', Masuk::class)->name('login');
 // Route::get('register', Register::class)->name('register');
+// v2
+Route::get('login', Masuk::class)->name('login');
 Route::get('register', Daftar::class)->name('register');
 Route::get('biodata', Biodata::class)->name('biodata');
 //Dashbard
