@@ -5,7 +5,6 @@
   <img src="https://img.shields.io/badge/Livewire-3-4E56A6?style=for-the-badge&logo=livewire&logoColor=white" alt="Livewire 3">
   <img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap 5">
   <img src="https://img.shields.io/badge/WhatsApp-API-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp API">
-  <img src="https://img.shields.io/badge/Premium-Product-FFD700?style=for-the-badge&logo=star&logoColor=black" alt="Premium">
 </div>
 
 <div align="center">
