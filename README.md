@@ -77,19 +77,6 @@
 
 ---
 
-### 📱 **Mobile-First Design**
-<div align="center">
-  <img src="https://via.placeholder.com/800x450/4F46E5/FFFFFF?text=Modern+Landing+Page+Design" alt="Landing Page" width="45%">
-  <img src="https://via.placeholder.com/800x450/059669/FFFFFF?text=Admin+Dashboard+Analytics" alt="Admin Dashboard" width="45%">
-</div>
-
-<div align="center">
-  <img src="https://via.placeholder.com/800x450/DC2626/FFFFFF?text=Booking+Management+System" alt="Booking System" width="45%">
-  <img src="https://via.placeholder.com/800x450/7C3AED/FFFFFF?text=WhatsApp+Integration+Panel" alt="WhatsApp Integration" width="45%">
-</div>
-
----
-
 ## ⚙️ Technical Requirements
 
 | Component | Requirement | Notes |
