@@ -1,66 +1,219 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏠 KOS18 - Premium Boarding House Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<div align="center">
+  <img src="https://img.shields.io/badge/Laravel-11-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel 11">
+  <img src="https://img.shields.io/badge/Livewire-3-4E56A6?style=for-the-badge&logo=livewire&logoColor=white" alt="Livewire 3">
+  <img src="https://img.shields.io/badge/Bootstrap-5-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap 5">
+  <img src="https://img.shields.io/badge/WhatsApp-API-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp API">
+  <img src="https://img.shields.io/badge/Premium-Product-FFD700?style=for-the-badge&logo=star&logoColor=black" alt="Premium">
+</div>
 
-## About Laravel
+<div align="center">
+  <h3>🚀 Complete Boarding House Management Solution</h3>
+  <p>Sistem manajemen kos modern dengan landing page, multi-user, admin panel, booking otomatis & WhatsApp integration</p>
+  
+  <h2>✨ READY TO LAUNCH - COMPLETE SOURCE CODE</h2>
+  <p><strong>Solusi lengkap untuk bisnis kos-kosan dengan teknologi terdepan!</strong></p>
+</div>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 💎 Fitur Premium Lengkap
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🌐 **Beautiful Landing Page**
+- 🎨 **Arsha Bootstrap Template** - Design modern dan attractive
+- 📱 **Fully Responsive** - Perfect di semua device
+- ⚡ **Fast Loading** - Optimized untuk SEO
+- 🎯 **Lead Generation** - Contact forms terintegrasi
+- 📸 **Gallery & Virtual Tour** - Showcase kamar dengan elegan
 
-## Learning Laravel
+### 👥 **Multi-User System**
+- 🔐 **Role-Based Access Control**
+  - 🏢 **Owner/Manager** - Kos management
+  - 👤 **Tenant** - Personal dashboard
+- 🎯 **Permission Management** - Granular access control
+- 👥 **User Registration** - Self-service registration
+- 🔄 **Profile Management** - Complete user profiles
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🏡 **Comprehensive Admin Panel**
+- 📊 **Modern Dashboard** - NiceAdmin template integration
+- 🏠 **Property Management** - Multiple kos properties
+- 🛏️ **Room Management** - Room types, pricing, amenities
+- 📋 **Tenant Management** - Complete tenant database
+- 💰 **Financial Tracking** - Income, expenses, reports
+- 📈 **Analytics & Reports** - Business intelligence dashboard
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 📅 **Smart Booking System**
+- 🎯 **Real-time Availability** - Live room status updates
+- 📱 **Online Booking** - Customer self-booking
+- ⏰ **Booking Calendar** - Visual booking management
+- 🔔 **Auto Notifications** - WhatsApp
+- 💳 **Booking Confirmation** - Automated confirmation process
+- 📊 **Booking Analytics** - Occupancy rate tracking
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 💰 **Transaction Management**
+- 🧾 **Proof-Based Payment** - Upload payment proof system
+- 📸 **Payment Verification** - Admin approval workflow
+- 💸 **Monthly Rent Tracking** - Automated rent calculations
+- 📋 **Payment History** - Complete transaction records
+- 🎯 **Payment Reminders** - Automated reminder system
+- 📊 **Financial Reports** - Revenue & expense tracking
 
-## Laravel Sponsors
+### 📱 **WhatsApp Integration (FONNTE API)**
+- ✅ **Auto Notifications** - Booking confirmations
+- 🔔 **Payment Reminders** - Automated rent reminders
+- 📢 **Announcements** - Broadcast messages to tenants (Coming Soon)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 🛒 Apa Yang Anda Dapatkan
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 📦 **Complete Source Code Package**
+- ✅ **Full Laravel 11 Application** - Complete MVC architecture
+- ✅ **Livewire 3 Components** - Interactive real-time features
+- ✅ **NiceAdmin Template** - Premium admin dashboard
+- ✅ **Arsha Landing Page** - Professional front-end
+- ✅ **Database Schema** - Complete ERD & migrations
+- ✅ **FONNTE Integration** - WhatsApp API ready-to-use
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 📱 **Mobile-First Design**
+<div align="center">
+  <img src="https://via.placeholder.com/800x450/4F46E5/FFFFFF?text=Modern+Landing+Page+Design" alt="Landing Page" width="45%">
+  <img src="https://via.placeholder.com/800x450/059669/FFFFFF?text=Admin+Dashboard+Analytics" alt="Admin Dashboard" width="45%">
+</div>
 
-## Code of Conduct
+<div align="center">
+  <img src="https://via.placeholder.com/800x450/DC2626/FFFFFF?text=Booking+Management+System" alt="Booking System" width="45%">
+  <img src="https://via.placeholder.com/800x450/7C3AED/FFFFFF?text=WhatsApp+Integration+Panel" alt="WhatsApp Integration" width="45%">
+</div>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## ⚙️ Technical Requirements
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+| Component | Requirement | Notes |
+|-----------|-------------|-------|
+| **PHP** | 8.1+ | With required extensions |
+| **Laravel** | 11.x | Latest stable version |
+| **Database** | MySQL 8.0+ / PostgreSQL | Relational database |
+| **Web Server** | Apache/Nginx | Production ready |
+| **Memory** | 512MB+ | Minimum RAM |
+| **Storage** | 1GB+ | Application storage |
+| **SSL Certificate** | Required | For HTTPS (WhatsApp API requirement) |
 
-## License
+### 🔧 **Key Integrations**
+- **FONNTE API** - WhatsApp Business integration
+- **File Upload** - Image & document management
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 📂 Application Structure
+
+```
+kos-livewire/
+├── 📁 config/                  # Configuration files
+├── 📁 database/
+│   ├── 📁 migrations/         # Database schema
+│   └── 📁 seeders/            # Sample data
+├── 📁 public/                 # Assets & entry point
+│   ├── 📁 landing/            # Arsha template assets
+│   └── 📁 admin/              # NiceAdmin assets
+├── 📁 storage/                # Uploads, logs, cache
+├── 📄 .env.example           # Environment template
+├── 📄 composer.json          # PHP dependencies
+└── 📄 package.json           # Node dependencies
+
+# Protected source code (available after purchase):
+├── 📁 app/                    # 🔒 Core application
+│   ├── 📁 Http/Controllers/   # 🔒 Controllers
+│   ├── 📁 Livewire/          # 🔒 Livewire components
+│   ├── 📁 Models/            # 🔒 Eloquent models
+│   └── 📁 Services/          # 🔒 Business logic
+├── 📁 resources/             # 🔒 Views & assets
+│   ├── 📁 views/landing/     # 🔒 Landing page views
+│   ├── 📁 views/admin/       # 🔒 Admin panel views
+│   └── 📁 views/tenant/      # 🔒 Tenant dashboard
+└── 📁 routes/                # 🔒 Route definitions
+```
+
+---
+
+## 🔧 Key Features Detail
+
+### 🏠 **Property Management**
+- 🏢 Multiple kos properties support
+- 🛏️ Room categorization (AC/Non-AC, Private/Shared bathroom)
+- 💰 Flexible pricing schemes
+- 📸 Photo gallery for each room
+- 🎯 Amenities management
+- 📍 Location mapping
+
+### 👤 **Tenant Experience**
+- 🎯 Personal dashboard
+- 📅 Booking history
+- 💳 Payment tracking
+- 📱 Mobile-friendly interface
+- 🔔 WhatsApp notifications
+- 📋 Profile management
+
+### 📊 **Analytics & Reporting**
+- 📈 Occupancy rate tracking
+- 💰 Revenue analytics
+- 👥 Tenant demographics
+- 📅 Booking trends
+- 💸 Payment status monitoring
+
+### 📱 **WhatsApp Automation**
+- 🎯 Welcome messages for new tenants
+- 💰 Monthly payment reminders (Coming Soon)
+- ✅ Booking confirmations
+- 📢 Property announcements (Coming Soon)
+- 🔔 Maintenance notifications (Coming Soon)
+- 💬 Customer support integration (Coming Soon)
+
+---
+
+## ❓ Frequently Asked Questions
+
+### 💻 **Technical Questions**
+
+**Q: Apakah FONNTE API berbayar?**
+A: Tidak, saya menggunakan versi gratis FONNTE, tapi juga ada yang premium bila perlu.
+
+**Q: Bisakah mengganti template design?**
+A: Ya, source code terbuka untuk customization template sesuai kebutuhan.
+
+### 💰 **Business Questions**
+
+**Q: Apakah cocok untuk bisnis kos besar?**
+A: Sangat cocok! System ini support multi-property dan ratusan kamar.
+
+**Q: Bisakah menambah fitur pembayaran online?**
+A: Ya, architecture code memungkinkan integrasi payment gateway tambahan.
+
+**Q: Apakah ada batasan jumlah tenant?**
+A: Tidak ada batasan, tergantung kapasitas hosting dan database.
+
+---
+
+## 📞 Contact Me
+
+### 🛒 **Contact**
+1. 📱 **WhatsApp**: [+62 857-0422-9619](https://wa.me/6285704229619)
+2. 📧 **Email**: gilangsampurno125@gmail.com
+3. 💬 **Lynk**: [Lynk.glngbrik](https://lynk.id/glngbrik)
+
+---
+
+<div align="center">
+  <h2>🚀 Transform Your Kos Business Today!</h2>
+  
+  <p><strong>Install now!</strong></p>
+  
+  <br><br>
+  
+  <p><em>Designed & Developed by GlgDev with ❤️ for Indonesian Developer</em></p>
+  <p><strong>© 2025 Kos Livewire System. All rights reserved.</strong></p>
+</div>
